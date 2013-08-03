@@ -1,0 +1,9 @@
+<div class="container">    
+    <div class="well-small"   style="height: 200px; background: #000;text-align: center; clear: both">
+       
+        <a href="http://blog.">blog</a> &nbsp; 
+        <a href="http://www.facebook.com/">facebook</a> &nbsp; 
+        <a href="http://twitter.com/">twiter</a> &nbsp;
+    </div>
+
+</div>
