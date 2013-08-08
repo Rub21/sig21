@@ -1,9 +1,14 @@
-mm_recurso();
 
-function mapData(f) {
+window.setTimeout(function() {
+    mm_transportes();
+}, 1000);
+
+
+function mapData_transportes(f) {
+    console.log('All in map');
     console.log(f);
-    //list_recurso from global
-    list_recurso = f;
+    list_transportes = f;
+
     map.markerLayer.on('layeradd', function(e) {
         var marker = e.layer;
         var feature = marker.feature;
@@ -22,7 +27,7 @@ function mapData(f) {
                     '</div>';
         }
         //button
-        var a_button = '<div class=" btn-detail"><a  role="button" class="btn  btn-success"  href="#detail" onclick="call_detaill_recurso(\'' + feature.idproducto + '\')"> Más Detalle</a></div>';
+        var a_button = '<div class=" btn-detail"><a  role="button" class="btn  btn-success"  href="#detail" onclick="call_detaill_restaurant(\'' + feature.idproducto + '\')"> Más Detalle</a></div>';
         // Create custom popup content
         var popupContent = '<div id="' + feature.idproducto + '" class="popup">' +
                 '<h2>' + feature.nombre + '</h2>' +
@@ -43,54 +48,39 @@ function mapData(f) {
     });
 
     map.markerLayer.setGeoJSON(f);
+
+    filter();
 }
 ;
 
 
-
-
-
-
-
-
+function filter() {
+    var url = document.URL;
+    var hash = url.substring(url.indexOf("#") + 1);
+    console.log(hash)
+    map.markerLayer.setFilter(function(f) {
+        if (hash === 'comidatípicaynacional' || hash === 'comidacacera' || hash === 'pollosalabrasayparrillas' || hash === 'comidavegetariana' || hash === 'desayunoylonches')
+        {
+            return f.tipo.replace(/\s/g, "").toLowerCase() === hash;
+        } else {
+            return true;
+        }
+    });
+}
+;
 
 
 $(document).on('ready', function() {
+    $('.select_restaurant').click(function() {
+        var id = this.id;
+        map.markerLayer.setFilter(function(f) {
+            if (id === 'todos')
+            {
+                return true;
+            } else {
+                return f.tipo.replace(/\s/g, "").toLowerCase() === id;
+            }
 
-    /*   // Search
-     $('#search').betterAutocomplete('init',
-     features_search, {
-     cacheLimit: 128,
-     selectKeys: [13],
-     crossOrigin: true
-     }, {
-     themeResult: function(result) {
-     output = '' + result.title + '';
-     return output;
-     },
-     select: function(result, $input) {
-     $input.blur();
-     $('#search').val(result.title);
-     /*markerLayer.filter(function(features) {
-     if (features.nombre === result.title) {
-     map.ease.location({
-     lat: features.geometry.coordinates[1],
-     lon: features.geometry.coordinates[0]
-     }).zoom(18).optimal();
-     return true;             
-     }             
-     });
-     window.setTimeout(function() {
-     $('#search').val("");
-     }, 3000);
-     
-     },
-     getGroup: function(result) {
-     if ($.type(result.categoria) == 'string' && result.categoria.length)
-     return result.categoria;
-     }
-     });*/
-
-
-
+        });
+    });
 });

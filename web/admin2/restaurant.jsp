@@ -50,7 +50,7 @@
                                         <select name='tipo' id='tipo-re' align="left" >
                                             <option value='Comida típica  y nacional'>Comida típica  y nacional</option>
                                             <option value='Comida cacera'>Comida cacera</option>
-                                            <option value='Pollos a la brasa  y parrillas'>Pollos a la brasa  y parrillas</option>
+                                            <option value='Pollos a la brasa y parrillas'>Pollos a la brasa y parrillas</option>
                                             <option value='Pizas y pastas'>Pizas y pastas</option>
                                             <option value='Comida vegetariana'>Comida vegetariana</option>
                                             <option value='Desayuno y lonches'>Desayuno y lonches</option>

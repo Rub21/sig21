@@ -18,7 +18,7 @@ Map
     background-color: #2D2A2A;
     height: 100%;
     position:absolute; 
-   /* top:60px; */
+    /* top:60px; */
     width:100%; 
 }
 
@@ -99,15 +99,63 @@ sidebar
     text-align: center;
 }
 .sidebar .search input{   
-  margin-bottom:0px;
-  height: 30px;
+    margin-bottom:0px;
+    height: 30px;
 }
 
+/******************************************
+footer
+******************************************/
 
 
 
 
 
+/******************************************
+footer
+******************************************/
+
+.popup {
+    text-align: center;
+}
+.popup .slideshow {
+    width: 100%;
+}
+.popup .slideshow .image {
+    display: none;
+}
+.popup .slideshow .active {
+    display: block;
+}
+.popup .slideshow img {
+    width: 100%;
+}
+.popup .slideshow .caption {
+    background: #eee;
+    padding: 8px;
+}
+.popup .cycle {
+    height: 30px;
+    margin-top: 5px;
+    padding-top: 5px;
+}
+.popup .cycle a.prev {
+    float: left;
+}
+.popup .cycle a.next {
+    float: right;
+    margin-right: 200px;
+}
+
+.btn-detail{
+    position: absolute;
+    bottom: 35px;
+    right: 15px;
+}
+
+.leaflet-container .btn-detail a{
+    color: #FFF;
+}
 
 
 
@@ -124,7 +172,7 @@ sidebar
 footer
 ******************************************/
 
-#footer{
+/*#footer{
     background-color: #2B2E31;
     border-top: 5px solid #ddd;
     height : 150px;
@@ -161,7 +209,7 @@ footer
     display: block;
     font-size: 0;
     margin-top: 5px;
-    /*text-align: center;*/
+
 }
 
 #footer .center span{  
@@ -172,32 +220,8 @@ footer
 #footer .center img{  
     float: right;
 }
+*/
 
-
-/******************************************
-Close
-******************************************/
-#close {
-    display: none;
-    position: fixed;
-    width: 25px;
-    height: 25px;
-    top: 10px;
-    margin-top: -10px;
-    right: 5%;
-    margin-left: 255px;
-    border: none;
-    background: #333;
-    border-radius: 15px;
-    color: #fff;
-    font-size: 20px;
-    line-height: 25px;
-    text-align: center;
-    text-shadow: 0 1px 0 #000;
-    z-index: 12;
-}
-
-#close:hover { background: #444; }
 
 
 
@@ -333,7 +357,7 @@ Boostrap
 /******************************************
 MapBox
 ******************************************/
-.marker-popup{
+/*.marker-popup{
     width:260px;
     box-shadow: 0 30px 20px -3px #666;
 }
@@ -436,7 +460,7 @@ MapBox
     border-radius: 3px 0 0 3px;
 }
 
-#play_s:hover ,#stop_s:hover { background: #ddd; }
+#play_s:hover ,#stop_s:hover { background: #ddd; }*/
 
 /******************************************************************************************/
 

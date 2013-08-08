@@ -127,6 +127,7 @@ public class DAORestaurant {
                 //Restaurant
                 bRestaurant.setIdrestaurant(rs.getString("idrestaurant"));
                 bRestaurant.setCategoria(rs.getString("categoria"));
+                bRestaurant.setTipo(rs.getString("tipo"));
                 bRestaurant.setDescripcion(rs.getString("descripcion"));
                 bRestaurant.setDireccion(rs.getString("direccion"));
                 bRestaurant.setTelefono(rs.getString("telefono"));

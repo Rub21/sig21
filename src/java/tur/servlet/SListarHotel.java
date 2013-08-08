@@ -39,7 +39,8 @@ public class SListarHotel extends HttpServlet {
             String json = new Gson().toJson(list);
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
-            response.getWriter().write("callback("+json+")");
+            //response.getWriter().write("callback("+json+")");
+            response.getWriter().write(json);
             
         } catch (Exception e) {
             e.printStackTrace();

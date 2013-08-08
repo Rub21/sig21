@@ -32,6 +32,8 @@ public class BGeometry {
         this.coordinates[0] = this.getLongitud();
         this.coordinates[1] = this.getLatitud();
         
+        setLatitud(0);
+        setLongitud(0);
     }
 
     public String getIdproducto() {

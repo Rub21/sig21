@@ -24,25 +24,26 @@ import tur.manager.ManagerTransporte;
  */
 public class SListarTransporte extends HttpServlet {
 
-    ManagerTransporte managerTransporte=null;
-    
+    ManagerTransporte managerTransporte = null;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-     
-         ServletContext ctx = this.getServletConfig().getServletContext();
+
+        ServletContext ctx = this.getServletConfig().getServletContext();
         BDConnecion conexion = new BDConnecion(ctx);
         managerTransporte = new ManagerTransporte(conexion);
-       // BRecurso bRecurso = new BRecurso();
+        // BRecurso bRecurso = new BRecurso();
         List list = new LinkedList();
         try {
             list = managerTransporte.listarTransporte();
-            System.out.println("---------" +list.toString());
+            System.out.println("---------" + list.toString());
             String json = new Gson().toJson(list);
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
-            response.getWriter().write("callback("+json+")");
+            //response.getWriter().write("callback("+json+")");
+            response.getWriter().write(json);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

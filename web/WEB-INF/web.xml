@@ -6,7 +6,7 @@
     </context-param>
     <context-param>
         <param-name>url</param-name>
-        <param-value>jdbc:postgresql://localhost:5432/bdprodaya</param-value>
+        <param-value>jdbc:postgresql://localhost:5432/sigturayacucho</param-value>
     </context-param>
     <context-param>
         <param-name>username</param-name>
@@ -170,6 +170,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
