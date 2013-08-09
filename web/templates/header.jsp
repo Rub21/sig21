@@ -41,7 +41,7 @@
                             <i class="icon-dormir"></i>
                             Donde Dormir <b class="caret"></b>
                         </a>
-                        <ul class="dropdown-menu select_hotel">
+                        <ul class="dropdown-menu">
                             <li>
                                 <a class="select_hoteles" id="sincategoria" href="hoteles.jsp#sincategoria">Sin Categoria</a>
                             </li>
@@ -70,7 +70,7 @@
                             <i class="icon-comer"></i>
                             Donde Comer  <b class="caret"></b>
                         </a>       
-                        <ul class="dropdown-menu select_hotel">
+                        <ul class="dropdown-menu">
                             <li>
                                 <a class="select_restaurant" id="comidatípicaynacional" href="restaurants.jsp#comidatípicaynacional">Comida típica  y nacional</a>
                             </li>
@@ -95,17 +95,47 @@
 
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="transportes.jsp">
                             <i class="icon-transporte"></i>
                             Como Viajar
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
+                    <li class="dropdown">
+                        <a href="complementario.jsp" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="icon-comprar"></i>
-                            otros
+                            Otros Servicios<b class="caret"></b>
                         </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="select_complementario" id="puntosdeinformaciónalturista" href="complementario.jsp#puntosdeinformaciónalturista"> Puntos de información al turista</a></li>
+                            <li><a class="select_complementario" id="agenciasdeturismo" href="complementario.jsp#agenciasdeturismo"> Agencias de turismo</a></li>
+                            <li><a class="select_complementario" id="comerciodeartesanías" href="complementario.jsp#comerciodeartesanías">Comercio de artesanías </a></li>
+                            <li><a class="select_complementario" id="bar" href="complementario.jsp#bar">Bar</a></li>
+                            <li><a class="select_complementario" id="farmacia" href="complementario.jsp#farmacia">Farmacia</a></li>
+                            <li><a class="select_complementario" id="banco" href="complementario.jsp#banco">Banco</a></li>
+                            <li><a class="select_complementario" id="galeriadearte" href="complementario.jsp#galeriadearte">Galeria de Arte</a></li>
+                            <li><a class="select_complementario" id="policia" href="complementario.jsp#policia">Policia</a></li>
+                            <li><a class="select_complementario" id="Serviciodesalud" href="complementario.jsp#Serviciodesalud">Servicios de Salud</a></li>
+                            <li><a class="select_complementario" id="cabinasdeinternet" href="complementario.jsp#cabinasdeinternet">Cabinas de Internet</a></li>
+                            <li class="select_restaurant" class="divider"></li>
+                            <li>
+                                <a class="select_restaurant" id="todos" href="complementario.jsp#todos">Todos</a>
+                            </li>
+
+                        </ul>
                     </li>
+
+
+
+
+
+
+                    <!--
+                    
+                    
+
+                    
+                    
+                    -->
                     <!-- <li class="dropdown">
                          <a href="#"  class="dropdown-toggle" data-toggle="dropdown">
                              <i class="icon-corredor"></i>

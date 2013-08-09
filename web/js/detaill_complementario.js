@@ -29,11 +29,7 @@ function  call_detaill_transporte(id) {
     } else {
         $('.horario_de_atencion').parents('tr').css('display', 'none');
     }
-    if (check_null(f.horario_de_salida)) {
-        $('.horario_de_salida').text(f.horario_de_salida);
-    } else {
-        $('.horario_de_salida').parents('tr').css('display', 'none');
-    }
+
     if (check_null(f.sitio_web)) {
         $('.sitio_web').text(f.sitio_web);
     } else {
@@ -44,14 +40,14 @@ function  call_detaill_transporte(id) {
 
 
 
-    carrucel_images_transporte(f.imagenes, 400);
+    carrucel_images_complementario(f.imagenes, 400);
 
 
 
 }
 ;
 
-function carrucel_images_transporte(aray, size) {
+function carrucel_images_complementario(aray, size) {
 
     $('#imagenes').append('<div id="myCarousel" class="carousel slide"><div>');
     $('#myCarousel').append('<ol class="carousel-indicators"><ol>');

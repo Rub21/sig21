@@ -45,6 +45,7 @@
                                             <option value='Policia'>Policia</option>
                                             <option value='Servicio de Salud'>Servicios de Salud</option>
                                             <option value='Cabinas de Internet'>Cabinas de Internet</option>
+                                            <option value='Otros Servicios'>Otros Servicios</option>
 
                                         </select>
                                     </div>

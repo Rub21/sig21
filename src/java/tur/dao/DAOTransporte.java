@@ -137,7 +137,7 @@ public class DAOTransporte {
                 bTransporte.setSitio_web(rs.getString("sitio_web"));
                 bTransporte.setHorario_de_atencion(rs.getString("horario_de_atencion"));
                 bTransporte.setHorario_de_salida(rs.getString("horario_de_salida"));
-                bTransporte.setDestinos(rs.getString("horario_de_salida"));
+                bTransporte.setDestinos(rs.getString("destinos"));
 
                 //Geometry
                 bGeometry.setLatitud(rs.getDouble("lat"));

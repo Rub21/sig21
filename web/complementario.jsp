@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Medios de transporte  en Ayacucho</title>
+        <title>Servicios Adicionales en Ayacucho</title>
         <jsp:include page="templates/style.jspf"></jsp:include> 
 
 
@@ -27,7 +27,6 @@
                 </div>  
             </div>
         </div>
-
         <div id="popover" class="modal container hide fade" tabindex="-1">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -36,7 +35,7 @@
                     <spam class="nombre"></spam>
                 </h1>    
                 <p>
-                    Tipo de Servicio: <spam class="tipo"></spam>
+                    Destinos de llegada: <spam class="destinos"></spam>
                 </p> 
             </div>
             <div class="modal-body" style="text-align: center">
@@ -71,8 +70,7 @@
                                     <td>
                                         <div class="horario_de_atencion"></div>
                                     </td>
-                                </tr>
-
+                                </tr>                           
                                 <tr>
 
                                     <td width="150"> 
@@ -88,7 +86,7 @@
                 </div>
                 <div class="row-fluid" >
                     <div class="span12">
-                        <div class="imagenes_complementario" id="imagenes" >
+                        <div class="imagenes_transporte" id="imagenes" >
                         </div>
                     </div>
 
@@ -122,7 +120,7 @@
     <script type="text/javascript" src="js/get_data.js"></script>
 
     <!--function transporte-->
-    <script  type="text/javascript" src="js/detaill_transporte.js"></script>
-    <script  type="text/javascript" src="js/app_transporte.js"></script>
+    <script  type="text/javascript" src="js/detaill_complementario.js"></script>
+    <script  type="text/javascript" src="js/app_complementario.js"></script>
 
 </html>
