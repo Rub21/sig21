@@ -1,8 +1,8 @@
-function  call_detaill_transporte(id) {
+function  call_detaill_complementario(id) {
 
     $('#imagenes').empty();
     $('.servicios').empty();
-    var f = buscarproducto(list_transportes, id);
+    var f = buscarproducto(list_complementarios, id);
     console.log(f)
 
     $('.click').trigger('click');

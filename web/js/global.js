@@ -2,6 +2,8 @@ var list_recursos = [];
 var list_hoteles = [];
 var list_restaurants = [];
 var list_transportes = [];
+var list_complementarios=[];
+var list_servicios=[];
 var dir = 'imagenesDB/';
 var url_img = "https://dl.dropboxusercontent.com/u/43116811/icon-tur/";
 var url_data = "http://localhost:8080/sigturayacucho/";
@@ -46,7 +48,8 @@ function check_null(k) {
     } else {
         return false;
     }
-};
+}
+;
 
 
 $(document).on('ready', function() {
@@ -56,8 +59,12 @@ $(document).on('ready', function() {
     $('#close').click(function(e) {
         e.preventDefault();
         $('#backdrop').fadeOut(200);
-        $('#detail').hide(200);
-        $('#detail').empty();
+        $('#detaill_recurso').hide(200);
+        // $('#detail').empty();
         $('#close').hide(200);
+        
+        
+        //solo para el caso de video
+        $('#video').empty();
     });
 });

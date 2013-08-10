@@ -165,3 +165,59 @@ function mm_complementarios() {
     });
 }
 
+
+function mm_servicios() {
+
+    var json = $.getJSON(url_data + "SListarServicio", function() {
+
+    }).done(function(data) {
+        var ext = "-l.png";
+        $.each(data, function(key, val) {
+            data[key]['type'] = 'Feature';
+            //clase
+            var clase = data[key].clase.replace(/\s/g, "");
+
+            data[key]['type'] = 'Feature';
+            //Properties
+            data[key]['properties'] = {};
+            data[key]['properties']['icon'] = {};
+            data[key]['properties']['icon']['iconSize'] = [30, 70];
+            /*data[key]['properties']['icon']['iconAnchor'] = [25, 45];*/
+            data[key]['properties']['icon']['popupAnchor'] = [0, -35];
+            //URL imagen
+
+            _.each(data[key].imagenes, function(value, i) {
+                data[key].imagenes[i].url = dir + data[key].imagenes[i].url;
+            });
+
+
+            if (clase === 'Hotel') {
+                console.log(data[key].nombre)
+                data[key]['properties']['icon']['iconUrl'] = url_img + 'hotel' + ext;
+            } else if (clase === 'Restaurant') {
+                console.log(data[key].nombre)
+                data[key]['properties']['icon']['iconUrl'] = url_img + 'restaurant' + ext;
+            } else if (clase === 'Transporte') {
+                console.log(data[key].nombre)
+                data[key]['properties']['icon']['iconUrl'] = url_img + 'transporte' + ext;
+            } else if (clase === 'Complementario') {
+                console.log(data[key].nombre)
+                var tipo = data[key].tipo.toLowerCase().replace(/\s/g, "");
+                data[key]['properties']['icon']['iconUrl'] = url_img + tipo + ext;
+            }
+
+
+            list_servicios.push(data[key]);
+        });
+        //list_servicios = data;
+
+    }).fail(function() {
+        console.log("error");
+    }).always(function() {
+        console.log("complete");
+    });
+}
+;
+
+//Inicializar lista de servicos.
+mm_servicios();

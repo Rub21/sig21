@@ -7,7 +7,7 @@ window.setTimeout(function() {
 function mapData_complementarios(f) {
     console.log('All in map');
     console.log(f);
-    list_transportes = f;
+    list_complementarios = f;
 
     map.markerLayer.on('layeradd', function(e) {
         var marker = e.layer;
@@ -27,7 +27,7 @@ function mapData_complementarios(f) {
                     '</div>';
         }
         //button
-        var a_button = '<div class=" btn-detail"><a  role="button" class="btn  btn-success"  href="#detail" onclick="call_detaill_transporte(\'' + feature.idproducto + '\')"> Más Detalle</a></div>';
+        var a_button = '<div class=" btn-detail"><a  role="button" class="btn  btn-success"  href="#detail" onclick="call_detaill_complementario(\'' + feature.idproducto + '\')"> Más Detalle</a></div>';
         // Create custom popup content
         var popupContent = '<div id="' + feature.idproducto + '" class="popup">' +
                 '<h2>' + feature.nombre + '</h2>' +
