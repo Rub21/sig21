@@ -1,24 +1,17 @@
 function  call_detaill_recurso(id) {
-    $('#carrucel').empty();
-
-    var f = buscarproducto(list_recurso, id);
-    //console.log(f.properties.icon['iconUrl']);
-
+    $('.imagenes_recurso').empty();
+    var f = buscarproducto(list_recursos, id);
     $('.imagen_logo').attr("src", f['properties']['icon']['iconUrl']);
 
-    // $('#detail').append(o);
-    // call_map_servicios(rec.idproducto);
+
     $('#backdrop').fadeIn(200);
     $('#detaill_recurso').show(200);
     $('#close').show(200);
 
 //FILL DATA
-
     $('.nombre').text(f.nombre);
     $('.descripcion').text(f.descripcion);
-
     $('.historia').text(f.historia);
-
     $('.horario_de_atencion').text(f.horario_de_atencion);
     $('.costo_de_ingreso').text(f.costo_de_ingreso);
     $('.distancia').text(f.distancia);
@@ -28,23 +21,17 @@ function  call_detaill_recurso(id) {
     $('.temperatura').text(f.temperatura);
 
 
-
-    carrucel_images(f.imagenes, 'carrucel', 540);
+    //IMAGENES  
+    carrucel_images_recurso(f.imagenes, 540);
 
     //VIDEO
-
-
     add_video(f.video.replace(/\s/g, ""));
     //$('.ww').attr("src", f.video.replace(/\s/g, ""));
 
-
-
-
+    //MAPA
     window.setTimeout(function() {
         add_map_servicios(f.geometry);
-
     }, 1000);
-
 
 }
 ;
@@ -53,34 +40,38 @@ function  call_detaill_recurso(id) {
 
 
 
-function carrucel_images(aray, id_parent, size) {
+function carrucel_images_recurso(aray, size) {
 
-    $('#' + id_parent).append('<div id="myCarousel" class="carousel slide"><div>');
-    $('#myCarousel').append('<ol class="carousel-indicators"><ol>');
-    $('#myCarousel').append('<div class="carousel-inner"></div>');
+    var myCarousel = 'myCarousel_recurso';
+    var carousel_indicators = 'carousel-indicators_recurso';
+    var carousel_inner = 'carousel-inner_recurso';
+    $('.imagenes_recurso').append('<div id="' + myCarousel + '" class="carousel slide"><div>');
+
+    $('#' + myCarousel + '').append('<ol class="carousel-indicators" id="' + carousel_indicators + '"><ol>');
+    $('#' + myCarousel + '').append('<div class="carousel-inner" id="' + carousel_inner + '"></div>');
 
     for (var i = 0; i < aray.length; i++) {
         var ol = '';
         var img = '';
 
-        if (i == 0) {
+        if (i === 0) {
 
-            ol = '<li data-target="#myCarousel" data-slide-to="' + i + '" class="active"></li>';
+            ol = '<li data-target="#' + myCarousel + '" data-slide-to="' + i + '" class="active"></li>';
             img = ' <div class="item active"> <img src="' + aray[i].url + '"  style=" width:' + size + 'px; height: auto;"/>';
             /* '<div class="carousel-caption">  <h3>' + aray[i].titulo + '</h3> <p>' + aray[i].descripcion + '</p> </div> </div>';*/
         } else {
 
-            ol = '<li data-target="#myCarousel" data-slide-to="' + i + '"></li>';
+            ol = '<li data-target="#' + myCarousel + '' + myCarousel + '" data-slide-to="' + i + '"></li>';
             img = ' <div class="item"> <img src="' + aray[i].url + '"  style=" width:' + size + 'px; height: auto;"/>';
             /*'<div class="carousel-caption">  <h3>' + aray[i].titulo + '</h3>  </div> </div>';*/
         }
-        $('.carousel-indicators').append(ol);
-        $('.carousel-inner').append(img);
+        $('#' + carousel_indicators).append(ol);
+        $('#' + carousel_inner).append(img);
     }
-    $('#myCarousel').append('<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>');
-    $('#myCarousel').append('<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>');
+    $('#' + myCarousel).append('<a class="carousel-control left" href="#' + myCarousel + '" data-slide="prev">&lsaquo;</a>');
+    $('#' + myCarousel).append('<a class="carousel-control right" href="#' + myCarousel + '" data-slide="next">&rsaquo;</a>');
 
-    $('#myCarousel').css("width", size);
+    $('#' + myCarousel).css("width", size);
 }
 ;
 
@@ -99,7 +90,7 @@ function  add_map_servicios(g) {
 
     $('.map_servicios').empty();
     $('.map_servicios').append('<div id="map_servicios"></div>');
-    var map_ser = L.mapbox.map('map_servicios', 'ruben.map-5m93f3zc').setView([g.coordinates[1], g.coordinates[0]], 16);
+    var map_ser = L.mapbox.map('map_servicios', 'ruben.map-5m93f3zc').setView([g.coordinates[1], g.coordinates[0]], 12);
     //map_ser.dragging.disable();
     //map_ser.touchZoom.disable();
     // map_ser.doubleClickZoom.disable();
@@ -120,7 +111,7 @@ function  add_map_servicios(g) {
 
             var images = feature.imagenes;
             var slideshowContent = '';
-            console.log(feature);
+            // console.log(feature);
 
             for (var i = 0; i < images.length; i++) {
                 var img = images[i];
@@ -132,17 +123,24 @@ function  add_map_servicios(g) {
             }
             //button
 
-            //    var clase = f.clase.replace(/\s/g, "");
-            var clase = "Hotel";
+            var clase = feature.clase.replace(/\s/g, "");
+            console.log(clase);
+            var a_button = '';
 
             if (clase === 'Hotel') {
-                var a_button = '<div class=" btn-detail"><a  role="button" class="btn  btn-success"  href="#detail" onclick="call_detaill_hotel(\'' + feature.idproducto + '\')"> Más Detalle</a></div>';
+                a_button = '<div class=" btn-detail"><a  role="button" class="btn  btn-success"  href="#detail" onclick="call_detaill_hotel(\'' + feature.idproducto + '\')"> Más Detalle</a></div>';
 
             } else if (clase === 'Restaurant') {
+                a_button = '<div class=" btn-detail"><a  role="button" class="btn  btn-success"  href="#detail" onclick="call_detaill_restaurant(\'' + feature.idproducto + '\')"> Más Detalle</a></div>';
+
 
             } else if (clase === 'Transporte') {
 
+                a_button = '<div class=" btn-detail"><a  role="button" class="btn  btn-success"  href="#detail" onclick="call_detaill_transporte(\'' + feature.idproducto + '\')"> Más Detalle</a></div>';
+
             } else if (clase === 'Complementario') {
+                a_button = '<div class=" btn-detail"><a  role="button" class="btn  btn-success"  href="#detail" onclick="call_detaill_complementario(\'' + feature.idproducto + '\')"> Más Detalle</a></div>';
+
 
             }
             // Create custom popup content
@@ -174,10 +172,8 @@ function  add_map_servicios(g) {
 
     $('a[href="#hotel"]').click(function(e) {
         e.preventDefault();
-
         scroll_to = document.getElementById('servicios');
         scroll_to.scrollIntoView();
-
 
         map_ser.markerLayer.setFilter(function(f) {
             return f.clase.replace(/\s/g, "") === 'Hotel';

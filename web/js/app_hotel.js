@@ -1,12 +1,12 @@
 window.setTimeout(function() {
-    mm_hoteles();
+    mapData_hoteles();
 }, 1000);
 
-
-
-function mapData_hoteles(f) {
+function mapData_hoteles() {
+    
+    var f=list_hoteles;
     console.log(f);
-    list_hoteles = f;
+    //list_hoteles = f;
 
     map.markerLayer.on('layeradd', function(e) {
         var marker = e.layer;
@@ -15,7 +15,7 @@ function mapData_hoteles(f) {
 
         var images = feature.imagenes;
         var slideshowContent = '';
-        console.log(feature);
+        //console.log(feature);
 
         for (var i = 0; i < images.length; i++) {
             var img = images[i];
@@ -57,7 +57,7 @@ function filter() {
     //alert('2estrellas');
     var url = document.URL;
     var hash = url.substring(url.indexOf("#") + 1);
-    console.log(hash)
+    //console.log(hash)
     map.markerLayer.setFilter(function(f) {
         if (hash === '1estrellas' || hash === '2estrellas' || hash === '3estrellas' || hash === '4estrellas')
         {

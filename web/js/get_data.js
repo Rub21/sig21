@@ -30,9 +30,13 @@ function mm_recurso() {
                 data[key].imagenes[i].url = dir + data[key].imagenes[i].url;
                 //console.log(data[key].imagenes[i].url);
             });
+
+
+            list_recursos.push(data[key]);
         });
+
         //console.log("success");
-        mapData(data);
+        //mapData(data);
 
     }).fail(function() {
         console.log("error");
@@ -41,6 +45,9 @@ function mm_recurso() {
     });
 }
 ;
+//inicializa
+mm_recurso();
+
 
 function mm_hoteles() {
 
@@ -61,8 +68,9 @@ function mm_hoteles() {
             _.each(data[key].imagenes, function(value, i) {
                 data[key].imagenes[i].url = dir + data[key].imagenes[i].url;
             });
+            list_hoteles.push(data[key]);
         });
-        mapData_hoteles(data);
+        // mapData_hoteles(data);
 
     }).fail(function() {
         console.log("error");
@@ -71,7 +79,8 @@ function mm_hoteles() {
     });
 }
 
-
+//inicializa
+mm_hoteles();
 
 function mm_restaurants() {
 
@@ -92,8 +101,9 @@ function mm_restaurants() {
             _.each(data[key].imagenes, function(value, i) {
                 data[key].imagenes[i].url = dir + data[key].imagenes[i].url;
             });
+            list_restaurants.push(data[key]);
         });
-        mapData_restaurants(data);
+//        mapData_restaurants(data);
 
     }).fail(function() {
         console.log("error");
@@ -101,6 +111,9 @@ function mm_restaurants() {
         console.log("complete");
     });
 }
+;
+//inicializacion
+mm_restaurants();
 
 
 function mm_transportes() {
@@ -122,8 +135,9 @@ function mm_transportes() {
             _.each(data[key].imagenes, function(value, i) {
                 data[key].imagenes[i].url = dir + data[key].imagenes[i].url;
             });
+            list_transportes.push(data[key]);
         });
-        mapData_transportes(data);
+        //   mapData_transportes(data);
 
     }).fail(function() {
         console.log("error");
@@ -132,7 +146,8 @@ function mm_transportes() {
     });
 }
 ;
-
+//inicializar
+mm_transportes()
 
 function mm_complementarios() {
 
@@ -155,8 +170,9 @@ function mm_complementarios() {
             _.each(data[key].imagenes, function(value, i) {
                 data[key].imagenes[i].url = dir + data[key].imagenes[i].url;
             });
+            list_complementarios.push(data[key]);
         });
-        mapData_complementarios(data);
+        //mapData_complementarios(data);
 
     }).fail(function() {
         console.log("error");
@@ -164,6 +180,9 @@ function mm_complementarios() {
         console.log("complete");
     });
 }
+;
+//inicializar
+mm_complementarios();
 
 
 function mm_servicios() {
@@ -192,16 +211,16 @@ function mm_servicios() {
 
 
             if (clase === 'Hotel') {
-                console.log(data[key].nombre)
+               // console.log(data[key].nombre)
                 data[key]['properties']['icon']['iconUrl'] = url_img + 'hotel' + ext;
             } else if (clase === 'Restaurant') {
-                console.log(data[key].nombre)
+               // console.log(data[key].nombre)
                 data[key]['properties']['icon']['iconUrl'] = url_img + 'restaurant' + ext;
             } else if (clase === 'Transporte') {
-                console.log(data[key].nombre)
+                //console.log(data[key].nombre)
                 data[key]['properties']['icon']['iconUrl'] = url_img + 'transporte' + ext;
             } else if (clase === 'Complementario') {
-                console.log(data[key].nombre)
+                //console.log(data[key].nombre)
                 var tipo = data[key].tipo.toLowerCase().replace(/\s/g, "");
                 data[key]['properties']['icon']['iconUrl'] = url_img + tipo + ext;
             }

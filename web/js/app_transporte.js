@@ -1,14 +1,12 @@
 
 window.setTimeout(function() {
-    mm_transportes();
+    mapData_transportes();
 }, 1000);
 
 
-function mapData_transportes(f) {
-    console.log('All in map');
+function mapData_transportes() {
+    var f = list_transportes;
     console.log(f);
-    list_transportes = f;
-
     map.markerLayer.on('layeradd', function(e) {
         var marker = e.layer;
         var feature = marker.feature;
@@ -16,7 +14,7 @@ function mapData_transportes(f) {
 
         var images = feature.imagenes;
         var slideshowContent = '';
-        console.log(feature);
+      //  console.log(feature);
 
         for (var i = 0; i < images.length; i++) {
             var img = images[i];
@@ -49,38 +47,38 @@ function mapData_transportes(f) {
 
     map.markerLayer.setGeoJSON(f);
 
-  //  filter();
+    //  filter();
 }
 ;
 
 /*
-function filter() {
-    var url = document.URL;
-    var hash = url.substring(url.indexOf("#") + 1);
-    console.log(hash)
-    map.markerLayer.setFilter(function(f) {
-        if (hash === 'comidatípicaynacional' || hash === 'comidacacera' || hash === 'pollosalabrasayparrillas' || hash === 'comidavegetariana' || hash === 'desayunoylonches')
-        {
-            return f.tipo.replace(/\s/g, "").toLowerCase() === hash;
-        } else {
-            return true;
-        }
-    });
-}
-;*/
+ function filter() {
+ var url = document.URL;
+ var hash = url.substring(url.indexOf("#") + 1);
+ console.log(hash)
+ map.markerLayer.setFilter(function(f) {
+ if (hash === 'comidatípicaynacional' || hash === 'comidacacera' || hash === 'pollosalabrasayparrillas' || hash === 'comidavegetariana' || hash === 'desayunoylonches')
+ {
+ return f.tipo.replace(/\s/g, "").toLowerCase() === hash;
+ } else {
+ return true;
+ }
+ });
+ }
+ ;*/
 
 
 $(document).on('ready', function() {
-   /* $('.select_restaurant').click(function() {
-        var id = this.id;
-        map.markerLayer.setFilter(function(f) {
-            if (id === 'todos')
-            {
-                return true;
-            } else {
-                return f.tipo.replace(/\s/g, "").toLowerCase() === id;
-            }
-
-        });
-    });*/
+    /* $('.select_restaurant').click(function() {
+     var id = this.id;
+     map.markerLayer.setFilter(function(f) {
+     if (id === 'todos')
+     {
+     return true;
+     } else {
+     return f.tipo.replace(/\s/g, "").toLowerCase() === id;
+     }
+     
+     });
+     });*/
 });

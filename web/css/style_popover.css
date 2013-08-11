@@ -109,35 +109,6 @@ block  for superposition
 #detaill_recurso .brand{
     margin-left: 20px;
 }
-/*
-
-#id_promocion .popover{
-    position:relative;
-    width: auto !important;
-}
-
-#id_servicio .popover {
-    position:relative;
-    width: auto !important;
-}
-
-#id_categoria{
-    position:absolute;
-    top:70px;
-    left:50px;
-    z-index: 99999999;
-    width:auto;
-}*/
-
-/*-----------------------------------
-Cutom carrucel
--------------------------------------*/
-/*.carousel-caption h3{
-    text-align: left;
-}
-.carousel-caption h3{
-    color:#fff;
-}*/
 
 /*-----------------------------------
 Ancla
@@ -244,8 +215,24 @@ imagenes carrucel
 
 
 #modal_hotel{
-    z-index: 9999;
+    z-index: 99999992;
 }
 /***********
 END
 ************/
+
+/*************
+Modal
+*************/
+
+.modal{
+    z-index:9999991;
+}
+.modal-backdrop{
+    z-index:999999;
+}
+
+/*
+.modal_hotel {
+    z-index:9999992;
+}*/

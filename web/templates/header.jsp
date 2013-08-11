@@ -15,23 +15,23 @@
                         </a>
                         <ul class="dropdown-menu select_recurso">
                             <li>
-                                <a href="#">Sitios Arqueológicos</a>
+                                <a class="select_recursos" href="index.jsp#sitiosarqueológicos">Sitios Arqueológicos</a>
                             </li>
                             <li>
-                                <a href="#" id="arquitecturacolonial">Arquitectura Colonial</a>
+                                <a class="select_recursos" href="index.jsp#arquitecturacolonial">Arquitectura Colonial</a>
                             </li>
                             <li>
-                                <a href="#">Sitios Historicos</a>
+                                <a class="select_recursos" href="index.jsp#sitioshistoricos">Sitios Historicos</a>
                             </li>
                             <li>
-                                <a href="#">Cultura Viva</a>
+                                <a class="select_recursos" href="index.jsp#culturaviva">Cultura Viva</a>
                             </li>
                             <li>
-                                <a href="#">Paisaje Natural</a>
+                                <a class="select_recursos" href="index.jsp#paisajenatural">Paisaje Natural</a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="#">Todos</a>
+                                <a class="select_recursos" href="index.jsp#todos">Todos</a>
                             </li>
 
                         </ul>

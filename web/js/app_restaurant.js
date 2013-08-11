@@ -1,13 +1,11 @@
 window.setTimeout(function() {
-    mm_restaurants();
+    mapData_restaurants()
 }, 1000);
 
 
-function mapData_restaurants(f) {
-    console.log('All in map');
+function mapData_restaurants() {
+    var f = list_restaurants;
     console.log(f);
-    list_restaurants = f;
-
     map.markerLayer.on('layeradd', function(e) {
         var marker = e.layer;
         var feature = marker.feature;
@@ -15,7 +13,7 @@ function mapData_restaurants(f) {
 
         var images = feature.imagenes;
         var slideshowContent = '';
-        console.log(feature);
+        // console.log(feature);
 
         for (var i = 0; i < images.length; i++) {
             var img = images[i];
@@ -56,7 +54,7 @@ function mapData_restaurants(f) {
 function filter() {
     var url = document.URL;
     var hash = url.substring(url.indexOf("#") + 1);
-    console.log(hash)
+    // console.log(hash)
     map.markerLayer.setFilter(function(f) {
         if (hash === 'comidatípicaynacional' || hash === 'comidacacera' || hash === 'pollosalabrasayparrillas' || hash === 'comidavegetariana' || hash === 'desayunoylonches')
         {

@@ -30,7 +30,7 @@
 
 
         <div id="modal_hotel">
-            <div id="popover" class="modal container hide fade" tabindex="-1">
+            <div id="popover_hotel" class="modal container hide fade" tabindex="-1">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <img class="imagen_logo"/>
@@ -122,7 +122,7 @@
 
                 </div>
             </div>
-            <a href="#popover"  class="click"  data-toggle="modal"></a>
+            <a href="#popover_hotel"  class="click"  data-toggle="modal"></a>
 
 
         </div>

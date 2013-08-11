@@ -11,7 +11,7 @@ minimap.addTo(map);
 window.setTimeout(function() {
     var hash = L.hash();
     hash.init(map);
-}, 1000);
+}, 3000);
 
 
 

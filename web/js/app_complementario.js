@@ -1,14 +1,12 @@
 
 window.setTimeout(function() {
-    mm_complementarios();
+    mapData_complementarios();
 }, 1000);
 
 
 function mapData_complementarios(f) {
-    console.log('All in map');
+    var f = list_complementarios;
     console.log(f);
-    list_complementarios = f;
-
     map.markerLayer.on('layeradd', function(e) {
         var marker = e.layer;
         var feature = marker.feature;
