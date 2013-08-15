@@ -1,10 +1,11 @@
+mm_hoteles();
 window.setTimeout(function() {
     mapData_hoteles();
-}, 1000);
+}, 2000);
 
 function mapData_hoteles() {
-    
-    var f=list_hoteles;
+
+    var f = list_hoteles;
     console.log(f);
     //list_hoteles = f;
 
@@ -45,10 +46,12 @@ function mapData_hoteles() {
             minWidth: 320
         });
     });
-
     map.markerLayer.setGeoJSON(f);
 
     filter();
+    fill_search_products(f)
+
+    $('#map').removeClass('loading');
 }
 ;
 
@@ -69,17 +72,39 @@ function filter() {
 }
 ;
 
-
-
-
-
-
-
-
-
-
-
 $(document).on('ready', function() {
+
+
+
+
+    //Autocomplete
+    $("#search").autocomplete({
+        source: list_auto_hoteles
+    });
+
+
+    $('a[href="#buscar"]').click(function(e) {
+        e.preventDefault();
+        var nombre = $('#search').val().replace(/\s/g, "");
+        var f_search = _.find(list_hoteles, function(item) {
+            return item.nombre.replace(/\s/g, "") === nombre;
+        });
+        if (_.isUndefined(f_search)) {
+            //alert('Este servicio no fue registrado');
+            $('#faill_search').empty();
+            $('#faill_search').append('<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>Este servicio no fue registrado</div>')
+            $('#search').val('');
+
+        } else {
+            fill_search_products([f_search]);
+        }
+
+        window.setTimeout(function() {
+            $('#search').val('');
+            $('#faill_search').empty();
+        }, 2000);
+    });
+
 
     $('.select_hoteles').click(function() {
         var id = this.id;

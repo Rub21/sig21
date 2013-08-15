@@ -1,36 +1,98 @@
 function  call_detaill_recurso(id) {
+    
+    
     $('.imagenes_recurso').empty();
+    //$('.movilidad').css('display', 'block');
+    
     var f = buscarproducto(list_recursos, id);
     $('.imagen_logo').attr("src", f['properties']['icon']['iconUrl']);
-
-
     $('#backdrop').fadeIn(200);
     $('#detaill_recurso').show(200);
     $('#close').show(200);
+    
+    
 
 //FILL DATA
+    $('.idproducto').text(f.idproducto);
     $('.nombre').text(f.nombre);
     $('.descripcion').text(f.descripcion);
-    $('.historia').text(f.historia);
-    $('.horario_de_atencion').text(f.horario_de_atencion);
-    $('.costo_de_ingreso').text(f.costo_de_ingreso);
-    $('.distancia').text(f.distancia);
+
+
+    if (check_null(f.historia)) {
+        $('.historia').text(f.historia);
+    } else {
+        $('.historia').parents('.cont_historia').css('display', 'none');
+    }
+
+    if (check_null(f.horario_de_atencion)) {
+        $('.horario_de_atencion').text(f.horario_de_atencion);
+    } else {
+        $('.horario_de_atencion').parents('tr').css('display', 'none');
+    }
+    //$('.horario_de_atencion').text(f.horario_de_atencion);
+    if (check_null(f.costo_de_ingreso)) {
+        $('.costo_de_ingreso').text(f.costo_de_ingreso);
+    } else {
+        $('.costo_de_ingreso').parents('tr').css('display', 'none');
+    }
+//    $('.costo_de_ingreso').text(f.costo_de_ingreso);
+    if (check_null(f.costo_de_ingreso)) {
+        $('.distancia').text(f.distancia);
+    } else {
+        $('.distancia').parents('tr').css('display', 'none');
+    }
+    // $('.distancia').text(f.distancia);
+
     $('.como_llegar').text(f.como_llegar);
-    $('.corredor').text(f.corredor);
-    $('.altitud').text(f.altitud);
-    $('.temperatura').text(f.temperatura);
+
+    if (check_null(f.corredor)) {
+        $('.corredor').text(f.corredor);
+    } else {
+        $('.corredor').parents('tr').css('display', 'none');
+    }
+    //$('.corredor').text(f.corredor);
+
+    if (check_null(f.altitud)) {
+        $('.altitud').text(f.altitud);
+    } else {
+        $('.altitud').parents('tr').css('display', 'none');
+    }
+
+    // $('.altitud').text(f.altitud);
+
+    if (check_null(f.temperatura)) {
+        $('.temperatura').text(f.temperatura);
+    } else {
+        $('.temperatura').parents('tr').css('display', 'none');
+    }
+
+    if (f.transporte.length === 0) {
+
+        $('.movilidad').attr("disabled","disabled");
+    } else {
+        $('.movilidad').css('display', 'block');
+    }
+
+
+
+    //$('.temperatura').text(f.temperatura);
 
 
     //IMAGENES  
     carrucel_images_recurso(f.imagenes, 540);
 
     //VIDEO
-    add_video(f.video.replace(/\s/g, ""));
+    if (check_null(f.video)) {
+        add_video(f.video.replace(/\s/g, ""));
+    } else {
+
+    }
+
     //$('.ww').attr("src", f.video.replace(/\s/g, ""));
 
     //MAPA
     window.setTimeout(function() {
-        add_map_servicios(f.geometry);
+        add_map_servicios(f);
     }, 1000);
 
 }
@@ -86,8 +148,10 @@ function  add_video(url) {
 }
 
 
-function  add_map_servicios(g) {
+function  add_map_servicios(rec) {//recurso=rec
 
+    var g = rec.geometry;
+    console.log(rec);
     $('.map_servicios').empty();
     $('.map_servicios').append('<div id="map_servicios"></div>');
     var map_ser = L.mapbox.map('map_servicios', 'ruben.map-5m93f3zc').setView([g.coordinates[1], g.coordinates[0]], 12);
@@ -215,6 +279,56 @@ function  add_map_servicios(g) {
         });
     });
 
+
+    $('a[href="#movilidad"]').click(function(e) {
+        e.preventDefault();
+        scroll_to = document.getElementById('servicios');
+        scroll_to.scrollIntoView();
+
+        // console.log(rec.transporte);
+
+        var geo = [];
+
+        map_ser.markerLayer.setFilter(function(f) {
+            console.log(f);
+            if (f.clase.replace(/\s/g, "") === 'Transporte') {
+
+                var id0, id1, id2, id3, id4 = 'ninguno';
+
+                for (i = 0; i < rec.transporte.length; i++) {
+
+                    if (i === 0) {
+                        id0 = rec.transporte[i].idtransporte.replace(/\s/g, "");
+                    } else if (i === 1) {
+                        id1 = rec.transporte[i].idtransporte.replace(/\s/g, "");
+                    } else if (i === 2) {
+                        id2 = rec.transporte[i].idtransporte.replace(/\s/g, "");
+                    } else if (i === 3) {
+                        id3 = rec.transporte[i].idtransporte.replace(/\s/g, "");
+                    } else if (i === 4) {
+                        id4 = rec.transporte[i].idtransporte.replace(/\s/g, "");
+                    }
+
+
+                    if (rec.transporte[i].idtransporte === f.idtransporte) {
+                        geo = f.geometry.coordinates;
+                        console.log(i);
+                    }
+                }
+                var idtransporte = f.idtransporte.replace(/\s/g, "");
+                return (id0 === idtransporte || id1 === idtransporte || id2 === idtransporte || id3 === idtransporte || id4 === idtransporte);
+
+            }
+        });
+
+        /* _.filter([1, 2, 3, 4, 5, 6], function(num) {
+         return num % 2 == 0;
+         });
+         [2, 4, 6]*/
+        map_ser.setView([geo[1], geo[0]], 13);
+    });
+
+
     $('a[href="#todos"]').click(function(e) {
         e.preventDefault();
         map_ser.markerLayer.setFilter(function(f) {
@@ -222,5 +336,46 @@ function  add_map_servicios(g) {
         });
 
     });
+
+
+
+
+
 }
 
+
+function full_imagen_recurso(aray, size) {
+
+    $('.full_imagen_recurso').empty();
+    var myCarousel = 'myCarousel_recurso_full';
+    var carousel_indicators = 'carousel-indicators_recurso_full';
+    var carousel_inner = 'carousel-inner_recurso_full';
+    $('.full_imagen_recurso').append('<div id="' + myCarousel + '" class="carousel slide"><div>');
+
+    $('#' + myCarousel + '').append('<ol class="carousel-indicators" id="' + carousel_indicators + '"><ol>');
+    $('#' + myCarousel + '').append('<div class="carousel-inner" id="' + carousel_inner + '"></div>');
+
+    for (var i = 0; i < aray.length; i++) {
+        var ol = '';
+        var img = '';
+
+        if (i === 0) {
+
+            ol = '<li data-target="#' + myCarousel + '" data-slide-to="' + i + '" class="active"></li>';
+            img = ' <div class="item active"> <img src="' + aray[i].url + '"  style=" width:100%;   max-height: 800px;"/>';
+            /* '<div class="carousel-caption">  <h3>' + aray[i].titulo + '</h3> <p>' + aray[i].descripcion + '</p> </div> </div>';*/
+        } else {
+
+            ol = '<li data-target="#' + myCarousel + '' + myCarousel + '" data-slide-to="' + i + '"></li>';
+            img = ' <div class="item"> <img src="' + aray[i].url + '"  style=" width:100%;  max-height: 800px;"/>';
+            /*'<div class="carousel-caption">  <h3>' + aray[i].titulo + '</h3>  </div> </div>';*/
+        }
+        $('#' + carousel_indicators).append(ol);
+        $('#' + carousel_inner).append(img);
+    }
+    $('#' + myCarousel).append('<a class="carousel-control left" href="#' + myCarousel + '" data-slide="prev">&lsaquo;</a>');
+    $('#' + myCarousel).append('<a class="carousel-control right" href="#' + myCarousel + '" data-slide="next">&rsaquo;</a>');
+
+    $('#' + myCarousel).css("width", size);
+}
+;

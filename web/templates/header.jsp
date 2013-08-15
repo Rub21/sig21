@@ -15,23 +15,23 @@
                         </a>
                         <ul class="dropdown-menu select_recurso">
                             <li>
-                                <a class="select_recursos" href="index.jsp#sitiosarqueológicos">Sitios Arqueológicos</a>
+                                <a class="select_recursos" id="sitiosarqueológicos" href="index.jsp#sitiosarqueológicos">Sitios Arqueológicos</a>
                             </li>
                             <li>
-                                <a class="select_recursos" href="index.jsp#arquitecturacolonial">Arquitectura Colonial</a>
+                                <a class="select_recursos" id="arquitecturacolonial" href="index.jsp#arquitecturacolonial">Arquitectura Colonial</a>
                             </li>
                             <li>
-                                <a class="select_recursos" href="index.jsp#sitioshistoricos">Sitios Historicos</a>
+                                <a class="select_recursos" id="sitioshistoricos" href="index.jsp#sitioshistoricos">Sitios Historicos</a>
                             </li>
                             <li>
-                                <a class="select_recursos" href="index.jsp#culturaviva">Cultura Viva</a>
+                                <a class="select_recursos" id="culturaviva"  href="index.jsp#culturaviva">Cultura Viva</a>
                             </li>
                             <li>
-                                <a class="select_recursos" href="index.jsp#paisajenatural">Paisaje Natural</a>
+                                <a class="select_recursos" id="paisajenatural" href="index.jsp#paisajenatural">Paisaje Natural</a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a class="select_recursos" href="index.jsp#todos">Todos</a>
+                                <a class="select_recursos" id="todos" href="index.jsp#todos">Todos</a>
                             </li>
 
                         </ul>

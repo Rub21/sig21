@@ -1,6 +1,7 @@
+mm_restaurants();
 window.setTimeout(function() {
     mapData_restaurants()
-}, 1000);
+}, 2000);
 
 
 function mapData_restaurants() {
@@ -14,7 +15,6 @@ function mapData_restaurants() {
         var images = feature.imagenes;
         var slideshowContent = '';
         // console.log(feature);
-
         for (var i = 0; i < images.length; i++) {
             var img = images[i];
             //console.log(img['url']);
@@ -47,9 +47,10 @@ function mapData_restaurants() {
     map.markerLayer.setGeoJSON(f);
 
     filter();
+    fill_search_products(f);
+    $('#map').removeClass('loading');
 }
 ;
-
 
 function filter() {
     var url = document.URL;
@@ -65,9 +66,38 @@ function filter() {
     });
 }
 ;
-
-
 $(document).on('ready', function() {
+
+    //Autocomplete
+    $("#search").autocomplete({
+        source: list_auto_restaurants
+    });
+
+
+    $('a[href="#buscar"]').click(function(e) {
+        e.preventDefault();
+        var nombre = $('#search').val().replace(/\s/g, "");
+        var f_search = _.find(list_restaurants, function(item) {
+            return item.nombre.replace(/\s/g, "") === nombre;
+        });
+        if (_.isUndefined(f_search)) {
+            //alert('Este servicio no fue registrado');
+            $('#faill_search').empty();
+            $('#faill_search').append('<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>Este servicio no fue registrado</div>')
+            $('#search').val('');
+
+        } else {
+            fill_search_products([f_search]);
+        }
+
+        window.setTimeout(function() {
+            $('#search').val('');
+            $('#faill_search').empty();
+        }, 2000);
+    });
+
+
+
     $('.select_restaurant').click(function() {
         var id = this.id;
         map.markerLayer.setFilter(function(f) {

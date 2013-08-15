@@ -1,7 +1,7 @@
 function  call_detaill_restaurant(id) {
 
     $('#modal_restaurant .imagenes_restaurant').empty();
-    $('#modal_restaurant .servicios').empty();
+    //  $('#modal_restaurant .servicios').empty();
     var f = buscarproducto(list_restaurants, id);
     console.log(f)
 
@@ -14,6 +14,7 @@ function  call_detaill_restaurant(id) {
             return -($(this).width() / 2);
         }
     });
+
     $('#modal_restaurant .nombre').text(f.nombre);
     $('#modal_restaurant .categoria').text(f.categoria);
     $('#modal_restaurant .tipo').text(f.tipo);

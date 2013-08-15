@@ -1,7 +1,7 @@
-
+mm_transportes();
 window.setTimeout(function() {
     mapData_transportes();
-}, 1000);
+}, 2000);
 
 
 function mapData_transportes() {
@@ -14,7 +14,7 @@ function mapData_transportes() {
 
         var images = feature.imagenes;
         var slideshowContent = '';
-      //  console.log(feature);
+        //  console.log(feature);
 
         for (var i = 0; i < images.length; i++) {
             var img = images[i];
@@ -46,39 +46,41 @@ function mapData_transportes() {
     });
 
     map.markerLayer.setGeoJSON(f);
-
+    /*map.markerLayer.on('mouseover', function(e) {
+     e.layer.openPopup();
+     });*/
     //  filter();
+    fill_search_products(f);
+
+    $('#map').removeClass('loading');
+
 }
 ;
-
-/*
- function filter() {
- var url = document.URL;
- var hash = url.substring(url.indexOf("#") + 1);
- console.log(hash)
- map.markerLayer.setFilter(function(f) {
- if (hash === 'comidatípicaynacional' || hash === 'comidacacera' || hash === 'pollosalabrasayparrillas' || hash === 'comidavegetariana' || hash === 'desayunoylonches')
- {
- return f.tipo.replace(/\s/g, "").toLowerCase() === hash;
- } else {
- return true;
- }
- });
- }
- ;*/
-
-
 $(document).on('ready', function() {
-    /* $('.select_restaurant').click(function() {
-     var id = this.id;
-     map.markerLayer.setFilter(function(f) {
-     if (id === 'todos')
-     {
-     return true;
-     } else {
-     return f.tipo.replace(/\s/g, "").toLowerCase() === id;
-     }
-     
-     });
-     });*/
+    //Autocomplete
+    $("#search").autocomplete({
+        source: list_auto_transportes
+    });
+    
+    $('a[href="#buscar"]').click(function(e) {
+        e.preventDefault();
+        var nombre = $('#search').val().replace(/\s/g, "");
+        var f_search = _.find(list_transportes, function(item) {
+            return item.nombre.replace(/\s/g, "") === nombre;
+        });
+        if (_.isUndefined(f_search)) {
+            //alert('Este servicio no fue registrado');
+            $('#faill_search').empty();
+            $('#faill_search').append('<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>Este servicio no fue registrado</div>')
+            $('#search').val('');
+
+        } else {
+            fill_search_products([f_search]);
+        }
+
+        window.setTimeout(function() {
+            $('#search').val('');
+            $('#faill_search').empty();
+        }, 2000);
+    });
 });

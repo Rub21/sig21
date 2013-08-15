@@ -46,7 +46,7 @@ function mm_recurso() {
 }
 ;
 //inicializa
-mm_recurso();
+//mm_recurso();
 
 
 function mm_hoteles() {
@@ -69,6 +69,10 @@ function mm_hoteles() {
                 data[key].imagenes[i].url = dir + data[key].imagenes[i].url;
             });
             list_hoteles.push(data[key]);
+            //for search
+            var n = data[key].nombre;
+            n = n.substring(0, n.indexOf("   "));
+            list_auto_hoteles.push(n);
         });
         // mapData_hoteles(data);
 
@@ -80,7 +84,7 @@ function mm_hoteles() {
 }
 
 //inicializa
-mm_hoteles();
+//mm_hoteles();
 
 function mm_restaurants() {
 
@@ -101,7 +105,12 @@ function mm_restaurants() {
             _.each(data[key].imagenes, function(value, i) {
                 data[key].imagenes[i].url = dir + data[key].imagenes[i].url;
             });
+
             list_restaurants.push(data[key]);
+            //for search
+            var n = data[key].nombre;
+            n = n.substring(0, n.indexOf("   "));
+            list_auto_restaurants.push(n);
         });
 //        mapData_restaurants(data);
 
@@ -113,7 +122,7 @@ function mm_restaurants() {
 }
 ;
 //inicializacion
-mm_restaurants();
+//mm_restaurants();
 
 
 function mm_transportes() {
@@ -136,6 +145,10 @@ function mm_transportes() {
                 data[key].imagenes[i].url = dir + data[key].imagenes[i].url;
             });
             list_transportes.push(data[key]);
+            //for search
+            var n = data[key].nombre;
+            n = n.substring(0, n.indexOf("   "));
+            list_auto_transportes.push(n);
         });
         //   mapData_transportes(data);
 
@@ -147,7 +160,7 @@ function mm_transportes() {
 }
 ;
 //inicializar
-mm_transportes()
+//mm_transportes()
 
 function mm_complementarios() {
 
@@ -171,6 +184,10 @@ function mm_complementarios() {
                 data[key].imagenes[i].url = dir + data[key].imagenes[i].url;
             });
             list_complementarios.push(data[key]);
+            //for search
+            var n = data[key].nombre;
+            n = n.substring(0, n.indexOf("   "));
+            list_auto_complementarios.push(n);
         });
         //mapData_complementarios(data);
 
@@ -182,7 +199,7 @@ function mm_complementarios() {
 }
 ;
 //inicializar
-mm_complementarios();
+//mm_complementarios();
 
 
 function mm_servicios() {
@@ -211,10 +228,10 @@ function mm_servicios() {
 
 
             if (clase === 'Hotel') {
-               // console.log(data[key].nombre)
+                // console.log(data[key].nombre)
                 data[key]['properties']['icon']['iconUrl'] = url_img + 'hotel' + ext;
             } else if (clase === 'Restaurant') {
-               // console.log(data[key].nombre)
+                // console.log(data[key].nombre)
                 data[key]['properties']['icon']['iconUrl'] = url_img + 'restaurant' + ext;
             } else if (clase === 'Transporte') {
                 //console.log(data[key].nombre)
@@ -239,4 +256,4 @@ function mm_servicios() {
 ;
 
 //Inicializar lista de servicos.
-mm_servicios();
+//mm_servicios();

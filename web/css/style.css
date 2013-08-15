@@ -18,12 +18,12 @@ Map
     background-color: #2D2A2A;
     height: 100%;
     position:absolute; 
-    /* top:60px; */
+    top:55px; 
     width:100%; 
 }
 
 #map .leaflet-left .leaflet-control{
-    top: 60px;
+    top: 10px;
     margin-left: 350px;
 }
 
@@ -31,15 +31,17 @@ Map
 .map_recurso{
     position:relative; 
 }
-
+.leaflet-bottom .leaflet-control-scale{
+    margin-bottom: 15px;
+}
 
 
 /******************************************
 loading gif
 ******************************************/
-.loading {
+/*.loading {
     position: relative;
-}
+}*/
 
 .loading:after {
     background: url(../img/ajax-loader.gif) no-repeat;
@@ -69,6 +71,18 @@ loading gif
     position: absolute;
 }
 
+#content_of_search.loading:after {
+    background-color: #333;
+    background-color: rgba(0,0,0,0.75);
+    background-image: url(../img/ajax-loader-rev.gif);
+    color: #fff;
+    padding: 20px;
+    background-position: 20px 50%;
+    border-radius: 10px;
+    z-index: 4;
+    position: absolute;
+}
+
 
 
 /**********************
@@ -77,9 +91,9 @@ sidebar
 .sidebar{
     background: none repeat scroll 0 0 rgba(13, 13, 13, 0.898);      
     position: absolute;
-    top: 70px;   
+    top: 65px;   
     float: left;
-    height: 600px;  
+    height: 87%;  
     width: 300px;   
     z-index: 12; 
     color: #fff;
@@ -90,19 +104,45 @@ sidebar
 .sidebar .content-search{
     width: 100%;
     text-align: center;
+
 }
 .sidebar .search input{   
     margin-bottom:0px;
-    height: 30px;
+    height: 18px;
 }
 
+.alert {
+    background-color: #FCF8E3;
+    border: 1px solid #FBEED5;
+    border-radius: 4px 4px 4px 4px;
+    margin-bottom: 2px;
+    margin-top: -10px;
+    padding: 3px 35px 3px 14px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
 /******************************************
-footer
+BUSQUEDA
 ******************************************/
-
-
-
-
+/*****************
+Autocomplete
+******************/
+#serach{
+    /*background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s*/
+}
+#content_of_search{
+    /*height: 80%;*/
+    overflow-y:auto ;
+    /* max-height: ;*/
+}
+.well-ru{
+    margin-top: 5px;
+    padding-bottom: 5px;
+    border-bottom:  1px solid #3B5998;
+    text-align: left;
+}
 
 /******************************************
 footer

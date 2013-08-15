@@ -40,7 +40,7 @@
                     <div class="navbar-inner ">
                         <div class="container">
                             <a class="brand" href="#"> 
-                                <spam class="nombre"></spam>
+                                <spam class="nombre"></spam><spam class="idproducto"></spam>
                             </a>
                             <ul class="nav pull-right" >
                                 <li>
@@ -69,10 +69,11 @@
                         <div class="span6">
                             <p  class="well descripcion"> 
                             </p>
-                            <h5>Historia</h5>
-                            <p  class="well historia"> 
+                            <div class="cont_historia">
+                                <h5>Historia</h5>
+                                <p  class="well historia"> </p>
+                            </div>
 
-                            </p>
                             <div id="id_detalles_recurso">
                                 <table class="table table-striped table-bordered table-condensed">
                                     <tbody>
@@ -107,6 +108,10 @@
                                             </td>
                                             <td>
                                                 <div class="como_llegar"></div>
+                                                <h6 class="movilidad">
+                                                    <a href="#movilidad"  class="click_movilidad"  >ver movilidad a este destino</a>
+                                                </h6>
+
                                             </td>
                                         </tr> 
 
@@ -144,6 +149,9 @@
                         <div  class="span6">
 
                             <div class="imagenes_recurso">
+                            </div>
+                            <div class="overimagen_recurso">
+
                             </div>
                         </div>
                         <div id="video" class="span6">
@@ -545,13 +553,33 @@
 
 
                 <div class="modal-footer">
-                    <button type="button" data-dismiss="modal" class="btn btn-primary">Cerrar</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-primary" id="butoon_close_transporte">Cerrar</button>
 
                 </div>
             </div>
             <a href="#popover_transporte"  class="click_transporte"  data-toggle="modal"></a>
         </div>
         <!--END TRANSPORTE-->
+        <!--MOVILIDAD-->
+        <div id="modal_imagen">
+            <div id="popover_imagen" class="modal container hide fade" tabindex="-1">
+
+                <div class="modal-body" >
+                    <button type="button" class="close" id="butoon_close_imagen" data-dismiss="modal" aria-hidden="true">×</button> 
+
+                    <div class="full_imagen_recurso"></div>
+
+
+                </div>
+
+
+
+            </div>
+            <a href="#popover_imagen"  class="click_imagen"  data-toggle="modal"></a>
+        </div>
+
+
+        <!--END MOVILIDAD-->
         <!--Librerias-->
         <script src="http://code.jquery.com/jquery-1.8.0.js"></script>
         <script src='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js'></script>

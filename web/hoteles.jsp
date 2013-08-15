@@ -5,30 +5,25 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Hoteles en Ayacucho</title>
         <jsp:include page="templates/style.jspf"></jsp:include> 
-
-
         </head>
-
         <body>
         <jsp:include page="templates/header.jsp"></jsp:include> 
-
         <div id="map" class="loading">
         </div>
-
-
         <div class="sidebar">
             <div class="content-search">
-                <h4>¿Donde Quieres Ir?</h4>
+                <h4>¿Donde Dormir?</h4>
                 <div class="search">
-                    <!-- Search-->
                     <input type="text" id="search" name="search" placeholder="Buscar"/>
-                    <!-- close-->
-                    <a class="btn btn-primary"  href = '#'>Buscar</a>
-                </div>  
+                    <a class="btn btn-primary"  href = '#buscar'>Buscar</a>
+                </div> 
+                <br>
+                <div id="faill_search"></div>
+                <div id="content_of_search" class="loading">
+
+                </div>
             </div>
         </div>
-
-
         <div id="modal_hotel">
             <div id="popover_hotel" class="modal container hide fade" tabindex="-1">
                 <div class="modal-header">
@@ -122,15 +117,16 @@
 
                 </div>
             </div>
-            <a href="#popover_hotel"  class="click"  data-toggle="modal"></a>
+            <a href="#popover_hotel"  class="click_hotel"  data-toggle="modal"></a>
 
 
         </div>
     </body>
 
     <!--Librerias-->
-    <script src="http://code.jquery.com/jquery-1.8.0.js"></script>
-    <script src='http://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js'></script>
+    <script src="lib/jquery-1.9.1.js"></script>
+    <script src="lib/jquery-ui.js"></script>
+    <script src='lib/mapbox.js'></script>
     <script src="lib/Leaflet.fullscreen.js"></script>
     <script src="lib/leaflet-hash.js"></script>
     <script src="lib/Control.MiniMap.js"></script>
