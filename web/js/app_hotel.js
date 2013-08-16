@@ -4,23 +4,16 @@ window.setTimeout(function() {
 }, 2000);
 
 function mapData_hoteles() {
-
-    var f = list_hoteles;
-    console.log(f);
-    //list_hoteles = f;
-
+    var arr = list_hoteles;
     map.markerLayer.on('layeradd', function(e) {
         var marker = e.layer;
         var feature = marker.feature;
         marker.setIcon(L.icon(feature.properties.icon));
-
         var images = feature.imagenes;
         var slideshowContent = '';
-        //console.log(feature);
-
         for (var i = 0; i < images.length; i++) {
             var img = images[i];
-            //console.log(img['url']);
+
             slideshowContent += '<div class="image' + (i === 0 ? ' active' : '') + '">' +
                     '<img src="' + img['url'] + '" />' +
                     // '<div class="caption">' + img['url'] + '</div>' +
@@ -46,59 +39,61 @@ function mapData_hoteles() {
             minWidth: 320
         });
     });
-    map.markerLayer.setGeoJSON(f);
 
-    filter();
-    fill_search_products(f)
+    map.markerLayer.setGeoJSON(arr);
 
+    filter(arr);
     $('#map').removeClass('loading');
 }
 ;
 
 
-function filter() {
-    //alert('2estrellas');
+function filter(arr) {
     var url = document.URL;
     var hash = url.substring(url.indexOf("#") + 1);
-    //console.log(hash)
+    //filtrado en la mapa
     map.markerLayer.setFilter(function(f) {
-        if (hash === '1estrellas' || hash === '2estrellas' || hash === '3estrellas' || hash === '4estrellas')
+        if (hash === 'sincategoria' || hash === '1estrellas' || hash === '2estrellas' || hash === '3estrellas' || hash === '4estrellas')
         {
             return f.categoria.replace(/\s/g, "").toLowerCase() === hash;
         } else {
             return true;
         }
     });
+
+    //filter para sidebar
+    if (hash === 'sincategoria' || hash === '1estrellas' || hash === '2estrellas' || hash === '3estrellas' || hash === '4estrellas')
+    {
+        arr = _.filter(arr, function(item) {
+            return item.categoria.replace(/\s/g, "").toLowerCase() === hash
+        });
+        fill_search_products(arr);
+    } else {
+        fill_search_products(arr);
+    }
 }
 ;
 
 $(document).on('ready', function() {
-
-
-
-
     //Autocomplete
     $("#search").autocomplete({
         source: list_auto_hoteles
     });
-
-
     $('a[href="#buscar"]').click(function(e) {
         e.preventDefault();
+
         var nombre = $('#search').val().replace(/\s/g, "");
-        var f_search = _.find(list_hoteles, function(item) {
+        var arr = _.find(list_hoteles, function(item) {
             return item.nombre.replace(/\s/g, "") === nombre;
         });
-        if (_.isUndefined(f_search)) {
-            //alert('Este servicio no fue registrado');
+        if (_.isUndefined(arr)) {
             $('#faill_search').empty();
             $('#faill_search').append('<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>Este servicio no fue registrado</div>')
             $('#search').val('');
 
         } else {
-            fill_search_products([f_search]);
+            fill_search_products([arr]);
         }
-
         window.setTimeout(function() {
             $('#search').val('');
             $('#faill_search').empty();
@@ -108,6 +103,7 @@ $(document).on('ready', function() {
 
     $('.select_hoteles').click(function() {
         var id = this.id;
+        //filtrado en el mapa
         map.markerLayer.setFilter(function(f) {
             if (id === 'todos')
             {
@@ -115,8 +111,17 @@ $(document).on('ready', function() {
             } else {
                 return f.categoria.replace(/\s/g, "").toLowerCase() === id;
             }
-
         });
+        //filtrado en sidebar   
+        if (id === 'todos')
+        {
+            fill_search_products(list_hoteles);
+        } else {
+            var arr = _.filter(list_hoteles, function(item) {
+                return item.categoria.replace(/\s/g, "").toLowerCase() === id
+            });
+            fill_search_products(arr);
+        }
     });
 });
 

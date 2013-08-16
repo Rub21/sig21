@@ -5,8 +5,8 @@ window.setTimeout(function() {
 
 
 function mapData_complementarios(f) {
-    var f = list_complementarios;
-    console.log(f);
+    var arr = list_complementarios;
+    console.log(arr);
     map.markerLayer.on('layeradd', function(e) {
         var marker = e.layer;
         var feature = marker.feature;
@@ -45,31 +45,40 @@ function mapData_complementarios(f) {
         });
     });
 
-    map.markerLayer.setGeoJSON(f);
+    map.markerLayer.setGeoJSON(arr);
 
-    filter();
-    fill_search_products(f);
+    filter(arr);
+
 
     $('#map').removeClass('loading');
 }
 ;
 
 
-function filter() {
+function filter(arr) {
     var url = document.URL;
     var hash = url.substring(url.indexOf("#") + 1);
-    console.log(hash)
-
+    //  console.log(hash)
+//filtrado en el Mapa
     map.markerLayer.setFilter(function(f) {
         if (hash === 'puntosdeinformaciónalturista' || hash === 'agenciasdeturismo' || hash === 'comerciodeartesanías' || hash === 'bar' || hash === 'farmacia' || hash === 'banco' || hash === 'galeriadearte' || hash === 'policia' || hash === 'serviciodesalud' || hash === 'cabinasdeinternet')
-        {
-            console.log(f.tipo.replace(/\s/g, "").toLowerCase());
-
+        {  // console.log(f.tipo.replace(/\s/g, "").toLowerCase());
             return f.tipo.replace(/\s/g, "").toLowerCase() === hash;
         } else {
             return true;
         }
     });
+    //Filtrado en sidebar
+    if (hash === 'puntosdeinformaciónalturista' || hash === 'agenciasdeturismo' || hash === 'comerciodeartesanías' || hash === 'bar' || hash === 'farmacia' || hash === 'banco' || hash === 'galeriadearte' || hash === 'policia' || hash === 'serviciodesalud' || hash === 'cabinasdeinternet')
+    {
+        arr = _.filter(arr, function(item) {
+            return item.tipo.replace(/\s/g, "").toLowerCase() === hash;
+        });
+        fill_search_products(arr);
+    } else {
+        fill_search_products(arr);
+    }
+
 }
 ;
 
@@ -107,6 +116,7 @@ $(document).on('ready', function() {
 
     $('.select_complementario').click(function() {
         var id = this.id;
+        //filtrado en el Mapa
         map.markerLayer.setFilter(function(f) {
             if (id === 'todos')
             {
@@ -116,5 +126,16 @@ $(document).on('ready', function() {
             }
 
         });
+        //filtrado en sidebar
+        if (id === 'todos')
+        {
+            fill_search_products(list_complementarios);
+        } else {
+            var arr = _.filter(list_complementarios, function(item) {
+                return item.tipo.replace(/\s/g, "").toLowerCase() === id;
+            });
+            fill_search_products(arr);
+        }
+        ;
     });
 });

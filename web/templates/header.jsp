@@ -32,7 +32,7 @@
                             <li class="divider"></li>
                             <li>
                                 <a class="select_recursos" id="todos" href="index.jsp#todos">Todos</a>
-                            </li>
+                            </li>             
 
                         </ul>
                     </li>
@@ -57,7 +57,7 @@
                             <li>
                                 <a class="select_hoteles" id="4estrellas" href="hoteles.jsp#4estrellas">4 Estrellas</a>
                             </li>
-                            <li class="select_hoteles" class="divider"></li>
+                            <li class="divider"></li>
                             <li>
                                 <a class="select_hoteles" id="todos" href="hoteles.jsp#todos">Todos</a>
                             </li>
@@ -86,7 +86,7 @@
                             <li>
                                 <a class="select_restaurant" id="desayunoylonches" href="restaurants.jsp#desayunoylonches">Desayuno y lonches</a>
                             </li>
-                            <li class="select_restaurant" class="divider"></li>
+                            <li class="divider"></li>
                             <li>
                                 <a class="select_restaurant" id="todos" href="restaurants.jsp#todos">Todos</a>
                             </li>
@@ -114,52 +114,40 @@
                             <li><a class="select_complementario" id="banco" href="complementario.jsp#banco">Banco</a></li>
                             <li><a class="select_complementario" id="galeriadearte" href="complementario.jsp#galeriadearte">Galeria de Arte</a></li>
                             <li><a class="select_complementario" id="policia" href="complementario.jsp#policia">Policia</a></li>
-                            <li><a class="select_complementario" id="Serviciodesalud" href="complementario.jsp#Serviciodesalud">Servicios de Salud</a></li>
+                            <li><a class="select_complementario" id="serviciodesalud" href="complementario.jsp#serviciodesalud">Servicios de Salud</a></li>
                             <li><a class="select_complementario" id="cabinasdeinternet" href="complementario.jsp#cabinasdeinternet">Cabinas de Internet</a></li>
-                            <li class="select_restaurant" class="divider"></li>
+                            <li  class="divider"></li>
                             <li>
-                                <a class="select_restaurant" id="todos" href="complementario.jsp#todos">Todos</a>
+                                <a class="select_complementario" id="todos" href="complementario.jsp#todos">Todos</a>
                             </li>
 
                         </ul>
                     </li>
 
-
-
-
-
-
-                    <!--
-                    
-                    
-
-                    
-                    
-                    -->
-                    <!-- <li class="dropdown">
-                         <a href="#"  class="dropdown-toggle" data-toggle="dropdown">
-                             <i class="icon-corredor"></i>
-                             Corredores Turisticos
-                             <b class="caret"></b>
-                         </a>
-                         <ul class="dropdown-menu select_corredor">
-                             <li>
-                                 <a   href="#">Corredor Wari-Chanka-Inca</a>
-                             </li>
-                             <li>
-                                 <a href="#">Corredor Nazca-Chanka-Inca</a>
-                             </li>
-                             <li>
-                                 <a href="#">Corredor Paracas-Huaytará-Ayacucho</a>
-                             </li>
-                             <li>
-                                 <a href="#">Ruta Puquio-Cora Cora-Sara Sara</a>
-                             </li>
-                             <li>
-                                 <a href="#">Ruta Huancapi-Carapo-Huancasancos</a>
-                             </li>
-                         </ul>
-                     </li>-->
+                    <li class="dropdown">
+                        <a href="#"  class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-corredor"></i>
+                            Corredores Turisticos
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu select_corredores">
+                            <li>
+                                <a  class="select_corredor" id="CorredorWari-Chanka-Inca"href="index.jsp#CorredorWari-Chanka-Inca">Corredor Wari-Chanka-Inca</a>
+                            </li>
+                            <li>
+                                <a  class="select_corredor" id="CorredorNazca-Chanka-Inca" href="index.jsp#CorredorNazca-Chanka-Inca">Corredor Nazca-Chanka-Inca</a>
+                            </li>
+                            <li>
+                                <a  class="select_corredor" id="CorredorParacas-Huaytará-Ayacucho"href="index.jsp#CorredorParacas-Huaytará-Ayacucho">Corredor Paracas-Huaytará-Ayacucho</a>
+                            </li>
+                            <li>
+                                <a  class="select_corredor" id="RutaPuquio-CoraCora-SaraSara" href="index.jsp#RutaPuquio-CoraCora-SaraSara">Ruta Puquio-Cora Cora-Sara Sara</a>
+                            </li>
+                            <li>
+                                <a  class="select_corredor" id="RutaHuancapi-Carapo-Huancasancos" href="index.jsp#RutaHuancapi-Carapo-Huancasancos">Ruta Huancapi-Carapo-Huancasancos</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
 

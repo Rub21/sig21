@@ -5,13 +5,12 @@ window.setTimeout(function() {
 
 
 function mapData_restaurants() {
-    var f = list_restaurants;
-    console.log(f);
+    var arr = list_restaurants;
+
     map.markerLayer.on('layeradd', function(e) {
         var marker = e.layer;
         var feature = marker.feature;
         marker.setIcon(L.icon(feature.properties.icon));
-
         var images = feature.imagenes;
         var slideshowContent = '';
         // console.log(feature);
@@ -44,18 +43,19 @@ function mapData_restaurants() {
         });
     });
 
-    map.markerLayer.setGeoJSON(f);
+    map.markerLayer.setGeoJSON(arr);
 
-    filter();
-    fill_search_products(f);
+    filter(arr);
+
     $('#map').removeClass('loading');
 }
 ;
 
-function filter() {
+function filter(arr) {
     var url = document.URL;
     var hash = url.substring(url.indexOf("#") + 1);
-    // console.log(hash)
+
+    //filtro en el mapa
     map.markerLayer.setFilter(function(f) {
         if (hash === 'comidatípicaynacional' || hash === 'comidacacera' || hash === 'pollosalabrasayparrillas' || hash === 'comidavegetariana' || hash === 'desayunoylonches')
         {
@@ -64,16 +64,23 @@ function filter() {
             return true;
         }
     });
+    //filtro en sidebar
+    if (hash === 'comidatípicaynacional' || hash === 'comidacacera' || hash === 'pollosalabrasayparrillas' || hash === 'comidavegetariana' || hash === 'desayunoylonches')
+    {
+        arr = _.filter(arr, function(item) {
+            return item.tipo.replace(/\s/g, "").toLowerCase() === hash;
+        });
+        fill_search_products(arr);
+    } else {
+        fill_search_products(arr);
+    }
 }
 ;
 $(document).on('ready', function() {
-
     //Autocomplete
     $("#search").autocomplete({
         source: list_auto_restaurants
     });
-
-
     $('a[href="#buscar"]').click(function(e) {
         e.preventDefault();
         var nombre = $('#search').val().replace(/\s/g, "");
@@ -89,17 +96,15 @@ $(document).on('ready', function() {
         } else {
             fill_search_products([f_search]);
         }
-
         window.setTimeout(function() {
             $('#search').val('');
             $('#faill_search').empty();
         }, 2000);
     });
 
-
-
     $('.select_restaurant').click(function() {
         var id = this.id;
+        //filtrar en el mapa
         map.markerLayer.setFilter(function(f) {
             if (id === 'todos')
             {
@@ -107,7 +112,19 @@ $(document).on('ready', function() {
             } else {
                 return f.tipo.replace(/\s/g, "").toLowerCase() === id;
             }
-
         });
+        //filtrar en sidebar
+        if (id === 'todos')
+        {
+            fill_search_products(list_restaurants);
+        } else {
+            var arr = _.filter(list_restaurants, function(item) {
+                return item.tipo.replace(/\s/g, "").toLowerCase() === id;
+            });
+            fill_search_products(arr);
+        }
+        ;
+
+
     });
 });

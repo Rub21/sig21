@@ -2,7 +2,7 @@ function  call_detaill_hotel(id) {
 
     $('#modal_hotel .imagenes_hotel').empty();
     $('#modal_hotel .servicios').empty();
-    var f = buscarproducto(list_hoteles, id);
+    var arr = buscarproducto(list_hoteles, id);
     //console.log('hotel');
     //console.log(f)
 
@@ -14,39 +14,39 @@ function  call_detaill_hotel(id) {
             return -($(this).width() / 2);
         }
     });
-    $('#modal_hotel .imagen_logo').attr("src", f['properties']['icon']['iconUrl']);
+    $('#modal_hotel .imagen_logo').attr("src", arr['properties']['icon']['iconUrl']);
 
-    $('#modal_hotel .nombre').text(f.nombre);
-    $('#modal_hotel .categoria').text(f.categoria);
-    $('#modal_hotel .descripcion').text(f.descripcion);
+    $('#modal_hotel .nombre').text(arr.nombre);
+    $('#modal_hotel .categoria').text(arr.categoria);
+    $('#modal_hotel .descripcion').text(arr.descripcion);
 
-    $('#modal_hotel .precio').text(f.precio_de_habitacion);
-    $('#modal_hotel .direccion').text(f.direccion);
-    $('#modal_hotel .telefono').text(f.telefono);
+    $('#modal_hotel .precio').text(arr.precio_de_habitacion);
+    $('#modal_hotel .direccion').text(arr.direccion);
+    $('#modal_hotel .telefono').text(arr.telefono);
 
 
-    if (check_null(f.sitio_web)) {
-        $('#modal_hotel .sitio_web').text(f.sitio_web);
+    if (check_null(arr.sitio_web)) {
+        $('#modal_hotel .sitio_web').text(arr.sitio_web);
     } else {
         $('#modal_hotel .sitio_web').parents('tr').css('display', 'none');
     }
-    if (check_null(f.correo_electronico)) {
-        $('#modal_hotel .correo_electronico').text(f.correo_electronico);
+    if (check_null(arr.correo_electronico)) {
+        $('#modal_hotel .correo_electronico').text(arr.correo_electronico);
     } else {
         $('#modal_hotel .correo_electronico').parents('tr').css('display', 'none');
     }
 
-    if (check_null(f.formas_de_pago)) {
-        $('#modal_hotel .formas_de_pago').text(f.formas_de_pago);
+    if (check_null(arr.formas_de_pago)) {
+        $('#modal_hotel .formas_de_pago').text(arr.formas_de_pago);
     } else {
         $('#modal_hotel .formas_de_pago').parents('tr').css('display', 'none');
     }
 
-    carrucel_images_hotel(f.imagenes, 400);
+    carrucel_images_producto(arr.imagenes, 'imagenes_hotel', 400);
 
     var servicios = "";
-    for (i = 0; i < f.bServiciosAdicional.length; i++) {
-        servicios += f.bServiciosAdicional[i].tipo + "<br>";
+    for (i = 0; i < arr.bServiciosAdicional.length; i++) {
+        servicios += arr.bServiciosAdicional[i].tipo + "<br>";
     }
     $('#modal_hotel .servicios').append(servicios);
 
@@ -54,7 +54,7 @@ function  call_detaill_hotel(id) {
 
 }
 ;
-
+/*
 function carrucel_images_hotel(aray, size) {
     var myCarousel = 'myCarousel_hotel';
     var carousel_indicators = 'carousel-indicators_hotel';
@@ -86,4 +86,4 @@ function carrucel_images_hotel(aray, size) {
     $('#' + myCarousel).append('<a class="carousel-control right" href="#' + myCarousel + '" data-slide="next">&rsaquo;</a>');
     $('.modal-body').css("max-height", 500);
     $('#' + myCarousel).css("width", size);
-}
+}*/

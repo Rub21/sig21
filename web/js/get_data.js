@@ -33,6 +33,10 @@ function mm_recurso() {
 
 
             list_recursos.push(data[key]);
+            //for search
+            var n = data[key].nombre;
+            n = n.substring(0, n.indexOf("   "));
+            list_auto_recursos.push(n);
         });
 
         //console.log("success");

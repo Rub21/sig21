@@ -1,11 +1,14 @@
+mm_recurso();
+mm_servicios();
+
 
 window.setTimeout(function() {
     mapData_recurso();
 }, 2000);
 
 function mapData_recurso() {
-    var f = list_recursos;
-    console.log(f);
+    var arr = list_recursos;
+    //console.log(f);
     map.markerLayer.on('layeradd', function(e) {
         var marker = e.layer;
         var feature = marker.feature;
@@ -13,7 +16,7 @@ function mapData_recurso() {
 
         var images = feature.imagenes;
         var slideshowContent = '';
-        console.log(feature);
+        //console.log(feature);
 
         for (var i = 0; i < images.length; i++) {
             var img = images[i];
@@ -44,29 +47,81 @@ function mapData_recurso() {
         });
     });
 
-    map.markerLayer.setGeoJSON(f);
-    filter();
+    map.markerLayer.setGeoJSON(arr);
+
+    filter(arr);
+    $('#map').removeClass('loading');
 }
 ;
 
 
 
-function filter() {
+function filter(arr) {
     var url = document.URL;
     var hash = url.substring(url.indexOf("#") + 1);
-    // console.log(hash)
-    map.markerLayer.setFilter(function(f) {
-        if (hash === 'sitiosarqueológicos' || hash === 'arquitecturacolonial' || hash === 'sitioshistoricos' || hash === 'culturaviva' || hash === 'paisajenatural')
-        {
+    if (hash === 'sitiosarqueológicos' || hash === 'arquitecturacolonial' || hash === 'sitioshistoricos' || hash === 'culturaviva' || hash === 'paisajenatural')
+    {
+        map.markerLayer.setFilter(function(f) {
             return f.categoria.replace(/\s/g, "").toLowerCase() === hash;
-        } else {
-            return true;
-        }
-    });
+        });
+        //filter para sidebar
+        arr = _.filter(arr, function(item) {
+            return  item.categoria.replace(/\s/g, "").toLowerCase() === hash
+        });
+        fill_search_products(arr);
+    } else if (hash === 'CorredorWari-Chanka-Inca' || hash === 'CorredorNazca-Chanka-Inca' || hash === 'CorredorParacas-Huaytará-Ayacucho' || hash === 'RutaPuquio-CoraCora-SaraSara' || hash === 'RutaHuancapi-Carapo-Huancasancos')
+    {
+        map.markerLayer.setFilter(function(f) {
+            return f.corredor.replace(/\s/g, "") === hash;
+        });
+        //filter para sidebar
+        arr = _.filter(arr, function(item) {
+            return item.corredor.replace(/\s/g, "") === hash
+        });
+        fill_search_products(arr);
+    } else {
+        fill_search_products(arr);
+    }
 }
 ;
 
 $(document).on('ready', function() {
+    //Autocomplete
+    $("#search").autocomplete({
+        source: list_auto_recursos
+    });
+
+
+    $('a[href="#buscar"]').click(function(e) {
+        e.preventDefault();
+        var nombre = $('#search').val().replace(/\s/g, "");
+
+
+        //filtrar en mapa
+        map.markerLayer.setFilter(function(f) {
+            return f.nombre.replace(/\s/g, "") === nombre;
+        });
+
+        //filtrar en sidebar
+        var arr = _.find(list_recursos, function(item) {
+            return item.nombre.replace(/\s/g, "") === nombre;
+        });
+        if (_.isUndefined(arr)) {
+            //informacion de falla en busqueda
+            $('#faill_search').empty();
+            $('#faill_search').append('<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>Este servicio no fue registrado</div>')
+            $('#search').val('');
+
+        } else {
+            fill_search_products([arr]);
+        }
+
+        window.setTimeout(function() {
+            $('#search').val('');
+            $('#faill_search').empty();
+        }, 2000);
+    });
+
     $('.select_recursos').click(function() {
         var id = this.id;
         map.markerLayer.setFilter(function(f) {
@@ -76,9 +131,40 @@ $(document).on('ready', function() {
             } else {
                 return f.categoria.replace(/\s/g, "").toLowerCase() === id;
             }
-
         });
+        //filtrar recurso en sidebar
+        if (id === 'todos')
+        {
+            fill_search_products(list_recursos);
+        }
+        else {
+
+            var arr = _.filter(list_recursos, function(item) {
+                return item.categoria.replace(/\s/g, "").toLowerCase() === id;
+            });
+            fill_search_products(arr);
+        }
     });
+
+    //corredor turistico
+    $('.select_corredor').click(function() {
+        var id = this.id;
+        //alert(id);
+        map.markerLayer.setFilter(function(f) {
+
+            if (id === 'CorredorWari-Chanka-Inca' || id === 'CorredorNazca-Chanka-Inca' || id === 'CorredorParacas-Huaytará-Ayacucho' || id === 'RutaPuquio-CoraCora-SaraSara' || id === 'RutaHuancapi-Carapo-Huancasancos')
+            {
+                return f.corredor.replace(/\s/g, "") === id;
+            }
+        });
+        //filtrar recurso en sidebar
+        var arr = _.filter(list_recursos, function(item) {
+            return item.corredor.replace(/\s/g, "") === id;
+        });
+        fill_search_products(arr);
+
+    });
+
 //imagen
     $('.overimagen_recurso').click(function() {
         $('.click_imagen').click();
@@ -95,9 +181,5 @@ $(document).on('ready', function() {
         var array_images = buscarproducto(list_recursos, id).imagenes;
         full_imagen_recurso(array_images, 900);
     })
-
-
-
-
 
 });

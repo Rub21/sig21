@@ -5,17 +5,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Servicios Adicionales en Ayacucho</title>
         <jsp:include page="templates/style.jspf"></jsp:include> 
-
-
         </head>
-
         <body>
         <jsp:include page="templates/header.jsp"></jsp:include> 
-
         <div id="map" class="loading">
         </div>
-
-
         <div class="sidebar">
             <div class="content-search">
                 <h4>¿Otros  Servicios?</h4>
