@@ -94,11 +94,24 @@
                         </ul>
 
                     </li>
-                    <li>
-                        <a href="transportes.jsp">
+                    <li class="dropdown">
+                        <a href="transportes.jsp" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="icon-transporte"></i>
-                            Como Viajar
+                            Como Viajar<b class="caret"></b>
                         </a>
+                        <ul class="dropdown-menu">
+
+                            <li><a class="select_transporte" id="interdepartamental" href="transportes.jsp#interdepartamental">Interdepartamental</a></li>
+                            <li><a class="select_transporte" id="interprovincial" href="transportes.jsp#interprovincial">Interprovincial</a></li>
+                            <li><a class="select_transporte" id="interdistrital" href="transportes.jsp#interdistrital">Interdistrital</a></li>
+                            <li  class="divider"></li>
+                            <li>
+                                <a class="select_transporte" id="todos" href="transportes.jsp#todos">Todos</a>
+                            </li>
+
+
+
+                        </ul>
                     </li>
                     <li class="dropdown">
                         <a href="complementario.jsp" class="dropdown-toggle" data-toggle="dropdown">

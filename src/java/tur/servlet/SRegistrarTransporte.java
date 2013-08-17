@@ -92,6 +92,7 @@ public class SRegistrarTransporte extends HttpServlet {
             bTransporte.setIdtransporte(idtransporte);
 
             bTransporte.setDescripcion(mrequest.getParameter("descripcion"));
+             bTransporte.setTipo(mrequest.getParameter("tipo"));
             bTransporte.setDireccion(mrequest.getParameter("direccion"));
             bTransporte.setTelefono(mrequest.getParameter("telefono"));
             bTransporte.setSitio_web(mrequest.getParameter("sitio_web"));

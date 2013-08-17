@@ -14,6 +14,7 @@ public class BTransporte extends BProducto {
 
     private String idtransporte;
     private String descripcion;
+    private String tipo;
     private String direccion;
     private String telefono;
     private String sitio_web;
@@ -37,6 +38,14 @@ public class BTransporte extends BProducto {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public String getDireccion() {
@@ -106,14 +115,15 @@ public class BTransporte extends BProducto {
     public void print() {
 
         System.out.println("idhotel :" + getIdtransporte());
-         System.out.println("Nombre :" + getNombre());
+        System.out.println("Nombre :" + getNombre());
         System.out.println("Descripcion :" + getDescripcion());
+        System.out.println("tipo :" + getTipo());
         System.out.println("direccion :" + getDireccion());
         System.out.println("telefono :" + getTelefono());
-        System.out.println("Sitio web"+getSitio_web());
+        System.out.println("Sitio web" + getSitio_web());
         System.out.println("Horario de Atencion :" + getHorario_de_atencion());
-        System.out.println("Horario de salida :" +getHorario_de_salida());
-        System.out.println("Destinos :" + getDestinos());    
+        System.out.println("Horario de salida :" + getHorario_de_salida());
+        System.out.println("Destinos :" + getDestinos());
         System.out.println("Latitud :" + getGeometry().getLatitud());
         System.out.println("Longitud :" + getGeometry().getLongitud());
         System.out.println("Imagenes" + getImagenes().size());

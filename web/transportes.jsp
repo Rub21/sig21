@@ -5,17 +5,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Medios de transporte  en Ayacucho</title>
         <jsp:include page="templates/style.jspf"></jsp:include> 
-
-
         </head>
-
         <body>
         <jsp:include page="templates/header.jsp"></jsp:include> 
 
         <div id="map" class="loading">
         </div>
-
-
         <div class="sidebar">
             <div class="content-search">
                 <h4>¿Como Viajar?</h4>
@@ -24,7 +19,7 @@
                     <a class="btn btn-primary"  href = '#buscar'>Buscar</a>
                 </div> 
                 <br>
-                 <div id="faill_search"></div>
+                <div id="faill_search"></div>
                 <div id="content_of_search" class="loading">
 
                 </div>
@@ -137,6 +132,6 @@
     <!--function transporte-->   
     <script  type="text/javascript" src="js/detaill_transporte.js"></script>
     <script  type="text/javascript" src="js/app_transporte.js"></script>
-     
+
 
 </html>

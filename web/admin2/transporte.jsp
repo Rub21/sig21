@@ -37,6 +37,17 @@
                                     </div>
                                 </div>
                                 <div class="row-fluid">
+                                    <div class="span4">Tipo de transporte</div>
+                                    <div class="span4">
+
+                                        <select name='tipo' id='tipo-t' align="left" >
+                                            <option value=' Interdepartamental'> Interdepartamental</option>
+                                            <option value='Interprovincial'>Interprovincial</option>
+                                            <option value=' Interdistrital'> Interdistrital</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row-fluid">
                                     <div class="span4">Dirección<spam class="required">*</spam></div>
                                     <div class="span4">
                                         <input type='text'  name='direccion' value=''  align="left" id='direccion-t' placeholder="" />

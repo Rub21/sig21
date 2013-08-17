@@ -5,8 +5,8 @@ window.setTimeout(function() {
 
 
 function mapData_transportes() {
-    var f = list_transportes;
-    console.log(f);
+    var arr = list_transportes;
+    console.log(arr);
     map.markerLayer.on('layeradd', function(e) {
         var marker = e.layer;
         var feature = marker.feature;
@@ -45,23 +45,55 @@ function mapData_transportes() {
         });
     });
 
-    map.markerLayer.setGeoJSON(f);
+    map.markerLayer.setGeoJSON(arr);
     /*map.markerLayer.on('mouseover', function(e) {
      e.layer.openPopup();
      });*/
-    //  filter();
-    fill_search_products(f);
+    filter(arr);
+
 
     $('#map').removeClass('loading');
 
 }
 ;
+
+
+function filter(arr) {
+    var url = document.URL;
+    var hash = url.substring(url.indexOf("#") + 1);
+
+    //filtro en el mapa
+    map.markerLayer.setFilter(function(f) {
+        if (hash === 'interdepartamental' || hash === 'interprovincial' || hash === 'interdistrital')
+        {
+            return f.tipo.replace(/\s/g, "").toLowerCase() === hash;
+        } else {
+            return true;
+        }
+    });
+
+    //filtro en sidebar
+    if (hash === 'interdepartamental' || hash === 'interprovincial' || hash === 'interdistrital')
+    {
+        arr = _.filter(arr, function(item) {
+            return item.tipo.replace(/\s/g, "").toLowerCase() === hash;
+        });
+        fill_search_products(arr);
+    } else {
+        fill_search_products(arr);
+    }
+}
+;
+
+
+
+
 $(document).on('ready', function() {
     //Autocomplete
     $("#search").autocomplete({
         source: list_auto_transportes
     });
-    
+
     $('a[href="#buscar"]').click(function(e) {
         e.preventDefault();
         var nombre = $('#search').val().replace(/\s/g, "");
@@ -83,4 +115,32 @@ $(document).on('ready', function() {
             $('#faill_search').empty();
         }, 2000);
     });
+
+
+    $('.select_transporte').click(function() {
+        var id = this.id;
+        //filtrar en el mapa
+        map.markerLayer.setFilter(function(f) {
+            if (id === 'todos')
+            {
+                return true;
+            } else {
+                return f.tipo.replace(/\s/g, "").toLowerCase() === id;
+            }
+        });
+        //filtrar en sidebar
+        if (id === 'todos')
+        {
+            fill_search_products(list_transportes);
+        } else {
+            var arr = _.filter(list_transportes, function(item) {
+                return item.tipo.replace(/\s/g, "").toLowerCase() === id;
+            });
+            fill_search_products(arr);
+        }
+        ;
+
+
+    });
+
 });

@@ -72,6 +72,7 @@ public class DAOTransporte {
                     + bTransporte.isEstado() + ", "
                     + "'" + bTransporte.getIdtransporte() + "' ,"
                     + " '" + bTransporte.getDescripcion() + "', "
+                     + " '" + bTransporte.getTipo() + "', "
                     + "'" + bTransporte.getDireccion() + "', "
                     + "'" + bTransporte.getTelefono() + "',"
                     + "'" + bTransporte.getSitio_web()+ "',"
@@ -113,7 +114,7 @@ public class DAOTransporte {
         
         try {
             
-            String sql = "SELECT idproducto, nombre, clase, estado, idtransporte, descripcion, \n" +
+            String sql = "SELECT idproducto, nombre, clase, estado, idtransporte, descripcion, tipo, \n" +
 "       direccion, telefono, sitio_web, horario_de_atencion, horario_de_salida, \n" +
 "       destinos, lat, lon\n" +
 "  FROM select_transporte;";
@@ -132,6 +133,7 @@ public class DAOTransporte {
                 //Transporte
                 bTransporte.setIdtransporte(rs.getString("idtransporte"));
                 bTransporte.setDescripcion(rs.getString("descripcion"));
+                bTransporte.setTipo(rs.getString("tipo"));
                 bTransporte.setDireccion(rs.getString("direccion"));
                 bTransporte.setTelefono(rs.getString("telefono"));
                 bTransporte.setSitio_web(rs.getString("sitio_web"));
