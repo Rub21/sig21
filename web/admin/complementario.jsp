@@ -1,10 +1,10 @@
 <%@ page pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
 
-<%    /*   String usuario3 = (String) session.getAttribute("session_usuario");
-     if (usuario3 == null) {
-     response.sendRedirect("../users/login_users.jsp");
-     }*/
+<%      String usuario = (String) session.getAttribute("user");
+     if (usuario == null) {
+     response.sendRedirect("login.jsp");
+     }
 
 %>
 <html>
@@ -19,93 +19,68 @@
         <jsp:include page="templates/header.jsp"></jsp:include>
             <div class="span2"></div>
             <div class="container span10" > 
-                <form name="form" id="form-re" method="post"  action="<%=request.getContextPath()%>/SRegistrarRestaurant" enctype="multipart/form-data" >
-                <div class="container" >
+                <form name="form" id="form-c" method="post"  action="<%=request.getContextPath()%>/SRegistrarComplementario" enctype="multipart/form-data" >
+                <div class="container">
                     <div class="row">                  
                         <div class="well span8" align="center">
-                            <h4> Registrar planta turística - Restaurant</h4>
+                            <h4>Registrar servicio complementarios</h4>
                             <div class="container-fluid">
                                 <div class="row-fluid">
-                                    <div class="span4">Nombre <spam class="required">*</spam></div>
+                                    <div class="span4">Nombre<spam class="required">*</spam></div>
                                     <div class="span4">
-                                        <input type='text'  name='nombre' value=''  align="left" id='name-re' placeholder="" required/>
-                                    </div>
-                                </div>
-                                <div class="row-fluid">
-                                    <div class="span4 left">Categoria</div>
-                                    <div class="span4">
-                                        <select name='categoria' id='category-re' align="left" >
-                                            <option value='Sin Categoria'>Sin Categoria</option>
-                                            <option value='1 Tenedor'>1 Tenedor</option>
-                                            <option value='2 Tenedores'>2 Tenedores</option>
-                                            <option value='3 Tenedores'>3 Tenedores</option>
-                                            <option value='4 Tenedores'>4 Tenedores</option>
-                                        </select>
+                                        <input type='text'  name='nombre' value=''  align="left" id='nombre-c' placeholder="" required/>
                                     </div>
                                 </div>  
+                                <div class="row-fluid">
+                                    <div class="span4 left">Tipo de servicio<spam class="required">*</spam></div>
+                                    <div class="span4">
+                                        <select name='tipo' id='type-c' align="left" >
+                                            <option value='Puntos de información al turista'> Puntos de información al turista</option> 
+                                            <option value='Agencias de turismo'> Agencias de turismo</option> 
+                                            <option value='Comercio de artesanías'>Comercio de artesanías </option> 
+                                            <option value='Bar'>Bar</option> 
+                                            <option value='Farmacia'>Farmacia</option> 
+                                            <option value='Banco'>Banco</option> 
+                                            <option value='Galeria de Arte'>Galeria de Arte</option>
+                                            <option value='Policia'>Policia</option>
+                                            <option value='Servicio de Salud'>Servicios de Salud</option>
+                                            <option value='Cabinas de Internet'>Cabinas de Internet</option>
+                                            <option value='Otros Servicios'>Otros Servicios</option>
 
-                                <div class="row-fluid">
-                                    <div class="span4 left">Tipo</div>
-                                    <div class="span4">
-                                        <select name='tipo' id='tipo-re' align="left" >
-                                            <option value='Comida típica  y nacional'>Comida típica  y nacional</option>
-                                            <option value='Comida cacera'>Comida cacera</option>
-                                            <option value='Pollos a la brasa y parrillas'>Pollos a la brasa y parrillas</option>
-                                            <option value='Pizas y pastas'>Pizas y pastas</option>
-                                            <option value='Comida vegetariana'>Comida vegetariana</option>
-                                            <option value='Desayuno y lonches'>Desayuno y lonches</option>
                                         </select>
                                     </div>
-                                </div>  
+                                </div> 
                                 <div class="row-fluid">
                                     <div class="span4">Descripción<spam class="required">*</spam></div>
                                     <div class="span4">
-                                        <textarea  name='descripcion'  rows='4' cols='75' id='descripcion-re' align="left"></textarea>
+                                        <textarea  name='descripcion'  rows='3' cols='75' id='descripcion-c' align="left"></textarea>
                                     </div>
                                 </div>
                                 <div class="row-fluid">
                                     <div class="span4">Direción<spam class="required">*</spam></div>
                                     <div class="span4">
-                                        <input type='text'  name='direccion' value=''  align="left" id='direccion-re' placeholder="" />
+                                        <input type='text'  name='direccion' value=''  align="left" id='direccion-c' placeholder="" />
                                     </div>
                                 </div>
                                 <div class="row-fluid">
-                                    <div class="span4"> Telefono<spam class="required">*</spam></div>
+                                    <div class="span4">Telefono<spam class="required">*</spam></div>
                                     <div class="span4">
-                                        <input type='text'  name='telefono' value=''  align="left" id='telefono-re' placeholder="Ejm:31-1234, #213254, 966036830" />
+                                        <input type='text'  name='telefono' value=''  align="left" id='telefono-c' placeholder="" />
                                     </div>
                                 </div>
 
                                 <div class="row-fluid">
                                     <div class="span4">Sitio Web</div>
                                     <div class="span4">
-                                        <input type='text'  name='sitio_web' value=''  align="left" id='sitio_web-re' placeholder="" />
+                                        <input type='text'  name='sitio_web' value=''  align="left" id='sitio_web-c' placeholder="" />
                                     </div>
                                 </div>
                                 <div class="row-fluid">
-                                    <div class="span4">Horario de atención<spam class="required">*</spam></div>
+                                    <div class="span4">Horario de Atención<spam class="required">*</spam></div>
                                     <div class="span4">
-                                        <input type='text'  name='horario_de_atencion' value=''  align="left" id='horario_de_atencion-re' placeholder="" />
+                                        <input type='text'  name='horario_de_atencion' value=''  align="left" id='horario_de_atencion-c' placeholder="" />
                                     </div>
-                                </div>
-                                <div class="row-fluid">
-                                    <div class="span4">Especialidades</div>
-                                    <div class="span4">
-                                        <input type='text'  name='especialidad' value=''  align="left" id='especialidad-re' placeholder="" />
-                                    </div>
-                                </div>
-                                <div class="row-fluid">
-                                    <div class="span4">Precio promedio</div>
-                                    <div class="span4">
-                                        <input type='text'  name='precio_promedio' value=''  align="left" id='precio_promedio-re' placeholder="" />
-                                    </div>
-                                </div>
-                                <div class="row-fluid">
-                                    <div class="span4">Formas de pago</div>
-                                    <div class="span4">
-                                        <input type='text'  name='formas_de_pago' value=''  align="left" id='formas_de_pago-re' placeholder="" />
-                                    </div>
-                                </div>
+                                </div> 
                             </div>   
                         </div>
                     </div>
@@ -201,7 +176,7 @@
     <script src='js/form_hotel.js' ></script>
     <script src='js/form_restaurant.js' ></script>
     <script src='js/form_transporte.js' ></script>
-       
+
     <script src='js/form_validate.js' ></script>
-    
+
 </html>

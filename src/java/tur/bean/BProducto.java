@@ -15,7 +15,7 @@ public class BProducto {
     private boolean  estado;
 
     public String getIdproducto() {
-        return idproducto;
+        return idproducto.trim().replaceAll(" +", " ");
     }
 
     public void setIdproducto(String idproducto) {
@@ -24,7 +24,7 @@ public class BProducto {
 
 
     public String getNombre() {
-        return nombre;
+        return nombre.trim().replaceAll(" +", " ");
     }
 
     public void setNombre(String nombre) {
@@ -32,7 +32,7 @@ public class BProducto {
     }
 
     public String getClase() {
-        return clase;
+        return clase.trim().replaceAll(" +", " ");
     }
 
     public void setClase(String clase) {

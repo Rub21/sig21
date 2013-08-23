@@ -43,7 +43,7 @@ public class Siniciar_medios_trasporte extends HttpServlet {
             
             sesion.setAttribute("list",list);
 
-        response.sendRedirect("admin2/recurso.jsp");
+        response.sendRedirect("admin/recurso.jsp");
             
                     
             String json = new Gson().toJson(list);

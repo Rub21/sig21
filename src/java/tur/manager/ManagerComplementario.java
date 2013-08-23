@@ -24,7 +24,7 @@ public class ManagerComplementario {
         this.cn = connecion.getConnection();
     }
 
-    public void registrartransporte(BComplementario bComplementario) {
+    public void registrarcomplementario(BComplementario bComplementario) {
         dAOComplementario = new DAOComplementario(cn);
         dAOComplementario.registrarcomplementario(bComplementario);
     }

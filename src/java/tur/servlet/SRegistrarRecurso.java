@@ -165,7 +165,7 @@ public class SRegistrarRecurso extends HttpServlet {
             bRecurso.print();
             managerrecurso.registrarrecurso(bRecurso);
             
-            response.sendRedirect("admin2/confirm.html");
+            response.sendRedirect("admin/confirm.html");
             
         } catch (Exception ex) {
             request.setAttribute("message", "There was an error: " + ex.getMessage());

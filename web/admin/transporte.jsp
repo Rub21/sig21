@@ -1,10 +1,10 @@
 <%@ page pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
 
-<%    /*   String usuario3 = (String) session.getAttribute("session_usuario");
-     if (usuario3 == null) {
-     response.sendRedirect("../users/login_users.jsp");
-     }*/
+<%      String usuario = (String) session.getAttribute("user");
+     if (usuario == null) {
+     response.sendRedirect("login.jsp");
+     }
 
 %>
 <html>
@@ -15,70 +15,73 @@
         <jsp:include page="templates/style.jspf"></jsp:include>
         </head>
         <body>
-
         <jsp:include page="templates/header.jsp"></jsp:include>
             <div class="span2"></div>
             <div class="container span10" > 
-                <form name="form" id="form-c" method="post"  action="<%=request.getContextPath()%>/SRegistrarComplementario" enctype="multipart/form-data" >
+                <form name="form" id="form-t" method="post"  action="<%=request.getContextPath()%>/SRegistrarTransporte" enctype="multipart/form-data" >
                 <div class="container">
                     <div class="row">                  
                         <div class="well span8" align="center">
-                            <h4>Registrar servicio complementarios</h4>
+                            <h4>Registrar medio de transporte</h4>
                             <div class="container-fluid">
                                 <div class="row-fluid">
                                     <div class="span4">Nombre<spam class="required">*</spam></div>
                                     <div class="span4">
-                                        <input type='text'  name='nombre' value=''  align="left" id='nombre-c' placeholder="" required/>
+                                        <input type='text'  name='nombre' value=''  align="left" id='nombre-t' placeholder="" required/>
                                     </div>
-                                </div>  
-                                <div class="row-fluid">
-                                    <div class="span4 left">Tipo de servicio<spam class="required">*</spam></div>
-                                    <div class="span4">
-                                        <select name='tipo' id='type-c' align="left" >
-                                            <option value='Puntos de información al turista'> Puntos de información al turista</option> 
-                                            <option value='Agencias de turismo'> Agencias de turismo</option> 
-                                            <option value='Comercio de artesanías'>Comercio de artesanías </option> 
-                                            <option value='Bar'>Bar</option> 
-                                            <option value='Farmacia'>Farmacia</option> 
-                                            <option value='Banco'>Banco</option> 
-                                            <option value='Galeria de Arte'>Galeria de Arte</option>
-                                            <option value='Policia'>Policia</option>
-                                            <option value='Servicio de Salud'>Servicios de Salud</option>
-                                            <option value='Cabinas de Internet'>Cabinas de Internet</option>
-                                            <option value='Otros Servicios'>Otros Servicios</option>
-
-                                        </select>
-                                    </div>
-                                </div> 
+                                </div>                               
                                 <div class="row-fluid">
                                     <div class="span4">Descripción<spam class="required">*</spam></div>
                                     <div class="span4">
-                                        <textarea  name='descripcion'  rows='3' cols='75' id='descripcion-c' align="left"></textarea>
+                                        <textarea  name='descripcion'  rows='3' cols='75' id='descripcion-t' align="left"></textarea>
                                     </div>
                                 </div>
                                 <div class="row-fluid">
-                                    <div class="span4">Direción<spam class="required">*</spam></div>
+                                    <div class="span4">Tipo de transporte</div>
                                     <div class="span4">
-                                        <input type='text'  name='direccion' value=''  align="left" id='direccion-c' placeholder="" />
+
+                                        <select name='tipo' id='tipo-t' align="left" >
+                                            <option value=' Interdepartamental'> Interdepartamental</option>
+                                            <option value='Interprovincial'>Interprovincial</option>
+                                            <option value=' Interdistrital'> Interdistrital</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="span4">Dirección<spam class="required">*</spam></div>
+                                    <div class="span4">
+                                        <input type='text'  name='direccion' value=''  align="left" id='direccion-t' placeholder="" />
                                     </div>
                                 </div>
                                 <div class="row-fluid">
                                     <div class="span4">Telefono<spam class="required">*</spam></div>
                                     <div class="span4">
-                                        <input type='text'  name='telefono' value=''  align="left" id='telefono-c' placeholder="" />
+                                        <input type='text'  name='telefono' value=''  align="left" id='telefono-t' placeholder="" />
                                     </div>
                                 </div>
 
                                 <div class="row-fluid">
                                     <div class="span4">Sitio Web</div>
                                     <div class="span4">
-                                        <input type='text'  name='sitio_web' value=''  align="left" id='sitio_web-c' placeholder="" />
+                                        <input type='text'  name='sitio_web' value=''  align="left" id='sitio_web-t' placeholder="" />
                                     </div>
                                 </div>
                                 <div class="row-fluid">
                                     <div class="span4">Horario de Atención<spam class="required">*</spam></div>
                                     <div class="span4">
-                                        <input type='text'  name='horario_de_atencion' value=''  align="left" id='horario_de_atencion-c' placeholder="" />
+                                        <input type='text'  name='horario_de_atencion' value=''  align="left" id='horario_de_atencion-t' placeholder="" />
+                                    </div>
+                                </div> 
+                                <div class="row-fluid">
+                                    <div class="span4">Horario de salidas<spam class="required">*</spam></div>
+                                    <div class="span4">
+                                        <input type='text'  name='horario_de_salida' value=''  align="left" id='horario_de_salida-t' placeholder="" />
+                                    </div>
+                                </div> 
+                                <div class="row-fluid">
+                                    <div class="span4">Destinos de transporte<spam class="required">*</spam></div>
+                                    <div class="span4">
+                                        <textarea type='text'  name='destinos' value='' rows='2' cols='75'  align="left" id='destinos-t' placeholder="" ></textarea>
                                     </div>
                                 </div> 
                             </div>   
@@ -113,14 +116,14 @@
                 </div>  
 
                 <div class="content_map">
-                    <div class="accordion" id="accordion">
+                    <div class="accordion" id="accordion-re">
                         <div class="accordion-group">
                             <div class="accordion-reeading">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse" >
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse-re" >
                                     Mostrar Mapa
                                 </a>
                             </div>
-                            <div id="collapse" class="accordion-body collapse">
+                            <div id="collapse-re" class="accordion-body collapse">
                                 <div class="accordion-inner">
                                     <div id='map'></div>
                                     <div class='left'>
@@ -131,8 +134,6 @@
                         </div>
                     </div>
                 </div>
-
-
                 <div class="container">
                     <div class="row"> 
                         <div class="well span8 file_upload" align="center">  
@@ -148,21 +149,15 @@
                         </div> 
                     </div> 
                 </div> 
-
                 <div class="span3"></div>
                 <div class="container">
-                    <button type="submit" class="btn btn-primary" id="button">  Registrar</button>
-                    <a class="btn" id="clear" href="#" onClick="location.href = 'registrar.jsp'">Cancelar</a>
+                    <button type="submit" class="btn btn-primary" id="button-re">  Registrar</button>                    
+                    <a class="btn" id="clear-re" href="#" onClick="location.href = 'registrar.jsp'">Cancelar</a>
                 </div>
-
             </form>
-
         </div>
-
         <div class="span2"></div>
-
         <jsp:include page="templates/footer.jspf"></jsp:include>
-
     </body>
     <!--Scripts-->		
     <script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.6/mapbox.js'></script>
@@ -171,12 +166,11 @@
     <script src='js/underscore.min.js'></script>
     <script src='js/bootstrap.js'></script>        
     <script src='js/fun_map.js' ></script>
-    <script src='js/app.js' ></script>
+    <script src='js/app.js' ></script>   
+
     <script src='js/form_recurso.js' ></script>
     <script src='js/form_hotel.js' ></script>
     <script src='js/form_restaurant.js' ></script>
     <script src='js/form_transporte.js' ></script>
-
     <script src='js/form_validate.js' ></script>
-
 </html>

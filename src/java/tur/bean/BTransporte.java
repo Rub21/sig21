@@ -25,7 +25,7 @@ public class BTransporte extends BProducto {
     private ArrayList<BImagen> imagenes;
 
     public String getIdtransporte() {
-        return idtransporte;
+        return idtransporte.trim().replaceAll(" +", " ");
     }
 
     public void setIdtransporte(String idtransporte) {
@@ -33,7 +33,7 @@ public class BTransporte extends BProducto {
     }
 
     public String getDescripcion() {
-        return descripcion;
+        return descripcion.trim().replaceAll(" +", " ");
     }
 
     public void setDescripcion(String descripcion) {
@@ -41,7 +41,7 @@ public class BTransporte extends BProducto {
     }
 
     public String getTipo() {
-        return tipo;
+        return tipo.trim().replaceAll(" +", " ");
     }
 
     public void setTipo(String tipo) {
@@ -49,7 +49,7 @@ public class BTransporte extends BProducto {
     }
 
     public String getDireccion() {
-        return direccion;
+        return direccion.trim().replaceAll(" +", " ");
     }
 
     public void setDireccion(String direccion) {
@@ -57,7 +57,7 @@ public class BTransporte extends BProducto {
     }
 
     public String getTelefono() {
-        return telefono;
+        return telefono.trim().replaceAll(" +", " ");
     }
 
     public void setTelefono(String telefono) {
@@ -65,7 +65,7 @@ public class BTransporte extends BProducto {
     }
 
     public String getSitio_web() {
-        return sitio_web;
+        return sitio_web.trim().replaceAll(" +", " ");
     }
 
     public void setSitio_web(String sitio_web) {
@@ -73,7 +73,7 @@ public class BTransporte extends BProducto {
     }
 
     public String getHorario_de_atencion() {
-        return horario_de_atencion;
+        return horario_de_atencion.trim().replaceAll(" +", " ");
     }
 
     public void setHorario_de_atencion(String horario_de_atencion) {
@@ -81,7 +81,7 @@ public class BTransporte extends BProducto {
     }
 
     public String getHorario_de_salida() {
-        return horario_de_salida;
+        return horario_de_salida.trim().replaceAll(" +", " ");
     }
 
     public void setHorario_de_salida(String horario_de_salida) {
@@ -89,7 +89,7 @@ public class BTransporte extends BProducto {
     }
 
     public String getDestinos() {
-        return destinos;
+        return destinos.trim().replaceAll(" +", " ");
     }
 
     public void setDestinos(String destinos) {

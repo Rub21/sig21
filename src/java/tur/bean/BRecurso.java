@@ -31,7 +31,7 @@ public class BRecurso extends BProducto {
     private ArrayList<BImagen> imagenes;
 
     public String getVideo() {
-        return video;
+        return video.trim().replaceAll(" +", " ");
     }
 
     public void setVideo(String video) {
@@ -40,7 +40,7 @@ public class BRecurso extends BProducto {
 
     
     public String getFecha() {
-        return fecha;
+        return fecha.trim().replaceAll(" +", " ");
     }
 
     public void setFecha(String fecha) {
@@ -49,7 +49,7 @@ public class BRecurso extends BProducto {
 
     
     public String getIdrecurso() {
-        return idrecurso;
+        return idrecurso.trim().replaceAll(" +", " ");
     }
 
     public void setIdrecurso(String idrecurso) {
@@ -57,7 +57,7 @@ public class BRecurso extends BProducto {
     }
 
     public String getCategoria() {
-        return categoria;
+        return categoria.trim().replaceAll(" +", " ");
     }
 
     public void setCategoria(String categoria) {
@@ -65,7 +65,7 @@ public class BRecurso extends BProducto {
     }
 
     public String getTipo() {
-        return tipo;
+        return tipo.trim().replaceAll(" +", " ");
     }
 
     public void setTipo(String tipo) {
@@ -73,7 +73,7 @@ public class BRecurso extends BProducto {
     }
 
     public String getDescripcion() {
-        return descripcion;
+        return descripcion.trim().replaceAll(" +", " ");
     }
 
     public void setDescripcion(String descripcion) {
@@ -81,7 +81,7 @@ public class BRecurso extends BProducto {
     }
 
     public String getHistoria() {
-        return historia;
+        return historia.trim().replaceAll(" +", " ");
     }
 
     public void setHistoria(String historia) {
@@ -89,7 +89,7 @@ public class BRecurso extends BProducto {
     }
 
     public String getCorredor() {
-        return corredor;
+        return corredor.trim().replaceAll(" +", " ");
     }
 
     public void setCorredor(String corredor) {
@@ -97,7 +97,7 @@ public class BRecurso extends BProducto {
     }
 
     public String getDistancia() {
-        return distancia;
+        return distancia.trim().replaceAll(" +", " ");
     }
 
     public void setDistancia(String distancia) {
@@ -105,7 +105,7 @@ public class BRecurso extends BProducto {
     }
 
     public String getCosto_de_ingreso() {
-        return costo_de_ingreso;
+        return costo_de_ingreso.trim().replaceAll(" +", " ");
     }
 
     public void setCosto_de_ingreso(String costo_de_ingreso) {
@@ -113,7 +113,7 @@ public class BRecurso extends BProducto {
     }
 
     public String getHorario_de_atencion() {
-        return horario_de_atencion;
+        return horario_de_atencion.trim().replaceAll(" +", " ");
     }
 
     public void setHorario_de_atencion(String horario_de_atencion) {
@@ -121,7 +121,7 @@ public class BRecurso extends BProducto {
     }
 
     public String getTemperatura() {
-        return temperatura;
+        return temperatura.trim().replaceAll(" +", " ");
     }
 
     public void setTemperatura(String temperatura) {
@@ -129,7 +129,7 @@ public class BRecurso extends BProducto {
     }
 
     public String getAltitud() {
-        return altitud;
+        return altitud.trim().replaceAll(" +", " ");
     }
 
     public void setAltitud(String altitud) {
@@ -137,7 +137,7 @@ public class BRecurso extends BProducto {
     }
 
     public String getComo_llegar() {
-        return como_llegar;
+        return como_llegar.trim().replaceAll(" +", " ");
     }
 
     public void setComo_llegar(String como_llegar) {

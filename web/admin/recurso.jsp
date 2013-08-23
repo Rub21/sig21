@@ -2,10 +2,10 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
-<%    /*   String usuario3 = (String) session.getAttribute("session_usuario");
-     if (usuario3 == null) {
-     response.sendRedirect("../users/login_users.jsp");
-     }*/
+<%      String usuario = (String) session.getAttribute("user");
+     if (usuario == null) {
+     response.sendRedirect("login.jsp");
+     }
 
 %>
 <html>

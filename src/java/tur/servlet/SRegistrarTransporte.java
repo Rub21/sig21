@@ -135,7 +135,7 @@ public class SRegistrarTransporte extends HttpServlet {
 
             bTransporte.print();
             managerTransporte.registrartransporte(bTransporte);
-            response.sendRedirect("admin2/confirm.html");
+            response.sendRedirect("admin/confirm.html");
 
 
 

@@ -37,7 +37,7 @@ public class BGeometry {
     }
 
     public String getIdproducto() {
-        return idproducto;
+        return idproducto.trim().replaceAll(" +", " ");
     }
 
     public void setIdproducto(String idproducto) {

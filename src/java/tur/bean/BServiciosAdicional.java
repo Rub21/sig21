@@ -11,11 +11,10 @@ package tur.bean;
 public class BServiciosAdicional {
 
     private String tipo;
-    private String descripcion;
     private String idproducto;
 
     public String getIdproducto() {
-        return idproducto;
+        return idproducto.trim().replaceAll(" +", " ");
     }
 
     public void setIdproducto(String iproducto) {
@@ -23,18 +22,10 @@ public class BServiciosAdicional {
     }
 
     public String getTipo() {
-        return tipo;
+        return tipo.trim().replaceAll(" +", " ");
     }
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
     }
 }

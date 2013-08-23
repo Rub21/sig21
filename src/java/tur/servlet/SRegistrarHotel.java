@@ -158,7 +158,7 @@ public class SRegistrarHotel extends HttpServlet {
             //sesion.setAttribute("conf", "conf");
             //response.sendRedirect("admin/registrar.jsp");
             
-            response.sendRedirect("admin2/confirm.html");
+            response.sendRedirect("admin/confirm.html");
 
         } catch (Exception ex) {
             request.setAttribute("message", "There was an error: " + ex.getMessage());

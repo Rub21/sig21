@@ -133,7 +133,7 @@ public class SRegistrarRestaurant extends HttpServlet {
            managerRestaurant.registrarrestaurant(bRestaurant);
             ///sesion.setAttribute("conf", "conf");
             //response.sendRedirect("admin/registrar.jsp");
-             response.sendRedirect("admin2/confirm.html");
+             response.sendRedirect("admin/confirm.html");
         } catch (Exception ex) {
             request.setAttribute("message", "There was an error: " + ex.getMessage());
             System.out.println("Error" + ex.getMessage());

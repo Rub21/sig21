@@ -26,7 +26,7 @@ public class BHotel extends BProducto {
     private ArrayList<BImagen> imagenes;
 
     public String getIdhotel() {
-        return idhotel;
+        return idhotel.trim().replaceAll(" +", " ");
     }
 
     public void setIdhotel(String idhotel) {
@@ -34,7 +34,7 @@ public class BHotel extends BProducto {
     }
 
     public String getCategoria() {
-        return categoria;
+        return categoria.trim().replaceAll(" +", " ");
     }
 
     public void setCategoria(String categoria) {
@@ -42,7 +42,7 @@ public class BHotel extends BProducto {
     }
 
     public String getDescripcion() {
-        return descripcion;
+        return descripcion.trim().replaceAll(" +", " ");
     }
 
     public void setDescripcion(String descripcion) {
@@ -50,7 +50,7 @@ public class BHotel extends BProducto {
     }
 
     public String getDireccion() {
-        return direccion;
+        return direccion.trim().replaceAll(" +", " ");
     }
 
     public void setDireccion(String direccion) {
@@ -58,7 +58,7 @@ public class BHotel extends BProducto {
     }
 
     public String getTelefono() {
-        return telefono;
+        return telefono.trim().replaceAll(" +", " ");
     }
 
     public void setTelefono(String telefono) {
@@ -66,7 +66,7 @@ public class BHotel extends BProducto {
     }
 
     public String getSitio_web() {
-        return sitio_web;
+        return sitio_web.trim().replaceAll(" +", " ");
     }
 
     public void setSitio_web(String sitio_web) {
@@ -74,7 +74,7 @@ public class BHotel extends BProducto {
     }
 
     public String getCorreo_electronico() {
-        return correo_electronico;
+        return correo_electronico.trim().replaceAll(" +", " ");
     }
 
     public void setCorreo_electronico(String correo_electronico) {
@@ -82,7 +82,7 @@ public class BHotel extends BProducto {
     }
 
     public String getPrecio_de_habitacion() {
-        return precio_de_habitacion;
+        return precio_de_habitacion.trim().replaceAll(" +", " ");
     }
 
     public void setPrecio_de_habitacion(String precio_de_habitacion) {
@@ -90,7 +90,7 @@ public class BHotel extends BProducto {
     }
 
     public String getFormas_de_pago() {
-        return formas_de_pago;
+        return formas_de_pago.trim().replaceAll(" +", " ");
     }
 
     public void setFormas_de_pago(String formas_de_pago) {

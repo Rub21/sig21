@@ -12,7 +12,7 @@ $(function() {
     m.centerzoom({
         lat: -13.16048,
         lon: -74.22565
-    }, 15);
+    }, 8);
 
     var markerEvents = {
         touchstart: onDown,

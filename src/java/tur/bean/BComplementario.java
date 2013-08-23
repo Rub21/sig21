@@ -23,7 +23,7 @@ public class BComplementario extends BProducto {
     private ArrayList<BImagen> imagenes;
 
     public String getIdcomplementario() {
-        return idcomplementario;
+        return idcomplementario.trim().replaceAll(" +", " ") ;
     }
 
     public void setIdcomplementario(String idcomplementario) {
@@ -31,7 +31,7 @@ public class BComplementario extends BProducto {
     }
 
     public String getTipo() {
-        return tipo;
+        return tipo.trim().replaceAll(" +", " ");
     }
 
     public void setTipo(String tipo) {
@@ -39,7 +39,7 @@ public class BComplementario extends BProducto {
     }
 
     public String getDescripcion() {
-        return descripcion;
+        return descripcion.trim().replaceAll(" +", " ") ;
     }
 
     public void setDescripcion(String descripcion) {
@@ -47,7 +47,7 @@ public class BComplementario extends BProducto {
     }
 
     public String getDireccion() {
-        return direccion;
+        return direccion.trim().replaceAll(" +", " ") ;
     }
 
     public void setDireccion(String direccion) {
@@ -55,7 +55,7 @@ public class BComplementario extends BProducto {
     }
 
     public String getTelefono() {
-        return telefono;
+        return telefono.trim().replaceAll(" +", " ") ;
     }
 
     public void setTelefono(String telefono) {
@@ -63,7 +63,7 @@ public class BComplementario extends BProducto {
     }
 
     public String getSitio_web() {
-        return sitio_web;
+        return sitio_web.trim().replaceAll(" +", " ") ;
     }
 
     public void setSitio_web(String sitio_web) {
@@ -71,7 +71,7 @@ public class BComplementario extends BProducto {
     }
 
     public String getHorario_de_atencion() {
-        return horario_de_atencion;
+        return horario_de_atencion.trim().replaceAll(" +", " ") ;
     }
 
     public void setHorario_de_atencion(String horario_de_atencion) {
@@ -96,7 +96,7 @@ public class BComplementario extends BProducto {
 
     public void print() {
 
-        System.out.println("idhotel :" + getIdcomplementario());
+        System.out.println("idComplementario :" + getIdcomplementario());
         System.out.println("Nombre :" + getNombre());
         System.out.println("Descripcion :" + getDescripcion());
         System.out.println("direccion :" + getDireccion());

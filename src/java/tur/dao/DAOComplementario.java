@@ -128,15 +128,15 @@ public class DAOComplementario {
 
         ArrayList<BImagen> list = new ArrayList<BImagen>();
         try {
-            String sql = "SELECT url, titulo, decripcion, idproducto  FROM imagen where idproducto='" + id + "';";
+            String sql = "SELECT url, idproducto  FROM imagen where idproducto='" + id + "';";
             //System.out.println("-----------SQL IMAGEN-----" + sql);
             pstmti = conni.prepareStatement(sql);
             rsi = pstmti.executeQuery();
             while (rsi.next()) {
                 BImagen bImagen = new BImagen();
                 bImagen.setUrl(rsi.getString("url"));
-                bImagen.setTitulo(rsi.getString("titulo"));
-                bImagen.setDescripcion(rsi.getString("decripcion"));
+               // bImagen.setTitulo(rsi.getString("titulo"));
+                //bImagen.setDescripcion(rsi.getString("decripcion"));
                 bImagen.setIdproducto(rsi.getString("idproducto"));
                 list.add(bImagen);
             }

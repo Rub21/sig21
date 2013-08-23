@@ -113,7 +113,7 @@ public class SRegistrarComplementario extends HttpServlet {
                 //Fill bImagen
                 //bImagen.setId(id);
                 bImagen.setUrl(nombreImagen);
-                
+
                 bImagen.setIdproducto(idproducto);
 
                 ((UploadFile) mrequest.getFiles().get("file" + i)).setFileName(nombreImagen);
@@ -125,9 +125,9 @@ public class SRegistrarComplementario extends HttpServlet {
 
             bComplementario.setImagenes(listImagenes);
             bComplementario.print();
-            managerComplementario.registrartransporte(bComplementario);
-            
-            response.sendRedirect("admin2/confirm.html");
+            managerComplementario.registrarcomplementario(bComplementario);
+
+            response.sendRedirect("admin/confirm.html");
         } catch (Exception ex) {
             request.setAttribute("message", "There was an error: " + ex.getMessage());
             System.out.println("Error" + ex.getMessage());

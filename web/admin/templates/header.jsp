@@ -2,9 +2,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <div class="content_user">
-    <p style="color: #000"> Bienvenido : ${session_usuario}</p>
+    <p style="color: #000"> Bienvenido : ${user}</p>
 
-    <p><a href="${pageContext.request.contextPath}/SCerrarsesion_users">Cerrar Sesion</a></p>
+    <p><a href="${pageContext.request.contextPath}/SCerrarsesion">Cerrar Sesion</a></p>
 </div>
 
 <div class="masthead">

@@ -125,10 +125,10 @@ public class DAOHotel {
 
         try {
 
-            String sql = "SELECT idproducto, nombre, clase, estado, idhotel, categoria, descripcion, \n" +
-                            "       direccion, telefono, sitio_web, correo_electronico, precio_de_habitacion, \n" +
-                            "       formas_de_pago, lat, lon\n" +
-                            "  FROM select_hotel;";
+            String sql = "SELECT idproducto, nombre, clase, estado, idhotel, categoria, descripcion, \n"
+                    + "       direccion, telefono, sitio_web, correo_electronico, precio_de_habitacion, \n"
+                    + "       formas_de_pago, lat, lon\n"
+                    + "  FROM select_hotel;";
             //System.out.println("--:" + sql);
             pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();
@@ -151,7 +151,7 @@ public class DAOHotel {
                 bHotel.setSitio_web(rs.getString("sitio_web"));
                 bHotel.setCorreo_electronico(rs.getString("correo_electronico"));
                 bHotel.setPrecio_de_habitacion(rs.getString("precio_de_habitacion"));
-                
+
                 bHotel.setFormas_de_pago(rs.getString("formas_de_pago"));
 
 
@@ -165,11 +165,11 @@ public class DAOHotel {
                 //Imagen
                 bHotel.setImagenes(listarimagen(bHotel.getIdproducto()));
                 //habitacion
-               // bHotel.setbHabitacion(listarhabitacion(bHotel.getIdhotel()));
+                // bHotel.setbHabitacion(listarhabitacion(bHotel.getIdhotel()));
                 //servicoadicional
                 bHotel.setbServiciosAdicional(listarservicio(bHotel.getIdproducto()));
                 //promocion
-               // bHotel.setbPromocion(listarpromocion(bHotel.getIdproducto()));
+                // bHotel.setbPromocion(listarpromocion(bHotel.getIdproducto()));
                 list.add(bHotel);
             }
 
@@ -188,7 +188,7 @@ public class DAOHotel {
         try {
 
             String sql = "SELECT url,idproducto  FROM imagen where idproducto='" + id + "';";
-            System.out.println("-----------SQL IMAGEN-----" + sql);
+            //System.out.println("-----------SQL IMAGEN-----" + sql);
             pstmti = conni.prepareStatement(sql);
             rsi = pstmti.executeQuery();
 
@@ -207,36 +207,6 @@ public class DAOHotel {
         return list;
 
     }
-
-  /*  public ArrayList<BHabitacion> listarhabitacion(String id) {
-
-        ArrayList<BHabitacion> list = new ArrayList<BHabitacion>();
-
-        try {
-
-            String sql = "SELECT tipo, precio, descripcion, idhotel FROM habitacion where idhotel='" + id + "';";
-            //System.out.println("-----------SQL Habitacion-----" + sql);
-            pstmth = connh.prepareStatement(sql);
-            rsh = pstmth.executeQuery();
-
-            while (rsh.next()) {
-                BHabitacion bHabitacion = new BHabitacion();
-                bHabitacion.setTipo(rsh.getString("tipo"));
-                bHabitacion.setPrecio(rsh.getDouble("precio"));
-                bHabitacion.setDescripcion(rsh.getString("descripcion"));
-                bHabitacion.setIdhotel(rsh.getString("idhotel"));
-
-                list.add(bHabitacion);
-            }
-            pstmth.close();
-            rsh.close();
-
-        } catch (SQLException ex) {
-            System.out.println("Error en Listar Habitacion " + ex);
-        }
-        return list;
-
-    }*/
 
     public ArrayList<BServiciosAdicional> listarservicio(String id) {
 
@@ -265,33 +235,4 @@ public class DAOHotel {
         return list;
 
     }
-/*
-    public ArrayList<BPromocion> listarpromocion(String id) {
-
-        ArrayList<BPromocion> list = new ArrayList<BPromocion>();
-
-        try {
-
-            String sql = "SELECT tipo, descripcion, idproducto FROM promocion where idproducto='" + id + "';";
-            //System.out.println("-----------SQL promocion-----" + sql);
-            pstmts = conns.prepareStatement(sql);
-            rss = pstmts.executeQuery();
-
-            while (rss.next()) {
-                BPromocion bPromocion = new BPromocion();
-
-                bPromocion.setTipo(rss.getString("tipo"));
-                bPromocion.setDescripcion(rss.getString("descripcion"));
-                bPromocion.setIdproducto(rss.getString("idproducto"));
-                list.add(bPromocion);
-            }
-            pstmts.close();
-            rss.close();
-
-        } catch (SQLException ex) {
-            System.out.println("Error en Listar promocion " + ex);
-        }
-        return list;
-
-    }*/
 }
