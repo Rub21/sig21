@@ -22,10 +22,10 @@ function  call_detaill_restaurant(id) {
     $('#modal_restaurant .imagen_logo').attr("src", f['properties']['icon']['iconUrl']);
     $('#modal_restaurant .direccion').text(f.direccion);
     $('#modal_restaurant .telefono').text(f.telefono);
-    $('#modal_restaurant .horario_de_atencion').text(f.horario_de_atencion);
+    $('#modal_restaurant .horario_de_atencion').text(f.horario_atencion);
 
-    if (check_null(f.formas_de_pago)) {
-        $('#modal_restaurant .formas_de_pago').text(f.formas_de_pago);
+    if (check_null(f.formas_pago)) {
+        $('#modal_restaurant .formas_de_pago').text(f.formas_pago);
     } else {
         $('#modal_restaurant .formas_de_pago').parents('tr').css('display', 'none');
     }
@@ -41,6 +41,8 @@ function  call_detaill_restaurant(id) {
     }
     if (check_null(f.sitio_web)) {
         $('#modal_restaurant .sitio_web').text(f.sitio_web);
+        var a = document.getElementById('sitio_web');
+        a.href = f.sitio_web;
     } else {
         $('#modal_restaurant .sitio_web').parents('tr').css('display', 'none');
     }
