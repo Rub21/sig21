@@ -34,7 +34,7 @@ public class DAOLogin {
 
         try {
 
-            String sql = "SELECT contrasenia FROM login where usuario='"+usuario+"';";
+            String sql = "SELECT contrasenia FROM usuario where usuario='"+usuario+"';";
            
             pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();

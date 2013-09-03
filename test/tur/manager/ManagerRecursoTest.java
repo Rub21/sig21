@@ -55,8 +55,8 @@ public class ManagerRecursoTest {
         bRecurso.setTipo_precio_ing("Libre");
         bRecurso.setHorario_atencion("Recomendable Lunes - Domingo de 7.00 am a 18.00pm");
         // bRecurso.setTemperatura(null);
-        bRecurso.setAltitud("ubicado entre 3820 y 4550msnm");
-        //bRecurso.setVideo(null);
+        bRecurso.setAltitud("Ubicado entre 3820 y 4550msnm");
+        bRecurso.setVideo("http://www.youtube.com/watch?v=4T4bs7Ax40c");
         bRecurso.setComo_llegar("Se debe tomar una desvió en la carretera Libertadores en el sector , en el sector Jutumpapa (18 L 560867 8525369)distante a 55.8km desde Ayacucho, desde ali son 5,2km por una carretera afirmada. Es recomendable contra los servicios de una agencia de turismo.");
         //Geometry
         BGeometry bGeometry = new BGeometry();
@@ -68,24 +68,24 @@ public class ManagerRecursoTest {
         ArrayList<BImagen> list_imagen = new ArrayList<BImagen>();
         String id = "5p";
         BImagen bImagen1 = new BImagen();
-        bImagen1.setUrl("_G7V1858130821072452.JPG");
+        bImagen1.setUrl("huaraca1130903100021.JPG");
 
         bImagen1.setIdproducto(id);
         list_imagen.add(bImagen1);
 
         BImagen bImagen2 = new BImagen();
-        bImagen2.setUrl("_G7V1857130821072452.JPG");
+        bImagen2.setUrl("huaraca2130903100021.JPG");
         bImagen2.setIdproducto(id);
         list_imagen.add(bImagen2);
 
         BImagen bImagen3 = new BImagen();
-        bImagen3.setUrl("_G7V0151130821072452.jpg");
+        bImagen3.setUrl("huaraca2130903100021.jpg");
         bImagen3.setIdproducto(id);
         list_imagen.add(bImagen3);
         bRecurso.setImagenes(list_imagen);
 
         BImagen bImagen4 = new BImagen();
-        bImagen4.setUrl("_G7V0154130821072452.JPG");
+        bImagen4.setUrl("huaraca4130903100021.JPG");
         bImagen4.setIdproducto(id);
         list_imagen.add(bImagen4);
 
@@ -118,6 +118,7 @@ public class ManagerRecursoTest {
             assertEquals(b_expResult.getTipo_precio_ing(), b_result.getTipo_precio_ing());
             assertEquals(b_expResult.getHorario_atencion(), b_result.getHorario_atencion());
             assertEquals(b_expResult.getAltitud(), b_result.getAltitud());
+            assertEquals(b_expResult.getVideo(), b_result.getVideo());
             assertEquals(b_expResult.getComo_llegar(), b_result.getComo_llegar());
             BGeometry geo_expResult = b_expResult.getGeometry();
             BGeometry geo_result = b_result.getGeometry();

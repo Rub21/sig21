@@ -94,18 +94,18 @@ public class ManagerHotelTest {
         ArrayList<BImagen> list = new ArrayList<BImagen>();
         String id = "2p";
         BImagen bImagen1 = new BImagen();
-        bImagen1.setUrl("plaza1130820202125.jpg");
+        bImagen1.setUrl("plaza1130903091657.jpg");
 
         bImagen1.setIdproducto("2p");
         list.add(bImagen1);
 
         BImagen bImagen2 = new BImagen();
-        bImagen2.setUrl("plaza2130820202125.jpg");
+        bImagen2.setUrl("plaza2130903091657.jpg");
         bImagen2.setIdproducto("2p");
         list.add(bImagen2);
 
         BImagen bImagen3 = new BImagen();
-        bImagen3.setUrl("plaza3130820202125.jpg");
+        bImagen3.setUrl("plaza3130903091657.jpg");
         bImagen3.setIdproducto("2p");
         list.add(bImagen3);
         bHotel.setImagenes(list);

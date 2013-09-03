@@ -91,7 +91,7 @@ public class ManagerTransporteTest {
         ArrayList<BImagen> list_imagen = new ArrayList<BImagen>();
         String id = "4p";
         BImagen bImagen1 = new BImagen();
-        bImagen1.setUrl("Etuscia2130820222712.jpg");
+        bImagen1.setUrl("Etuscia130903093259.jpg");
         bImagen1.setIdproducto(id);
         list_imagen.add(bImagen1);
 

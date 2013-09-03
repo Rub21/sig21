@@ -126,8 +126,8 @@ public class DAOHotel {
         try {
 
             String sql = "SELECT idproducto, nombre, clase, estado, idhotel, categoria, descripcion, \n"
-                    + "       direccion, telefono, sitio_web, correo_electronico, precio_de_habitacion, \n"
-                    + "       formas_de_pago, lat, lon\n"
+                    + "       direccion, telefono, sitio_web, correo_elec, tipo_precio_hab, \n"
+                    + "       formas_pago, lat, lon\n"
                     + "  FROM select_hotel;";
             //System.out.println("--:" + sql);
             pstmt = conn.prepareStatement(sql);
@@ -149,12 +149,9 @@ public class DAOHotel {
                 bHotel.setDireccion(rs.getString("direccion"));
                 bHotel.setTelefono(rs.getString("telefono"));
                 bHotel.setSitio_web(rs.getString("sitio_web"));
-                bHotel.setCorreo_elec(rs.getString("correo_electronico"));
-                bHotel.setTipo_precio_hab(rs.getString("precio_de_habitacion"));
-
-                bHotel.setFormas_pago(rs.getString("formas_de_pago"));
-
-
+                bHotel.setCorreo_elec(rs.getString("correo_elec"));
+                bHotel.setTipo_precio_hab(rs.getString("tipo_precio_hab"));
+                bHotel.setFormas_pago(rs.getString("formas_pago"));
                 //Geometry
                 bGeometry.setLatitud(rs.getDouble("lat"));
                 bGeometry.setLongitud(rs.getDouble("lon"));

@@ -90,23 +90,23 @@ public class ManagerComplementarioTest {
         ArrayList<BImagen> list = new ArrayList<BImagen>();
         String id = "1p";
         BImagen bImagen1 = new BImagen();
-        bImagen1.setUrl("retablo130819183245.jpg");
+        bImagen1.setUrl("sh1130903090922.jpg");
 
         bImagen1.setIdproducto("1p");
         list.add(bImagen1);
 
         BImagen bImagen2 = new BImagen();
-        bImagen2.setUrl("bordado130819183245.jpg");
+        bImagen2.setUrl("sh2130903090922.jpg");
         bImagen2.setIdproducto("1p");
         list.add(bImagen2);
 
         BImagen bImagen3 = new BImagen();
-        bImagen3.setUrl("sh2130819183245.jpg");
+        bImagen3.setUrl("sh3130903090922.jpg");
         bImagen3.setIdproducto("1p");
         list.add(bImagen3);
 
         BImagen bImagen4 = new BImagen();
-        bImagen4.setUrl("resena130819183245.jpg");
+        bImagen4.setUrl("sh4130903090922.jpg");
         bImagen4.setIdproducto("1p");
         list.add(bImagen4);
 
@@ -148,58 +148,6 @@ public class ManagerComplementarioTest {
             for (int j = 0; j < b_expResult.getImagenes().size() && (b_expResult.getImagenes().size() == b_result.getImagenes().size()); j++) {
                 assertEquals(b_expResult.getImagenes().get(j).getIdproducto(), b_result.getImagenes().get(j).getIdproducto());
             }
-
-
         }
-
-
-
-
-        /*
-         System.out.println("-------------------------------------------expResult");
-
-         System.out.println("idComplementario :" + b_expResult.getIdcomplementario().length() + "-");
-         System.out.println("Nombre :" + b_expResult.getNombre().length() + "-");
-         System.out.println("Descripcion :" + b_expResult.getDescripcion().length() + "-");
-         System.out.println("direccion :" + b_expResult.getDireccion().length() + "-");
-         System.out.println("telefono :" + b_expResult.getTelefono().length() + "-");
-         System.out.println("Sitio web" + b_expResult.getSitio_web().length() + "-");
-         System.out.println("Horario de Atencion :" + b_expResult.getHorario_de_atencion().length() + "-");
-         System.out.println("Latitud :" + b_expResult.getGeometry().getLatitud());
-         System.out.println("Longitud :" + b_expResult.getGeometry().getLongitud());
-         System.out.println("Imagenes" + b_expResult.getImagenes().size());
-
-         System.out.println("-------------------------------------------Result");
-         System.out.println("idComplementario :" + b_result.getIdcomplementario().length() + "-");
-         System.out.println("Nombre :" + b_result.getNombre().length() + "-");
-         System.out.println("Descripcion :" + b_result.getDescripcion().length() + "-");
-         System.out.println("direccion :" + b_result.getDireccion().length() + "-");
-         System.out.println("telefono :" + b_result.getTelefono().length() + "-");
-         System.out.println("Sitio web" + b_result.getSitio_web().length() + "-");
-         System.out.println("Horario de Atencion :" + b_result.getHorario_de_atencion().length() + "-");
-         System.out.println("Latitud :" + b_result.getGeometry().getLatitud());
-         System.out.println("Longitud :" + b_result.getGeometry().getLongitud());
-         System.out.println("Imagenes" + b_result.getImagenes().size());
-         */
-
-        /* System.out.println("-------------------------------------------Result");
-         System.out.println(b_expResult.getIdcomplementario() + ", " + b_result.getIdcomplementario() + "-");
-         System.out.println(b_expResult.getNombre() + "," + b_result.getNombre() + "-");
-         System.out.println(b_expResult.getDescripcion() + "," + b_result.getDescripcion() + "-");
-         System.out.println(b_expResult.getDireccion() + "," + b_result.getDireccion() + "-");
-         System.out.println(b_expResult.getTelefono() + "," + b_result.getTelefono() + "-");
-         System.out.println(b_expResult.getSitio_web() + "," + b_result.getSitio_web() + "-");
-         System.out.println(b_expResult.getHorario_de_atencion() + "," + b_result.getHorario_de_atencion() + "-");*/
-
-        /*System.out.println("Latitud :" + bc2.getGeometry().getLatitud());
-         System.out.println("Longitud :" + bc2.getGeometry().getLongitud());
-         System.out.println("Imagenes" + bc2.getImagenes().size());*/
-
-
-        /* b_expResult.setImagenes(null);
-         b_expResult.setGeometry(null);
-         b_result.setImagenes(null);
-         b_result.setGeometry(null);
-         */
     }
 }

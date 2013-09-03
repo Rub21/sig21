@@ -13,7 +13,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import tur.bean.BComplementario;
 import tur.bean.BGeometry;
 import tur.bean.BComplementario;
 import tur.bean.BImagen;
@@ -81,7 +80,7 @@ public class DAOComplementario {
 
         try {
 
-            String sql = "SELECT idproducto, nombre, clase, estado, idcomplementario, tipo,descripcion, direccion, telefono,sitio_web, horario_de_atencion, lat, lon FROM select_complementario;";
+            String sql = "SELECT idproducto, nombre, clase, estado, idcomplementario, tipo,descripcion, direccion, telefono,sitio_web, horario_atencion, lat, lon FROM select_complementario;";
             //System.out.println("--:" + sql);
             pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();
@@ -102,8 +101,7 @@ public class DAOComplementario {
                 bComplementario.setDireccion(rs.getString("direccion"));
                 bComplementario.setTelefono(rs.getString("telefono"));
                 bComplementario.setSitio_web(rs.getString("sitio_web"));
-                bComplementario.setHorario_atencion(rs.getString("horario_de_atencion"));
-
+                bComplementario.setHorario_atencion(rs.getString("horario_atencion"));
                 //Geometry
                 bGeometry.setLatitud(rs.getDouble("lat"));
                 bGeometry.setLongitud(rs.getDouble("lon"));
@@ -129,20 +127,16 @@ public class DAOComplementario {
         ArrayList<BImagen> list = new ArrayList<BImagen>();
         try {
             String sql = "SELECT url, idproducto  FROM imagen where idproducto='" + id + "';";
-            //System.out.println("-----------SQL IMAGEN-----" + sql);
             pstmti = conni.prepareStatement(sql);
             rsi = pstmti.executeQuery();
             while (rsi.next()) {
                 BImagen bImagen = new BImagen();
                 bImagen.setUrl(rsi.getString("url"));
-               // bImagen.setTitulo(rsi.getString("titulo"));
-                //bImagen.setDescripcion(rsi.getString("decripcion"));
                 bImagen.setIdproducto(rsi.getString("idproducto"));
                 list.add(bImagen);
             }
             pstmti.close();
             rsi.close();
-
         } catch (SQLException ex) {
             System.out.println("Error en Listar Imagen: " + ex);
         }

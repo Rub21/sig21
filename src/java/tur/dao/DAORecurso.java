@@ -40,29 +40,6 @@ public class DAORecurso {
 
     public void registrarrecurso(BRecurso bRecurso) {
         try {
-
-
-            /*
-             * insert_recurso(idproducto character(10),
-             nombre character(100),
-             clase character(50),
-             estado boolean,
-             idrecurso varchar(10) ,   
-             categoria character(50),
-             tipo character(100),
-             descripcion TEXT,
-             historia TEXT,
-             fecha character(100),
-             corredor character(50),
-             distancia character(100),
-             costo_de_ingreso character(30),
-             horario_de_atencion character(100),
-             temperatura character(30),
-             altitud character(30),  
-             como_llegar TEXT,          
-             lat numeric,
-             lon numeric)
-             */
             String sql = "SELECT insert_recurso('" + bRecurso.getIdproducto() + "',"
                     + "'" + bRecurso.getNombre() + "',"
                     + "'" + bRecurso.getClase() + "',"
@@ -72,7 +49,7 @@ public class DAORecurso {
                     + "'" + bRecurso.getTipo() + "',"
                     + "'" + bRecurso.getDescripcion() + "',"
                     + "'" + bRecurso.getHistoria() + "',"
-                    + "'" + bRecurso.getFecha() + "',"
+                  //  + "'" + bRecurso.getFecha() + "',"
                     + "'" + bRecurso.getCorredor() + "',"
                     + "'" + bRecurso.getDistancia() + "',"
                     + "'" + bRecurso.getTipo_precio_ing() + "',"
@@ -122,8 +99,8 @@ public class DAORecurso {
         try {
 
             String sql = "SELECT idproducto, nombre, clase, estado, idrecurso, categoria, tipo, \n"
-                    + "       descripcion, historia, fecha, corredor, distancia, costo_de_ingreso, \n"
-                    + "       horario_de_atencion, temperatura, altitud, video, como_llegar, \n"
+                    + "       descripcion, historia, corredor, distancia, tipo_precio_ing, \n"
+                    + "       horario_atencion, temperatura, altitud, video, como_llegar, \n"
                     + "       lat, lon\n"
                     + "  FROM select_recurso;";
             //System.out.println("--:" + sql);
@@ -146,11 +123,11 @@ public class DAORecurso {
                 bRecurso.setTipo(rs.getString("tipo"));
                 bRecurso.setDescripcion(rs.getString("descripcion"));
                 bRecurso.setHistoria(rs.getString("historia"));
-                bRecurso.setFecha(rs.getString("fecha"));
+                //bRecurso.setFecha(rs.getString("fecha"));
                 bRecurso.setCorredor(rs.getString("corredor"));
                 bRecurso.setDistancia(rs.getString("distancia"));
-                bRecurso.setTipo_precio_ing(rs.getString("costo_de_ingreso"));
-                bRecurso.setHorario_atencion(rs.getString("horario_de_atencion"));
+                bRecurso.setTipo_precio_ing(rs.getString("tipo_precio_ing"));
+                bRecurso.setHorario_atencion(rs.getString("horario_atencion"));
                 bRecurso.setTemperatura(rs.getString("temperatura"));
                 bRecurso.setAltitud(rs.getString("altitud"));
                 bRecurso.setVideo(rs.getString("video"));

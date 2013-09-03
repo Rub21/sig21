@@ -41,26 +41,6 @@ public class DAORestaurant {
     public void registrarrestaurant(BRestaurant bRestaurant) {
 
         try {
-            /*
-         insert_restaurant(idproducto character(10),
-				          nombre character(100),
-				          clase character(50),
-				          estado boolean,				          
-					  idrestaurant varchar(10),
-					  categoria character(20),
-					  tipo character(40),
-					  descripcion TEXT,
-					  direccion character(100),   
-					  telefono character(50),
-					  sitio_web character(100),
-					  horario_de_atencion character(100),  
-					  especialidad character(100),
-					  precio_promedio character(100),
-					  formas_de_pago character(100),					
-					  lat numeric,
-					  lon numeric
-				           )
-             */
             String sql = "SELECT insert_restaurant('" 
                     + bRestaurant.getIdproducto() + "',"
                     + " '" + bRestaurant.getNombre() + "',"
@@ -88,9 +68,6 @@ public class DAORestaurant {
                         + "VALUES ('" + bRestaurant.getImagenes().get(i).getUrl()
                         + "', '" + bRestaurant.getImagenes().get(i).getIdproducto() + "');";
             }
-
-
-
             sql = sql + sql_img;
             System.out.println("SQL==========: " + sql);
             pstmt = conn.prepareStatement(sql);
@@ -109,8 +86,8 @@ public class DAORestaurant {
         List list = new LinkedList();
         try {
             String sql = "SELECT idproducto, nombre, clase, estado, idrestaurant, categoria, tipo, \n" +
-"       descripcion, direccion, telefono, sitio_web, horario_de_atencion, \n" +
-"       especialidad, precio_promedio, formas_de_pago, lat, lon\n" +
+"       descripcion, direccion, telefono, sitio_web, horario_atencion, \n" +
+"       especialidad, precio_promedio, formas_pago, lat, lon\n" +
 "  FROM select_restaurant;";
             //System.out.println("--:" + sql);
             pstmt = conn.prepareStatement(sql);
@@ -131,10 +108,10 @@ public class DAORestaurant {
                 bRestaurant.setDireccion(rs.getString("direccion"));
                 bRestaurant.setTelefono(rs.getString("telefono"));
                 bRestaurant.setSitio_web(rs.getString("sitio_web"));
-                bRestaurant.setHorario_atencion(rs.getString("horario_de_atencion"));
+                bRestaurant.setHorario_atencion(rs.getString("horario_atencion"));
                 bRestaurant.setEspecialidad(rs.getString("especialidad"));
                 bRestaurant.setPrecio_promedio(rs.getString("precio_promedio"));
-                bRestaurant.setFormas_pago(rs.getString("formas_de_pago"));
+                bRestaurant.setFormas_pago(rs.getString("formas_pago"));
                 
                 //Geometry
                 bGeometry.setLatitud(rs.getDouble("lat"));

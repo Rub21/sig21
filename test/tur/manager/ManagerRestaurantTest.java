@@ -68,8 +68,6 @@ public class ManagerRestaurantTest {
         bRestaurant.setClase("Restaurant");
         bRestaurant.setEstado(true);
         //Servicio Restaurant
-
-
         bRestaurant.setIdrestaurant("3pre");
         bRestaurant.setCategoria("3 Tenedores");
         bRestaurant.setTipo("Comida típica y nacional");
@@ -94,7 +92,7 @@ public class ManagerRestaurantTest {
         String id = "3p";
         BImagen bImagen1 = new BImagen();
         bImagen1.setIdproducto(id);
-        bImagen1.setUrl("lacasona130820205539.jpg");
+        bImagen1.setUrl("lacasona130903092649.jpg");
 
         list.add(bImagen1);
         bRestaurant.setImagenes(list);
