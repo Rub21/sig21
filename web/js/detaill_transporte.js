@@ -16,11 +16,13 @@ function  call_detaill_transporte(id) {
     });
 
     $('#modal_transporte .nombre').text(f.nombre);
+    $('#modal_transporte .tipo').text(f.tipo);
     $('#modal_transporte .destinos').text(f.destinos);
     $('#modal_transporte .descripcion').text(f.descripcion);
     $('#modal_transporte .imagen_logo').attr("src", f['properties']['icon']['iconUrl']);
     $('#modal_transporte .direccion').text(f.direccion);
     $('#modal_transporte .telefono').text(f.telefono);
+
 
     if (check_null(f.horario_atencion)) {
         $('#modal_transporte .horario_de_atencion').text(f.horario_atencion);

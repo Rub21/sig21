@@ -34,7 +34,7 @@
                         <spam class="nombre"></spam>
                     </h1>    
                     <p>
-                        Tipo de Servicio: <spam class="tipo"></spam>
+                        Servicio: <spam class="tipo"></spam>
                     </p> 
                 </div>
                 <div class="modal-body" style="text-align: center">

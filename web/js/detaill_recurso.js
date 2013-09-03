@@ -16,13 +16,14 @@ function  call_detaill_recurso(id) {
     $('.idproducto').text(f.idproducto);
     $('.nombre').text(f.nombre);
     $('.descripcion').text(f.descripcion);
+    console.log(f.historia);
 
-/*
+
     if (check_null(f.historia)) {
         $('.historia').text(f.historia);
     } else {
         $('.historia').parents('.cont_historia').css('display', 'none');
-    }*/
+    }
 
     if (check_null(f.horario_atencion)) {
         $('.horario_de_atencion').text(f.horario_atencion);

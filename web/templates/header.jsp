@@ -133,10 +133,8 @@
                             <li>
                                 <a class="select_complementario" id="todos" href="complementario.jsp#todos">Todos</a>
                             </li>
-
                         </ul>
                     </li>
-
                     <li class="dropdown">
                         <a href="#"  class="dropdown-toggle" data-toggle="dropdown">
                             <i class="icon-corredor"></i>
