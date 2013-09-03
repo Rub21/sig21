@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import tur.bean.BGeometry;
-import tur.bean.BHotel;
 import tur.bean.BImagen;
 import tur.bean.BRestaurant;
 
@@ -74,10 +73,10 @@ public class DAORestaurant {
                     + "'" + bRestaurant.getDireccion() + "', "
                     + "'" + bRestaurant.getTelefono() + "',"
                     + "'" + bRestaurant.getSitio_web()+ "',"
-                    + "'" + bRestaurant.getHorario_de_atencion()+ "',"
+                    + "'" + bRestaurant.getHorario_atencion()+ "',"
                     + "'" + bRestaurant.getEspecialidad() + "',"
                       + "'" + bRestaurant.getPrecio_promedio()+ "',"
-                    + "'" + bRestaurant.getFormas_de_pago()+ "',"
+                    + "'" + bRestaurant.getFormas_pago()+ "',"
                     + bRestaurant.getGeometry().getLatitud() + ", "
                     + bRestaurant.getGeometry().getLongitud() + ");";
 
@@ -132,10 +131,10 @@ public class DAORestaurant {
                 bRestaurant.setDireccion(rs.getString("direccion"));
                 bRestaurant.setTelefono(rs.getString("telefono"));
                 bRestaurant.setSitio_web(rs.getString("sitio_web"));
-                bRestaurant.setHorario_de_atencion(rs.getString("horario_de_atencion"));
+                bRestaurant.setHorario_atencion(rs.getString("horario_de_atencion"));
                 bRestaurant.setEspecialidad(rs.getString("especialidad"));
                 bRestaurant.setPrecio_promedio(rs.getString("precio_promedio"));
-                bRestaurant.setFormas_de_pago(rs.getString("formas_de_pago"));
+                bRestaurant.setFormas_pago(rs.getString("formas_de_pago"));
                 
                 //Geometry
                 bGeometry.setLatitud(rs.getDouble("lat"));

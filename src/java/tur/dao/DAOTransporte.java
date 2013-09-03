@@ -13,11 +13,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import tur.bean.BDestino;
 import tur.bean.BGeometry;
 import tur.bean.BImagen;
-import tur.bean.BTransporte;
-import tur.bean.BTransporte;
 import tur.bean.BTransporte;
 
 /**
@@ -76,8 +73,8 @@ public class DAOTransporte {
                     + "'" + bTransporte.getDireccion() + "', "
                     + "'" + bTransporte.getTelefono() + "',"
                     + "'" + bTransporte.getSitio_web()+ "',"
-                    + "'" + bTransporte.getHorario_de_atencion()+ "',"
-                     + "'" + bTransporte.getHorario_de_salida()+ "',"
+                    + "'" + bTransporte.getHorario_atencion()+ "',"
+                     + "'" + bTransporte.getHorario_salida()+ "',"
                      + "'" + bTransporte.getDestinos()+ "',"
                     + bTransporte.getGeometry().getLatitud() + ", "
                     + bTransporte.getGeometry().getLongitud() + ");";
@@ -137,8 +134,8 @@ public class DAOTransporte {
                 bTransporte.setDireccion(rs.getString("direccion"));
                 bTransporte.setTelefono(rs.getString("telefono"));
                 bTransporte.setSitio_web(rs.getString("sitio_web"));
-                bTransporte.setHorario_de_atencion(rs.getString("horario_de_atencion"));
-                bTransporte.setHorario_de_salida(rs.getString("horario_de_salida"));
+                bTransporte.setHorario_atencion(rs.getString("horario_de_atencion"));
+                bTransporte.setHorario_salida(rs.getString("horario_de_salida"));
                 bTransporte.setDestinos(rs.getString("destinos"));
 
                 //Geometry

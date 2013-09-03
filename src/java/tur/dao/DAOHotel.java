@@ -81,9 +81,9 @@ public class DAOHotel {
                     + "'" + bHotel.getDireccion() + "', "
                     + "'" + bHotel.getTelefono() + "',"
                     + "'" + bHotel.getSitio_web() + "',"
-                    + "'" + bHotel.getCorreo_electronico() + "',"
-                    + "'" + bHotel.getPrecio_de_habitacion() + "',"
-                    + "'" + bHotel.getFormas_de_pago() + "',"
+                    + "'" + bHotel.getCorreo_elec() + "',"
+                    + "'" + bHotel.getTipo_precio_hab() + "',"
+                    + "'" + bHotel.getFormas_pago() + "',"
                     + bHotel.getGeometry().getLatitud() + ", "
                     + bHotel.getGeometry().getLongitud() + ");";
 
@@ -149,10 +149,10 @@ public class DAOHotel {
                 bHotel.setDireccion(rs.getString("direccion"));
                 bHotel.setTelefono(rs.getString("telefono"));
                 bHotel.setSitio_web(rs.getString("sitio_web"));
-                bHotel.setCorreo_electronico(rs.getString("correo_electronico"));
-                bHotel.setPrecio_de_habitacion(rs.getString("precio_de_habitacion"));
+                bHotel.setCorreo_elec(rs.getString("correo_electronico"));
+                bHotel.setTipo_precio_hab(rs.getString("precio_de_habitacion"));
 
-                bHotel.setFormas_de_pago(rs.getString("formas_de_pago"));
+                bHotel.setFormas_pago(rs.getString("formas_de_pago"));
 
 
                 //Geometry

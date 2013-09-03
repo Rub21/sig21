@@ -18,9 +18,9 @@ public class BHotel extends BProducto {
     private String direccion;
     private String telefono;
     private String sitio_web;
-    private String correo_electronico;
-    private String precio_de_habitacion;
-    private String formas_de_pago;
+    private String correo_elec;
+    private String tipo_precio_hab;
+    private String formas_pago;
     private BGeometry geometry;
     private ArrayList<BServiciosAdicional> bServiciosAdicional;
     private ArrayList<BImagen> imagenes;
@@ -73,28 +73,28 @@ public class BHotel extends BProducto {
         this.sitio_web = sitio_web;
     }
 
-    public String getCorreo_electronico() {
-        return correo_electronico.trim().replaceAll(" +", " ");
+    public String getCorreo_elec() {
+        return correo_elec.trim().replaceAll(" +", " ");
     }
 
-    public void setCorreo_electronico(String correo_electronico) {
-        this.correo_electronico = correo_electronico;
+    public void setCorreo_elec(String correo_elec) {
+        this.correo_elec = correo_elec;
     }
 
-    public String getPrecio_de_habitacion() {
-        return precio_de_habitacion.trim().replaceAll(" +", " ");
+    public String getTipo_precio_hab() {
+        return tipo_precio_hab.trim().replaceAll(" +", " ");
     }
 
-    public void setPrecio_de_habitacion(String precio_de_habitacion) {
-        this.precio_de_habitacion = precio_de_habitacion;
+    public void setTipo_precio_hab(String tipo_precio_hab) {
+        this.tipo_precio_hab = tipo_precio_hab;
     }
 
-    public String getFormas_de_pago() {
-        return formas_de_pago.trim().replaceAll(" +", " ");
+    public String getFormas_pago() {
+        return formas_pago.trim().replaceAll(" +", " ");
     }
 
-    public void setFormas_de_pago(String formas_de_pago) {
-        this.formas_de_pago = formas_de_pago;
+    public void setFormas_pago(String formas_pago) {
+        this.formas_pago = formas_pago;
     }
 
     public BGeometry getGeometry() {
@@ -128,9 +128,9 @@ public class BHotel extends BProducto {
         System.out.println("direccion :" + getDireccion());
         System.out.println("telefono :" + getTelefono());
         System.out.println("sitio_web :" + getSitio_web());
-        System.out.println("Correo Electronico :" + getCorreo_electronico());
-        System.out.println("precio_hab :" + getPrecio_de_habitacion());
-        System.out.println("formas de Pago :" + getFormas_de_pago());
+        System.out.println("Correo Electronico :" + getCorreo_elec());
+        System.out.println("precio_hab :" + getTipo_precio_hab());
+        System.out.println("formas de Pago :" + getFormas_pago());
         System.out.println("Latitud :" + getGeometry().getLatitud());
         System.out.println("Longitud :" + getGeometry().getLongitud());
         System.out.println("Servico Adicional:" + getbServiciosAdicional().size());

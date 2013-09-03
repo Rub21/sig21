@@ -91,7 +91,7 @@ public class SRegistrarComplementario extends HttpServlet {
             bComplementario.setDireccion(mrequest.getParameter("direccion"));
             bComplementario.setTelefono(mrequest.getParameter("telefono"));
             bComplementario.setSitio_web(mrequest.getParameter("sitio_web"));
-            bComplementario.setHorario_de_atencion(mrequest.getParameter("horario_de_atencion"));
+            bComplementario.setHorario_atencion(mrequest.getParameter("horario_de_atencion"));
 
             // Geometry            
             bGeometry.setLatitud(Double.parseDouble(mrequest.getParameter("lat")));

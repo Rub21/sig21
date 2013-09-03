@@ -52,7 +52,7 @@ public class DAOComplementario {
                     + "'" + bComplementario.getDireccion() + "', "
                     + "'" + bComplementario.getTelefono() + "',"
                     + "'" + bComplementario.getSitio_web() + "',"
-                    + "'" + bComplementario.getHorario_de_atencion() + "',"
+                    + "'" + bComplementario.getHorario_atencion() + "',"
                     + bComplementario.getGeometry().getLatitud() + ", "
                     + bComplementario.getGeometry().getLongitud() + ");";
 
@@ -102,7 +102,7 @@ public class DAOComplementario {
                 bComplementario.setDireccion(rs.getString("direccion"));
                 bComplementario.setTelefono(rs.getString("telefono"));
                 bComplementario.setSitio_web(rs.getString("sitio_web"));
-                bComplementario.setHorario_de_atencion(rs.getString("horario_de_atencion"));
+                bComplementario.setHorario_atencion(rs.getString("horario_de_atencion"));
 
                 //Geometry
                 bGeometry.setLatitud(rs.getDouble("lat"));

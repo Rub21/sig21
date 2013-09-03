@@ -78,10 +78,10 @@ public class ManagerRestaurantTest {
         bRestaurant.setDireccion("Jr. Bellido 463");
         bRestaurant.setTelefono("(066) 31-2733");
         //bRestaurant.setSitio_web("");
-        bRestaurant.setHorario_de_atencion("Lunes a domingo de 12 a 22.30");
+        bRestaurant.setHorario_atencion("Lunes a domingo de 12 a 22.30");
         bRestaurant.setEspecialidad("Puca picante");
         bRestaurant.setPrecio_promedio("S/.15, menú S/. 6");
-        bRestaurant.setFormas_de_pago("VISA y Mastercard");
+        bRestaurant.setFormas_pago("VISA y Mastercard");
 
         //Geometry
         BGeometry bGeometry = new BGeometry();
@@ -123,10 +123,10 @@ public class ManagerRestaurantTest {
             assertEquals(b_expResult.getDireccion(), b_result.getDireccion());
             assertEquals(b_expResult.getTelefono(), b_result.getTelefono());
             //assertEquals(b_expResult.getSitio_web(), b_result.getSitio_web());
-            assertEquals(b_expResult.getHorario_de_atencion(), b_result.getHorario_de_atencion());
+            assertEquals(b_expResult.getHorario_atencion(), b_result.getHorario_atencion());
             assertEquals(b_expResult.getEspecialidad(), b_result.getEspecialidad());
             assertEquals(b_expResult.getPrecio_promedio(), b_result.getPrecio_promedio());
-            assertEquals(b_expResult.getFormas_de_pago(), b_result.getFormas_de_pago());
+            assertEquals(b_expResult.getFormas_pago(), b_result.getFormas_pago());
 
             BGeometry geo_expResult = b_expResult.getGeometry();
             BGeometry geo_result = b_result.getGeometry();

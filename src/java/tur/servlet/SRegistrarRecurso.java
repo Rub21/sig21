@@ -21,7 +21,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javazoom.upload.*;
 import org.apache.commons.fileupload.FileUploadException;
-import tur.bean.BDetalle;
 import tur.bean.BGeometry;
 import tur.bean.BRecurso;
 import tur.bean.BImagen;
@@ -57,7 +56,7 @@ public class SRegistrarRecurso extends HttpServlet {
         BRecurso bRecurso = new BRecurso();
         BImagen bImagen;// = new BImagen();
         BGeometry bGeometry = new BGeometry();
-        BDetalle bDetalle = new BDetalle();
+
 
         UploadBean upBean;
         //clases for upload images
@@ -101,8 +100,8 @@ public class SRegistrarRecurso extends HttpServlet {
             bRecurso.setFecha(mrequest.getParameter("fecha"));
 
             bRecurso.setDistancia(mrequest.getParameter("distancia"));
-            bRecurso.setCosto_de_ingreso(mrequest.getParameter("costo_de_ingreso"));
-            bRecurso.setHorario_de_atencion(mrequest.getParameter("horario_de_atencion"));
+            bRecurso.setTipo_precio_ing(mrequest.getParameter("costo_de_ingreso"));
+            bRecurso.setHorario_atencion(mrequest.getParameter("horario_de_atencion"));
             bRecurso.setTemperatura(mrequest.getParameter("temperatura"));
             bRecurso.setAltitud(mrequest.getParameter("altitud"));
             bRecurso.setVideo(mrequest.getParameter("video"));

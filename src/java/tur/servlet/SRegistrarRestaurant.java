@@ -92,10 +92,10 @@ public class SRegistrarRestaurant extends HttpServlet {
             bRestaurant.setDireccion(mrequest.getParameter("direccion"));
             bRestaurant.setTelefono(mrequest.getParameter("telefono"));
             bRestaurant.setSitio_web(mrequest.getParameter("sitio_web"));
-            bRestaurant.setHorario_de_atencion(mrequest.getParameter("horario_de_atencion"));
+            bRestaurant.setHorario_atencion(mrequest.getParameter("horario_de_atencion"));
             bRestaurant.setEspecialidad(mrequest.getParameter("especialidad"));
               bRestaurant.setPrecio_promedio(mrequest.getParameter("precio_promedio"));
-            bRestaurant.setFormas_de_pago(mrequest.getParameter("formas_de_pago"));
+            bRestaurant.setFormas_pago(mrequest.getParameter("formas_de_pago"));
             // Geometry            
             bGeometry.setLatitud(Double.parseDouble(mrequest.getParameter("lat")));
             bGeometry.setLongitud(Double.parseDouble(mrequest.getParameter("lon")));

@@ -77,8 +77,8 @@ public class ManagerTransporteTest {
         bTransporte.setTipo("Interdistrital");
         bTransporte.setDireccion("Paradero hacia el norte, Cuadra 1 de la Av. Salvador Cavero");
         bTransporte.setTelefono("966589865");
-        bTransporte.setHorario_de_atencion("Lunes a domingo de 6 am a 8pm");
-        bTransporte.setHorario_de_salida("Salidas diarias cada 30 minutos");
+        bTransporte.setHorario_atencion("Lunes a domingo de 6 am a 8pm");
+        bTransporte.setHorario_salida("Salidas diarias cada 30 minutos");
         bTransporte.setDestinos("Muyurina, Pacaycasa y Quinua");
 
         //Geometry
@@ -127,8 +127,8 @@ public class ManagerTransporteTest {
             assertEquals(b_expResult.getDireccion(), b_result.getDireccion());
             assertEquals(b_expResult.getTelefono(), b_result.getTelefono());
 
-            assertEquals(b_expResult.getHorario_de_atencion(), b_result.getHorario_de_atencion());
-            assertEquals(b_expResult.getHorario_de_salida(), b_result.getHorario_de_salida());
+            assertEquals(b_expResult.getHorario_atencion(), b_result.getHorario_atencion());
+            assertEquals(b_expResult.getHorario_salida(), b_result.getHorario_salida());
             assertEquals(b_expResult.getDestinos(), b_result.getDestinos());
 
             BGeometry geo_expResult = b_expResult.getGeometry();

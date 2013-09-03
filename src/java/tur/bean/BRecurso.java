@@ -17,14 +17,12 @@ public class BRecurso extends BProducto {
     private String historia;
     private String corredor;
     private String fecha;
-    
     private String distancia;
-    private String costo_de_ingreso;
-    private String horario_de_atencion;
+    private String tipo_precio_ing;
+    private String horario_atencion;
     private String temperatura;
     private String altitud;
-    
-   private String video;
+    private String video;
     private String como_llegar;
     private ArrayList<BRecurso_Transporte> transporte;
     private BGeometry geometry;
@@ -38,7 +36,6 @@ public class BRecurso extends BProducto {
         this.video = video;
     }
 
-    
     public String getFecha() {
         return fecha.trim().replaceAll(" +", " ");
     }
@@ -47,7 +44,6 @@ public class BRecurso extends BProducto {
         this.fecha = fecha;
     }
 
-    
     public String getIdrecurso() {
         return idrecurso.trim().replaceAll(" +", " ");
     }
@@ -104,20 +100,20 @@ public class BRecurso extends BProducto {
         this.distancia = distancia;
     }
 
-    public String getCosto_de_ingreso() {
-        return costo_de_ingreso.trim().replaceAll(" +", " ");
+    public String getTipo_precio_ing() {
+        return tipo_precio_ing.trim().replaceAll(" +", " ");
     }
 
-    public void setCosto_de_ingreso(String costo_de_ingreso) {
-        this.costo_de_ingreso = costo_de_ingreso;
+    public void setTipo_precio_ing(String tipo_precio_ing) {
+        this.tipo_precio_ing = tipo_precio_ing;
     }
 
-    public String getHorario_de_atencion() {
-        return horario_de_atencion.trim().replaceAll(" +", " ");
+    public String getHorario_atencion() {
+        return horario_atencion.trim().replaceAll(" +", " ");
     }
 
-    public void setHorario_de_atencion(String horario_de_atencion) {
-        this.horario_de_atencion = horario_de_atencion;
+    public void setHorario_atencion(String horario_atencion) {
+        this.horario_atencion = horario_atencion;
     }
 
     public String getTemperatura() {
@@ -176,8 +172,8 @@ public class BRecurso extends BProducto {
         System.out.println(" historia : " + getHistoria());
         System.out.println(" corredor : " + getCorredor());
         System.out.println(" distancia : " + getDistancia());
-        System.out.println(" costo_de_ingreso : " + getCosto_de_ingreso());
-        System.out.println(" horario_de_atencion : " + getHorario_de_atencion());
+        System.out.println(" costo_de_ingreso : " + getTipo_precio_ing());
+        System.out.println(" horario_de_atencion : " + getHorario_atencion());
         System.out.println(" temperatura : " + getTemperatura());
         System.out.println(" altitud :" + getAltitud());
         System.out.println(" como_llegar : " + getComo_llegar());

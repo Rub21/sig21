@@ -18,8 +18,8 @@ public class BTransporte extends BProducto {
     private String direccion;
     private String telefono;
     private String sitio_web;
-    private String horario_de_atencion;
-    private String horario_de_salida;
+    private String horario_atencion;
+    private String horario_salida;
     private String destinos;
     private BGeometry geometry;
     private ArrayList<BImagen> imagenes;
@@ -72,20 +72,20 @@ public class BTransporte extends BProducto {
         this.sitio_web = sitio_web;
     }
 
-    public String getHorario_de_atencion() {
-        return horario_de_atencion.trim().replaceAll(" +", " ");
+    public String getHorario_atencion() {
+        return horario_atencion.trim().replaceAll(" +", " ");
     }
 
-    public void setHorario_de_atencion(String horario_de_atencion) {
-        this.horario_de_atencion = horario_de_atencion;
+    public void setHorario_atencion(String horario_atencion) {
+        this.horario_atencion = horario_atencion;
     }
 
-    public String getHorario_de_salida() {
-        return horario_de_salida.trim().replaceAll(" +", " ");
+    public String getHorario_salida() {
+        return horario_salida.trim().replaceAll(" +", " ");
     }
 
-    public void setHorario_de_salida(String horario_de_salida) {
-        this.horario_de_salida = horario_de_salida;
+    public void setHorario_salida(String horario_salida) {
+        this.horario_salida = horario_salida;
     }
 
     public String getDestinos() {
@@ -121,8 +121,8 @@ public class BTransporte extends BProducto {
         System.out.println("direccion :" + getDireccion());
         System.out.println("telefono :" + getTelefono());
         System.out.println("Sitio web" + getSitio_web());
-        System.out.println("Horario de Atencion :" + getHorario_de_atencion());
-        System.out.println("Horario de salida :" + getHorario_de_salida());
+        System.out.println("Horario de Atencion :" + getHorario_atencion());
+        System.out.println("Horario de salida :" + getHorario_salida());
         System.out.println("Destinos :" + getDestinos());
         System.out.println("Latitud :" + getGeometry().getLatitud());
         System.out.println("Longitud :" + getGeometry().getLongitud());

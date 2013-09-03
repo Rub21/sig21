@@ -52,8 +52,8 @@ public class ManagerRecursoTest {
         bRecurso.setCorredor("Corredor Nazca-Chanka-Inca");
         //bRecurso.setFecha(null);
         bRecurso.setDistancia("61km al suroeste de la ciudad de Ayacucho");
-        bRecurso.setCosto_de_ingreso("Libre");
-        bRecurso.setHorario_de_atencion("Recomendable Lunes - Domingo de 7.00 am a 18.00pm");
+        bRecurso.setTipo_precio_ing("Libre");
+        bRecurso.setHorario_atencion("Recomendable Lunes - Domingo de 7.00 am a 18.00pm");
         // bRecurso.setTemperatura(null);
         bRecurso.setAltitud("ubicado entre 3820 y 4550msnm");
         //bRecurso.setVideo(null);
@@ -115,8 +115,8 @@ public class ManagerRecursoTest {
             assertEquals(b_expResult.getDescripcion(), b_result.getDescripcion());
             assertEquals(b_expResult.getCorredor(), b_result.getCorredor());
             assertEquals(b_expResult.getDistancia(), b_result.getDistancia());
-            assertEquals(b_expResult.getCosto_de_ingreso(), b_result.getCosto_de_ingreso());
-            assertEquals(b_expResult.getHorario_de_atencion(), b_result.getHorario_de_atencion());
+            assertEquals(b_expResult.getTipo_precio_ing(), b_result.getTipo_precio_ing());
+            assertEquals(b_expResult.getHorario_atencion(), b_result.getHorario_atencion());
             assertEquals(b_expResult.getAltitud(), b_result.getAltitud());
             assertEquals(b_expResult.getComo_llegar(), b_result.getComo_llegar());
             BGeometry geo_expResult = b_expResult.getGeometry();

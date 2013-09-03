@@ -80,9 +80,9 @@ public class ManagerHotelTest {
         bHotel.setDireccion("Jr. 9 de Dicimbre 184");
         bHotel.setTelefono("(066) 322202");
         bHotel.setSitio_web("http://www.dmhoteles.pe/index.php");
-        bHotel.setCorreo_electronico("reservas@dematourshoteles.com");
-        bHotel.setPrecio_de_habitacion("Simple S/.180, doble S/. 216, Suite S/. 348");
-        bHotel.setFormas_de_pago("VISA y Mastercard");
+        bHotel.setCorreo_elec("reservas@dematourshoteles.com");
+        bHotel.setTipo_precio_hab("Simple S/.180, doble S/. 216, Suite S/. 348");
+        bHotel.setFormas_pago("VISA y Mastercard");
 
         //Geometry
         BGeometry bGeometry = new BGeometry();
@@ -147,9 +147,9 @@ public class ManagerHotelTest {
             assertEquals(b_expResult.getDireccion(), b_result.getDireccion());
             assertEquals(b_expResult.getTelefono(), b_result.getTelefono());
             assertEquals(b_expResult.getSitio_web(), b_result.getSitio_web());
-            assertEquals(b_expResult.getCorreo_electronico(), b_result.getCorreo_electronico());
-            assertEquals(b_expResult.getPrecio_de_habitacion(), b_result.getPrecio_de_habitacion());
-            assertEquals(b_expResult.getFormas_de_pago(), b_result.getFormas_de_pago());
+            assertEquals(b_expResult.getCorreo_elec(), b_result.getCorreo_elec());
+            assertEquals(b_expResult.getTipo_precio_hab(), b_result.getTipo_precio_hab());
+            assertEquals(b_expResult.getFormas_pago(), b_result.getFormas_pago());
 
             BGeometry geo_expResult = b_expResult.getGeometry();
             BGeometry geo_result = b_result.getGeometry();

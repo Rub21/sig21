@@ -1,6 +1,5 @@
 package tur.dao;
 
-import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,14 +9,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import tur.bean.BDetalle;
 import tur.bean.BGeometry;
 import tur.bean.BImagen;
 import tur.bean.BRecurso;
 import tur.bean.BRecurso_Transporte;
 import tur.bean.BTransporte;
-import tur.datasource.BDConnecion;
-import tur.utilities.Utilities;
 
 /**
  *
@@ -79,8 +75,8 @@ public class DAORecurso {
                     + "'" + bRecurso.getFecha() + "',"
                     + "'" + bRecurso.getCorredor() + "',"
                     + "'" + bRecurso.getDistancia() + "',"
-                    + "'" + bRecurso.getCosto_de_ingreso() + "',"
-                    + "'" + bRecurso.getHorario_de_atencion() + "',"
+                    + "'" + bRecurso.getTipo_precio_ing() + "',"
+                    + "'" + bRecurso.getHorario_atencion() + "',"
                     + "'" + bRecurso.getTemperatura() + "',"
                     + "'" + bRecurso.getAltitud() + "',"
                     + "'" + bRecurso.getVideo() + "',"
@@ -105,13 +101,7 @@ public class DAORecurso {
 
                 sql_transporte += " INSERT INTO recurso_transporte(idrecurso, idtransporte)"
                         + "  VALUES ('" + bRecurso.getIdrecurso() + "', '" + bRecurso.getTransporte().get(i).getIdtransporte() + "');";
-
-
             }
-
-
-
-
             sql = sql + sql_img + sql_transporte;
             System.out.println("SQL" + sql);
 
@@ -159,8 +149,8 @@ public class DAORecurso {
                 bRecurso.setFecha(rs.getString("fecha"));
                 bRecurso.setCorredor(rs.getString("corredor"));
                 bRecurso.setDistancia(rs.getString("distancia"));
-                bRecurso.setCosto_de_ingreso(rs.getString("costo_de_ingreso"));
-                bRecurso.setHorario_de_atencion(rs.getString("horario_de_atencion"));
+                bRecurso.setTipo_precio_ing(rs.getString("costo_de_ingreso"));
+                bRecurso.setHorario_atencion(rs.getString("horario_de_atencion"));
                 bRecurso.setTemperatura(rs.getString("temperatura"));
                 bRecurso.setAltitud(rs.getString("altitud"));
                 bRecurso.setVideo(rs.getString("video"));

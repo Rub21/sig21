@@ -20,10 +20,8 @@ import javazoom.upload.MultipartFormDataRequest;
 import javazoom.upload.UploadBean;
 import javazoom.upload.UploadException;
 import javazoom.upload.UploadFile;
-import tur.bean.BDestino;
 import tur.bean.BGeometry;
 import tur.bean.BImagen;
-import tur.bean.BDestino;
 import tur.bean.BTransporte;
 import tur.datasource.BDConnecion;
 import tur.manager.ManagerProducto;
@@ -92,12 +90,12 @@ public class SRegistrarTransporte extends HttpServlet {
             bTransporte.setIdtransporte(idtransporte);
 
             bTransporte.setDescripcion(mrequest.getParameter("descripcion"));
-             bTransporte.setTipo(mrequest.getParameter("tipo"));
+            bTransporte.setTipo(mrequest.getParameter("tipo"));
             bTransporte.setDireccion(mrequest.getParameter("direccion"));
             bTransporte.setTelefono(mrequest.getParameter("telefono"));
             bTransporte.setSitio_web(mrequest.getParameter("sitio_web"));
-            bTransporte.setHorario_de_atencion(mrequest.getParameter("horario_de_atencion"));
-            bTransporte.setHorario_de_salida(mrequest.getParameter("horario_de_salida"));
+            bTransporte.setHorario_atencion(mrequest.getParameter("horario_de_atencion"));
+            bTransporte.setHorario_salida(mrequest.getParameter("horario_de_salida"));
             bTransporte.setDestinos(mrequest.getParameter("destinos"));
             //Destinos
 

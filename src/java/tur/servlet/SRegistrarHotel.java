@@ -87,9 +87,9 @@ public class SRegistrarHotel extends HttpServlet {
             bHotel.setDireccion(mrequest.getParameter("direccion"));
             bHotel.setTelefono(mrequest.getParameter("telefono"));
             bHotel.setSitio_web(mrequest.getParameter("sitio_web"));
-            bHotel.setCorreo_electronico(mrequest.getParameter("correo_electronico"));
-            bHotel.setPrecio_de_habitacion(mrequest.getParameter("precio_de_habitacion"));
-            bHotel.setFormas_de_pago(mrequest.getParameter("formas_de_pago"));
+            bHotel.setCorreo_elec(mrequest.getParameter("correo_electronico"));
+            bHotel.setTipo_precio_hab(mrequest.getParameter("precio_de_habitacion"));
+            bHotel.setFormas_pago(mrequest.getParameter("formas_de_pago"));
 
 
             // Geometry            

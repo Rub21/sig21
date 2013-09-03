@@ -19,10 +19,10 @@ public class BRestaurant extends BProducto {
     private String direccion;
     private String telefono;
     private String sitio_web;
-    private String horario_de_atencion;
-       private String especialidad;
-     private String precio_promedio;
-    private String formas_de_pago;
+    private String horario_atencion;
+    private String especialidad;
+    private String precio_promedio;
+    private String formas_pago;
     private BGeometry geometry;
     private ArrayList<BImagen> imagenes;
 
@@ -34,8 +34,6 @@ public class BRestaurant extends BProducto {
         this.precio_promedio = precio_promedio;
     }
 
-    
-    
     public String getIdrestaurant() {
         return idrestaurant.trim().replaceAll(" +", " ");
     }
@@ -92,12 +90,12 @@ public class BRestaurant extends BProducto {
         this.sitio_web = sitio_web;
     }
 
-    public String getHorario_de_atencion() {
-        return horario_de_atencion.trim().replaceAll(" +", " ");
+    public String getHorario_atencion() {
+        return horario_atencion.trim().replaceAll(" +", " ");
     }
 
-    public void setHorario_de_atencion(String horario_de_atencion) {
-        this.horario_de_atencion = horario_de_atencion;
+    public void setHorario_atencion(String horario_atencion) {
+        this.horario_atencion = horario_atencion;
     }
 
     public String getEspecialidad() {
@@ -108,12 +106,12 @@ public class BRestaurant extends BProducto {
         this.especialidad = especialidad;
     }
 
-    public String getFormas_de_pago() {
-        return formas_de_pago.trim().replaceAll(" +", " ");
+    public String getFormas_pago() {
+        return formas_pago.trim().replaceAll(" +", " ");
     }
 
-    public void setFormas_de_pago(String formas_de_pago) {
-        this.formas_de_pago = formas_de_pago;
+    public void setFormas_pago(String formas_pago) {
+        this.formas_pago = formas_pago;
     }
 
     public BGeometry getGeometry() {
@@ -140,10 +138,10 @@ public class BRestaurant extends BProducto {
         System.out.println("Descripcion :" + getDescripcion());
         System.out.println("direccion :" + getDireccion());
         System.out.println("telefono :" + getTelefono());
-        System.out.println("Horario de Atencion :" + getHorario_de_atencion());
+        System.out.println("Horario de Atencion :" + getHorario_atencion());
         System.out.println("Especialidad :" + getEspecialidad());
-         System.out.println("Precio Promedio :" + getPrecio_promedio());
-        System.out.println("formas de Pago :" + getFormas_de_pago());
+        System.out.println("Precio Promedio :" + getPrecio_promedio());
+        System.out.println("formas de Pago :" + getFormas_pago());
         System.out.println("Latitud :" + getGeometry().getLatitud());
         System.out.println("Longitud :" + getGeometry().getLongitud());
         System.out.println("Imagenes" + getImagenes().size());

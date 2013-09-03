@@ -77,7 +77,7 @@ public class ManagerComplementarioTest {
         bComplementario.setDescripcion("Es un mercado donde puede encontrar retablos, textiles, tapices, cerámicas artísticas y utilitaria, platería y hojalatería.");
         bComplementario.setDireccion("Av. Maravillas 101, 31 Ayacucho");
         bComplementario.setTelefono("(066) 310213");
-        bComplementario.setHorario_de_atencion("lun - dom: 9:00 - 20:30");
+        bComplementario.setHorario_atencion("lun - dom: 9:00 - 20:30");
         bComplementario.setSitio_web("https://www.facebook.com/pages/Mercado-Artesanal-Shosaku-Nagase-Ayacucho/179515285530369");
         //Geometry
         BGeometry bGeometry = new BGeometry();
@@ -138,7 +138,7 @@ public class ManagerComplementarioTest {
             assertEquals(b_expResult.getDireccion(), b_result.getDireccion());
             assertEquals(b_expResult.getTelefono(), b_result.getTelefono());
             assertEquals(b_expResult.getSitio_web(), b_result.getSitio_web());
-            assertEquals(b_expResult.getHorario_de_atencion(), b_result.getHorario_de_atencion());
+            assertEquals(b_expResult.getHorario_atencion(), b_result.getHorario_atencion());
             BGeometry geo_expResult = b_expResult.getGeometry();
             BGeometry geo_result = b_result.getGeometry();
             //Geometry
