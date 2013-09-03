@@ -75,7 +75,8 @@
                                             <i class="icon-hand-right"></i> Sitio web: 
                                         </td>
                                         <td>
-                                            <div class="sitio_web"></div> 
+                                            <!--<div class="sitio_web"></div> -->
+                                            <a target="_blank" class="sitio_web" id="sitio_web" href="#"></a>
                                         </td>
                                     </tr>                        
                                 </tbody>
