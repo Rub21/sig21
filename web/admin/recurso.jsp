@@ -39,7 +39,7 @@
                                             <option value='Sitios Arqueológicos'>Sitios Arqueológicos</option>
                                             <option value='Arquitectura Colonial'>Arquitectura Colonial</option>
                                             <option value='Sitios Historicos'>Sitios Historicos</option>
-                                            <option value='Cultura Viva'>Cultura Viva</option>
+                                           <!-- <option value='Cultura Viva'>Cultura Viva</option>-->
                                             <option value='Paisaje Natural'>Paisaje Natural</option>
                                         </select>
                                     </div>

@@ -23,7 +23,7 @@
                 <div class="container" >
                     <div class="row">                  
                         <div class="well span8" align="center">
-                            <h4> Registrar planta turística - Restaurant</h4>
+                            <h4> Registrar planta turística - Restaurante</h4>
                             <div class="container-fluid">
                                 <div class="row-fluid">
                                     <div class="span4">Nombre <spam class="required">*</spam></div>

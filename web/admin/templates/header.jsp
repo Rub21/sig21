@@ -19,7 +19,7 @@
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">Planta Turistica<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#" onClick="location.href = 'hotel.jsp'">Hotel</a></li>
-                            <li><a href="#" onClick="location.href = 'restaurant.jsp'">Restaurant</a></li>
+                            <li><a href="#" onClick="location.href = 'restaurant.jsp'">Restaurante</a></li>
                         </ul>
                     </li>
                     <li><a href="#" onClick="location.href = 'transporte.jsp'">Medios de Transporte</a></li>
