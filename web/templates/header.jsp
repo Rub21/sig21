@@ -23,9 +23,9 @@
                             <li>
                                 <a class="select_recursos" id="sitioshistoricos" href="index.jsp#sitioshistoricos">Sitios Historicos</a>
                             </li>
-                            <li>
+                            <!--<li>
                                 <a class="select_recursos" id="culturaviva"  href="index.jsp#culturaviva">Cultura Viva</a>
-                            </li>
+                            </li>-->
                             <li>
                                 <a class="select_recursos" id="paisajenatural" href="index.jsp#paisajenatural">Paisaje Natural</a>
                             </li>

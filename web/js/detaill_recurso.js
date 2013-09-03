@@ -17,26 +17,26 @@ function  call_detaill_recurso(id) {
     $('.nombre').text(f.nombre);
     $('.descripcion').text(f.descripcion);
 
-
+/*
     if (check_null(f.historia)) {
         $('.historia').text(f.historia);
     } else {
         $('.historia').parents('.cont_historia').css('display', 'none');
-    }
+    }*/
 
-    if (check_null(f.horario_de_atencion)) {
-        $('.horario_de_atencion').text(f.horario_de_atencion);
+    if (check_null(f.horario_atencion)) {
+        $('.horario_de_atencion').text(f.horario_atencion);
     } else {
         $('.horario_de_atencion').parents('tr').css('display', 'none');
     }
     //$('.horario_de_atencion').text(f.horario_de_atencion);
-    if (check_null(f.costo_de_ingreso)) {
-        $('.costo_de_ingreso').text(f.costo_de_ingreso);
+    if (check_null(f.tipo_precio_ing)) {
+        $('.costo_de_ingreso').text(f.tipo_precio_ing);
     } else {
         $('.costo_de_ingreso').parents('tr').css('display', 'none');
     }
 //    $('.costo_de_ingreso').text(f.costo_de_ingreso);
-    if (check_null(f.costo_de_ingreso)) {
+    if (check_null(f.distancia)) {
         $('.distancia').text(f.distancia);
     } else {
         $('.distancia').parents('tr').css('display', 'none');

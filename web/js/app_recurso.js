@@ -6,6 +6,13 @@ window.setTimeout(function() {
     mapData_recurso();
 }, 2000);
 
+window.setTimeout(function() {
+    mm_transportes();
+    mm_restaurants();
+    mm_hoteles();
+    mm_complementarios();
+}, 5000);
+
 function mapData_recurso() {
     var arr = list_recursos;
     //console.log(f);

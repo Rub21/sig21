@@ -259,7 +259,8 @@
                                             <i class="icon-hand-right"></i> Sitio web: 
                                         </td>
                                         <td>
-                                            <div class="sitio_web"></div> 
+                                            <!--<div class="sitio_web"></div> -->
+                                            <a target="_blank" class="sitio_web" id="sitio_web_hotel" href="#"></a>
                                         </td>
 
                                     </tr>
@@ -377,7 +378,8 @@
                                             <i class="icon-hand-right"></i> Sitio web: 
                                         </td>
                                         <td>
-                                            <div class="sitio_web"></div> 
+                                            <!--<div class="sitio_web"></div> -->
+                                            <a target="_blank" class="sitio_web" id="sitio_web_restaurant" href="#"></a>  
                                         </td>
                                     </tr>                        
                                 </tbody>
@@ -451,7 +453,9 @@
                                             <i class="icon-hand-right"></i> Sitio web: 
                                         </td>
                                         <td>
-                                            <div class="sitio_web"></div> 
+                                            <!--<div class="sitio_web"></div> -->
+                                            <a target="_blank" class="sitio_web" id="sitio_web_complementario" href="#"></a>
+
                                         </td>
                                     </tr>                        
                                 </tbody>
@@ -537,7 +541,9 @@
                                             <i class="icon-hand-right"></i> Sitio web: 
                                         </td>
                                         <td>
-                                            <div class="sitio_web"></div> 
+                                            <!--<div class="sitio_web"></div> -->
+                                            <a target="_blank" class="sitio_web" id="sitio_web_transporte" href="#"></a> 
+
                                         </td>
                                     </tr>                        
                                 </tbody>
@@ -612,7 +618,7 @@
         <!--function Complentario-->
         <script  type="text/javascript" src="js/detaill_complementario.js"></script>
 
-        <!--function Complentario-->
+        <!--function transporte-->
         <script  type="text/javascript" src="js/detaill_transporte.js"></script>
     </body>
 </html>

@@ -1,5 +1,6 @@
 function  call_detaill_transporte(id) {
 
+
     $('#modal_transporte .imagenes_transporte').empty();
     //$('.servicios').empty();
     var f = buscarproducto(list_transportes, id);
@@ -33,7 +34,7 @@ function  call_detaill_transporte(id) {
     }
     if (check_null(f.sitio_web)) {
         $('#modal_transporte .sitio_web').text(f.sitio_web);
-        var a = document.getElementById('sitio_web');
+        var a = document.getElementById('sitio_web_transporte');
         a.href = f.sitio_web;
     } else {
         $('#modal_transporte .sitio_web').parents('tr').css('display', 'none');

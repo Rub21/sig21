@@ -31,7 +31,7 @@ function  call_detaill_complementario(id) {
 
     if (check_null(f.sitio_web)) {
         $('#modal_complementario .sitio_web').text(f.sitio_web);
-        var a = document.getElementById('sitio_web');
+        var a = document.getElementById('sitio_web_complementario');
         a.href = f.sitio_web;
     } else {
         $('#modal_complementario .sitio_web').parents('tr').css('display', 'none');

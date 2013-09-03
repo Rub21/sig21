@@ -41,7 +41,7 @@ function  call_detaill_restaurant(id) {
     }
     if (check_null(f.sitio_web)) {
         $('#modal_restaurant .sitio_web').text(f.sitio_web);
-        var a = document.getElementById('sitio_web');
+        var a = document.getElementById('sitio_web_restaurant');
         a.href = f.sitio_web;
     } else {
         $('#modal_restaurant .sitio_web').parents('tr').css('display', 'none');
