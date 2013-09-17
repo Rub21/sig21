@@ -1,22 +1,22 @@
 function  call_detaill_recurso(id) {
-    
-    
+
+
     $('.imagenes_recurso').empty();
     //$('.movilidad').css('display', 'block');
-    
+
     var f = buscarproducto(list_recursos, id);
     $('.imagen_logo').attr("src", f['properties']['icon']['iconUrl']);
     $('#backdrop').fadeIn(200);
     $('#detaill_recurso').show(200);
     $('#close').show(200);
-    
-    
+
+
 
 //FILL DATA
     $('.idproducto').text(f.idproducto);
     $('.nombre').text(f.nombre);
     $('.descripcion').text(f.descripcion);
-    console.log(f.historia);
+    //console.log(f.historia);
 
 
     if (check_null(f.historia)) {
@@ -39,12 +39,23 @@ function  call_detaill_recurso(id) {
 //    $('.costo_de_ingreso').text(f.costo_de_ingreso);
     if (check_null(f.distancia)) {
         $('.distancia').text(f.distancia);
+        if (f.categoria.replace(/\s/g, "") === "ArquitecturaColonial") {
+            $("#direccion_recurso").text("Dirección")
+        } else {
+            $("#direccion_recurso").text("Distancia de la ciudad")
+        }
     } else {
         $('.distancia').parents('tr').css('display', 'none');
     }
     // $('.distancia').text(f.distancia);
 
-    $('.como_llegar').text(f.como_llegar);
+   // $('.como_llegar').text(f.como_llegar);
+
+    if (check_null(f.como_llegar)) {
+        $('.como_llegar').text(f.como_llegar);
+    } else {
+        $('.como_llegar').parents('tr').css('display', 'none');
+    }
 
     if (check_null(f.corredor)) {
         $('.corredor').text(f.corredor);
@@ -69,7 +80,7 @@ function  call_detaill_recurso(id) {
 
     if (f.transporte.length === 0) {
 
-        $('.movilidad').attr("disabled","disabled");
+        $('.movilidad').attr("disabled", "disabled");
     } else {
         $('.movilidad').css('display', 'block');
     }
@@ -155,12 +166,12 @@ function  add_map_servicios(rec) {//recurso=rec
     console.log(rec);
     $('.map_servicios').empty();
     $('.map_servicios').append('<div id="map_servicios"></div>');
-    var map_ser = L.mapbox.map('map_servicios', 'ruben.map-5m93f3zc').setView([g.coordinates[1], g.coordinates[0]], 12);
+    var map_ser = L.mapbox.map('map_servicios', 'ruben.map-5m93f3zc').setView([g.coordinates[1], g.coordinates[0]], 16);
     //map_ser.dragging.disable();
     //map_ser.touchZoom.disable();
     // map_ser.doubleClickZoom.disable();
     map_ser.scrollWheelZoom.disable();
-    var minimap = new L.Control.MiniMap(L.mapbox.tileLayer('examples.map-uci7ul8p'));
+    var minimap = new L.Control.MiniMap(L.mapbox.tileLayer('ruben.map-5m93f3zc'));
     minimap.addTo(map_ser);
 
     mapData_servicios(list_servicios);

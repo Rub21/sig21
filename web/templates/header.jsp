@@ -11,7 +11,7 @@
                 <ul class="nav pull-right" >               
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-ok icon-white"></i>
-                            Donde ir <b class="caret"></b>
+                            Dónde ir <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu select_recurso">
                             <li>
@@ -39,7 +39,7 @@
                     <li class="dropdown">
                         <a  href="#"  class="dropdown-toggle" data-toggle="dropdown">
                             <i class="icon-dormir"></i>
-                            Donde Dormir <b class="caret"></b>
+                            Dónde dormir <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
@@ -68,7 +68,7 @@
                     <li class="dropdown">
                         <a href="#"  class="dropdown-toggle" data-toggle="dropdown">
                             <i class="icon-comer"></i>
-                            Donde Comer  <b class="caret"></b>
+                            Dónde comer  <b class="caret"></b>
                         </a>       
                         <ul class="dropdown-menu">
                             <li>
@@ -97,7 +97,7 @@
                     <li class="dropdown">
                         <a href="transportes.jsp" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="icon-transporte"></i>
-                            Como Viajar<b class="caret"></b>
+                            Cómo viajar<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
 
@@ -116,7 +116,7 @@
                     <li class="dropdown">
                         <a href="complementario.jsp" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="icon-comprar"></i>
-                            Otros Servicios<b class="caret"></b>
+                            Otros servicios<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="select_complementario" id="puntosdeinformaciónalturista" href="complementario.jsp#puntosdeinformaciónalturista"> Puntos de información al turista</a></li>
@@ -138,7 +138,7 @@
                     <li class="dropdown">
                         <a href="#"  class="dropdown-toggle" data-toggle="dropdown">
                             <i class="icon-corredor"></i>
-                            Corredores Turisticos
+                            Corredores turisticos
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu select_corredores">

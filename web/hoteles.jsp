@@ -12,7 +12,7 @@
         </div>
         <div class="sidebar">
             <div class="content-search">
-                <h4>¿Donde Dormir?</h4>
+                <h4>¿Dónde Dormir?</h4>
                 <div class="search">
                     <input type="text" id="search" name="search" placeholder="Buscar"/>
                     <a class="btn btn-primary"  href = '#buscar'>Buscar</a>
@@ -70,7 +70,7 @@
                                     </tr>
                                     <tr>
                                         <td width="150"> 
-                                            <i class="icon-hand-right"></i> Promedio de precios de habitaciones 
+                                            <i class="icon-hand-right"></i>Precios de habitaciones 
                                         </td>
                                         <td>
                                             <div class="precio"></div>

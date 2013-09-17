@@ -61,13 +61,13 @@
                                 </div>
 
                                 <div class="row-fluid">
-                                    <div class="span4">Sitio Web</div>
+                                    <div class="span4">Sitio web</div>
                                     <div class="span4">
                                         <input type='text'  name='sitio_web' value=''  align="left" id='sitio_web-t' placeholder="" />
                                     </div>
                                 </div>
                                 <div class="row-fluid">
-                                    <div class="span4">Horario de Atención<spam class="required">*</spam></div>
+                                    <div class="span4">Horario de atención<spam class="required">*</spam></div>
                                     <div class="span4">
                                         <input type='text'  name='horario_de_atencion' value=''  align="left" id='horario_de_atencion-t' placeholder="" />
                                     </div>
@@ -95,7 +95,7 @@
                             <div class="container-fluid">
                                 <div class="row-fluid">                            
                                     <div class="span2"><input type="checkbox" class='chek_lat_lon' id='chek_lat_lon' name="chek_lat_lon" value=''></div>
-                                    <div class="span10"><p  align="left">Ingresar Latitud y Longitud Manualmente</p>
+                                    <div class="span10"><p  align="left">Ingresar latitud y longitud manualmente</p>
                                     </div>
                                 </div>
                                 <div class="row-fluid">
@@ -120,7 +120,7 @@
                         <div class="accordion-group">
                             <div class="accordion-reeading">
                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse-re" >
-                                    Mostrar Mapa
+                                    Mostrar mapa
                                 </a>
                             </div>
                             <div id="collapse-re" class="accordion-body collapse">
@@ -137,7 +137,7 @@
                 <div class="container">
                     <div class="row"> 
                         <div class="well span8 file_upload" align="center">  
-                            <h4>Galería de Imágenes<spam class="required">*</spam></h4>        
+                            <h4>Galería de imágenes</h4>        
                             <div class='well file_upload' id='f1'>
                                 <input name='file1' type='file' id='file_img1'required/>
                             </div>

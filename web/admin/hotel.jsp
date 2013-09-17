@@ -65,7 +65,7 @@
                                 </div>
 
                                 <div class="row-fluid">
-                                    <div class="span4">Sitio Web</div>
+                                    <div class="span4">Sitio web</div>
                                     <div class="span4">
                                         <input type='text'  name='sitio_web' value=''  align="left" id='sitio_web-h' placeholder="" />
                                     </div>
@@ -77,9 +77,9 @@
                                     </div>
                                 </div>
                                 <div class="row-fluid">
-                                    <div class="span4">Tipo y Precio de la habitación <spam class="required">*</spam></div>
+                                    <div class="span4">Tipo y precio de la habitación <spam class="required">*</spam></div>
                                     <div class="span4">
-                                        <input type='text'  name='precio_de_habitacion' value=''  align="left" id='precio_de_habitacion-h' placeholder="Ejemplo:Simple " required/>
+                                        <input type='text'  name='precio_de_habitacion' value=''  align="left" id='precio_de_habitacion-h'  required/>
                                     </div>
                                 </div>
 
@@ -100,7 +100,7 @@
                             <div class="container-fluid">
                                 <div class="row-fluid">                            
                                     <div class="span2"><input type="checkbox" class='chek_lat_lon' id='chek_lat_lon' name="chek_lat_lon" value=''></div>
-                                    <div class="span10"><p  align="left">Ingresar Latitud y Longitud Manualmente</p>
+                                    <div class="span10"><p  align="left">Ingresar latitud y longitud manualmente</p>
                                     </div>
                                 </div>
                                 <div class="row-fluid">
@@ -125,7 +125,7 @@
                         <div class="accordion-group">
                             <div class="accordion-reeading">
                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse" >
-                                    Mostrar Mapa
+                                    Mostrar mapa
                                 </a>
                             </div>
                             <div id="collapse" class="accordion-body collapse">
@@ -144,7 +144,7 @@
                 <div class="container">
                     <div class="row"> 
                         <div class="well span8 file_upload" align="center">  
-                            <h4>Galería de Imágenes<spam class="required">*</spam></h4>        
+                            <h4>Galería de imágenes</h4>        
                             <div class='well file_upload' id='f1'>
                                 <input name='file1' type='file' id='file_img1'required/>
                             </div>
@@ -158,11 +158,11 @@
                 </div>     <div class="container">                         
                     <div class="row">                       
                         <div class="well span8" align="center">
-                            <h4>Servicios Adicionales</h4>
+                            <h4>Servicios adicionales</h4>
                             <div class="container-fluid">
                                 <div id="service1">
                                     <div class="row-fluid well">
-                                        <div class="span4">Tipo de Servicio 1</div>
+                                        <div class="span4">Tipo de servicio 1</div>
                                         <div class="span4">                          
                                             <input type='text'  name='type-service1' value=''  align="left" id='type-service1-h'  placeholder="Nombre del Servicios"/>
                                         </div>

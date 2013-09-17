@@ -12,7 +12,7 @@
         </div>
         <div class="sidebar">
             <div class="content-search">
-                <h4>¿Otros  Servicios?</h4>
+                <h4>¿Otros  servicios?</h4>
                 <div class="search">
                     <input type="text" id="search" name="search" placeholder="Buscar"/>
                     <a class="btn btn-primary"  href = '#buscar'>Buscar</a>

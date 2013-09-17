@@ -72,7 +72,7 @@
                                 <div class="row-fluid">
                                     <div class="span4"> Telefono<spam class="required">*</spam></div>
                                     <div class="span4">
-                                        <input type='text'  name='telefono' value=''  align="left" id='telefono-re' placeholder="Ejm:31-1234, #213254, 966036830" />
+                                        <input type='text'  name='telefono' value=''  align="left" id='telefono-re' />
                                     </div>
                                 </div>
 
@@ -91,13 +91,13 @@
                                 <div class="row-fluid">
                                     <div class="span4">Especialidades</div>
                                     <div class="span4">
-                                        <input type='text'  name='especialidad' value=''  align="left" id='especialidad-re' placeholder="" />
+                                        <input type='text'  name='especialidad' value=''  align="left" id='especialidad-re' placeholder="Especialidad de casa" />
                                     </div>
                                 </div>
                                 <div class="row-fluid">
                                     <div class="span4">Precio promedio</div>
                                     <div class="span4">
-                                        <input type='text'  name='precio_promedio' value=''  align="left" id='precio_promedio-re' placeholder="" />
+                                        <input type='text'  name='precio_promedio' value=''  align="left" id='precio_promedio-re' placeholder="Precio promedio del los platillos" />
                                     </div>
                                 </div>
                                 <div class="row-fluid">
@@ -117,7 +117,7 @@
                             <div class="container-fluid">
                                 <div class="row-fluid">                            
                                     <div class="span2"><input type="checkbox" class='chek_lat_lon' id='chek_lat_lon' name="chek_lat_lon" value=''></div>
-                                    <div class="span10"><p  align="left">Ingresar Latitud y Longitud Manualmente</p>
+                                    <div class="span10"><p  align="left">Ingresar latitud y longitud manualmente</p>
                                     </div>
                                 </div>
                                 <div class="row-fluid">
@@ -142,7 +142,7 @@
                         <div class="accordion-group">
                             <div class="accordion-reeading">
                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse" >
-                                    Mostrar Mapa
+                                    Mostrar mapa
                                 </a>
                             </div>
                             <div id="collapse" class="accordion-body collapse">
@@ -161,7 +161,7 @@
                 <div class="container">
                     <div class="row"> 
                         <div class="well span8 file_upload" align="center">  
-                            <h4>Galería de Imágenes<spam class="required">*</spam></h4>        
+                            <h4>Galería de imágenes</h4>        
                             <div class='well file_upload' id='f1'>
                                 <input name='file1' type='file' id='file_img1'required/>
                             </div>

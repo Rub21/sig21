@@ -20,7 +20,7 @@
 
         <div class="sidebar">
             <div class="content-search">
-                <h4>¿Donde Ir?</h4>
+                <h4>¿Dónde ir?</h4>
                 <div class="search">
                     <input type="text" id="search" name="search" placeholder="Buscar"/>
                     <a class="btn btn-primary"  href = '#buscar'>Buscar</a>
@@ -47,19 +47,19 @@
                             </a>
                             <ul class="nav pull-right" >
                                 <li>
-                                    <a class="select_hotel" href="#hotel" ><i class="icon-dormir-black"></i>Donde Dormir
+                                    <a class="select_hotel" href="#hotel" ><i class="icon-dormir-black"></i>Dónde dormir
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#restaurant"><i class="icon-comer-black"></i>Donde Comer
+                                    <a href="#restaurant"><i class="icon-comer-black"></i>Dónde comer
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#transporte" ><i class="icon-transporte-black"></i>Como viajar
+                                    <a href="#transporte" ><i class="icon-transporte-black"></i>Cómo viajar
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#complementario" ><i class="icon-dormir-black"></i>Otros Servicios
+                                    <a href="#complementario" ><i class="icon-dormir-black"></i>Otros servicios
                                     </a>
                                 </li>                
                             </ul>
@@ -99,7 +99,7 @@
                                         </tr> 
                                         <tr>
                                             <td width="150"> 
-                                                <i class="icon-hand-right"></i> Distancia
+                                                <i class="icon-hand-right"></i><spam id="direccion_recurso">Distancia de la ciudad</spam> 
                                             </td>
                                             <td>
                                                 <div class="distancia"></div>
@@ -111,9 +111,9 @@
                                             </td>
                                             <td>
                                                 <div class="como_llegar"></div>
-                                                <h6 class="movilidad">
+                                               <!-- <h6 class="movilidad">
                                                     <a href="#movilidad"  class="click_movilidad"  >ver movilidad a este destino</a>
-                                                </h6>
+                                                </h6>-->
 
                                             </td>
                                         </tr> 
@@ -195,7 +195,7 @@
             <!--</div>-->
 
 
-            <div class="modal-footer"><button type="button" data-dismiss="modal" class="btn btn-primary" id="butoon_close">Close</button></div>
+            <div class="modal-footer"><button type="button" data-dismiss="modal" class="btn btn-primary" id="butoon_close">Cerrar</button></div>
 
         </div>
         <a id='close'  style="cursor: pointer;">✕</a>
@@ -247,7 +247,7 @@
                                     </tr>
                                     <tr>
                                         <td width="150"> 
-                                            <i class="icon-hand-right"></i> Promedio de precios de habitaciones 
+                                            <i class="icon-hand-right"></i> Precios de habitaciones 
                                         </td>
                                         <td>
                                             <div class="precio"></div>

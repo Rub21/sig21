@@ -9,7 +9,7 @@ var map = L.mapbox.map('map', 'ruben.map-5m93f3zc').setView([-14.041, -74.636], 
  fullscreenControl.addTo(map);*/
 L.control.scale().addTo(map);
 
-var minimap = new L.Control.MiniMap(L.mapbox.tileLayer('examples.map-uci7ul8p'));
+var minimap = new L.Control.MiniMap(L.mapbox.tileLayer('ruben.map-5m93f3zc'));
 minimap.addTo(map);
 
 //para obtener el hash

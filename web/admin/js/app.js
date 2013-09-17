@@ -108,7 +108,7 @@ $(function() {
                 '<div class="row-fluid ">' +
                 '<div class="span4">Tipo de Servicio ' + counter_service + '</div>' +
                 '<div class="span4">' +
-                '<input type="text"  name="type-service' + counter_service + '" value=""  align="left" id="type-service' + counter_service + '-h"  placeholder="Nombre del Servicios " required/>' +
+                '<input type="text"  name="type-service' + counter_service + '" value=""  align="left" id="type-service' + counter_service + '-h"  placeholder="Nombre del servicios " required/>' +
                 '</div>' +
                 '</div>' +
                 '</div>' +

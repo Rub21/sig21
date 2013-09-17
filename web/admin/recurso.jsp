@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 
 <%      String usuario = (String) session.getAttribute("user");
-     if (usuario == null) {
-     response.sendRedirect("login.jsp");
-     }
+    if (usuario == null) {
+        response.sendRedirect("login.jsp");
+    }
 
 %>
 <html>
@@ -24,7 +24,7 @@
                 <div class="container">
                     <div class="row">                  
                         <div class="well span8" align="center">
-                            <h4> Registrar Recurso Turístico</h4>
+                            <h4> Registrar recurso turístico</h4>
                             <div class="container-fluid">
                                 <div class="row-fluid">
                                     <div class="span4">Nombre<spam class="required">*</spam></div>
@@ -39,7 +39,7 @@
                                             <option value='Sitios Arqueológicos'>Sitios Arqueológicos</option>
                                             <option value='Arquitectura Colonial'>Arquitectura Colonial</option>
                                             <option value='Sitios Historicos'>Sitios Historicos</option>
-                                           <!-- <option value='Cultura Viva'>Cultura Viva</option>-->
+                                            <!-- <option value='Cultura Viva'>Cultura Viva</option>-->
                                             <option value='Paisaje Natural'>Paisaje Natural</option>
                                         </select>
                                     </div>
@@ -75,10 +75,10 @@
                 <div class="container">                         
                     <div class="row">                       
                         <div class="well span8" align="center">
-                            <h4>Detalles de Recurso</h4>
+                            <h4>Detalles del recurso</h4>
                             <div class="container-fluid">
                                 <div class="row-fluid corredor">
-                                    <div class="span4">Corredor  al que Pertenece</div>
+                                    <div class="span4">Corredor  al que pertenece</div>
                                     <div class="span8">
                                         <select name='corredor' id='corredor-r'required  align="left">
                                             <option value='Ninguno'>Ninguno</option>
@@ -92,34 +92,34 @@
                                 </div>
 
 
-                                <div class="row-fluid fecha" style="display:none">
-                                    <div class="span4">Fecha del evento <span class="obligatorio">*</span></div>
-                                    <div class="span8"> 
-                                        <input type="text" name="fecha" value=""  id="fecha"  placeholder="" >
-                                    </div>
-                                </div>
+                                <!--  <div class="row-fluid fecha" style="display:none">
+                                      <div class="span4">Fecha del evento <span class="obligatorio">*</span></div>
+                                      <div class="span8"> 
+                                          <input type="text" name="fecha" value=""  id="fecha"  placeholder="" >
+                                      </div>
+                                  </div>-->
 
                                 <div class="row-fluid">
-                                    <div class="span4">Distancia al recurso</div>
+                                    <div class="span4" id="direcion_recurso">Distancia al recurso</div>
                                     <div class="span8">
                                         <input type='text' name='distancia' value='' id='distancia-r' align="left" placeholder='' />
                                     </div>
                                 </div>
                                 <div class="row-fluid costo_de_ingreso">
-                                    <div class="span4">Tipo y Precio de ingreso</div>
+                                    <div class="span4">Tipo y precio de ingreso</div>
                                     <div class="span8">
                                         <input type='text' name='costo_de_ingreso' value='' id='costo_de_ingreso-r' align="left" placeholder='' />
                                     </div>
                                 </div>
                                 <div class="row-fluid horario_de_atencion">
-                                    <div class="span4">Horario de Atención</div>
+                                    <div class="span4">Horario de atención</div>
                                     <div class="span8">
                                         <input type='text' name='horario_de_atencion' value='' id='horario_de_atencion-r' align="left" placeholder='' />
                                     </div>
                                 </div>
 
                                 <div class="row-fluid">
-                                    <div class="span4">Temperatura max y min </div>
+                                    <div class="span4">Temperatura máx. y mín.</div>
                                     <div class="span8">
                                         <input type='text' name='temperatura' value='' id='temperatura-r' align="left" placeholder='' />
                                     </div>
@@ -132,7 +132,7 @@
                                 </div>   
 
                                 <div class="row-fluid">
-                                    <div class="span4">URL del Video</div>
+                                    <div class="span4">URL del video</div>
                                     <div class="span8">
                                         <input type='text' name='video' value='' id='video-r' align="left" placeholder='Ingrese URL de Youtube' />
                                     </div>
@@ -154,7 +154,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="accordion" id="accordion_transporte">
+                           <!-- <div class="accordion" id="accordion_transporte">
                                 <div class="accordion-group">
                                     <div class="accordion-reeading">
                                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapse_transporte" >
@@ -188,7 +188,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                     </div>                       
                 </div> 
@@ -199,7 +199,7 @@
                             <div class="container-fluid">
                                 <div class="row-fluid">                            
                                     <div class="span2"><input type="checkbox" class='chek_lat_lon' id='chek_lat_lon' name="chek_lat_lon" value=''></div>
-                                    <div class="span10"><p  align="left">Ingresar Latitud y Longitud Manualmente</p>
+                                    <div class="span10"><p  align="left">Ingresar latitud y longitud manualmente</p>
                                     </div>
                                 </div>
                                 <div class="row-fluid">
@@ -223,7 +223,7 @@
                         <div class="accordion-group">
                             <div class="accordion-reeading">
                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse" >
-                                    Mostrar Mapa
+                                    Mostrar mapa
                                 </a>
                             </div>
                             <div id="collapse" class="accordion-body collapse">
@@ -240,7 +240,7 @@
                 <div class="container">
                     <div class="row"> 
                         <div class="well span8 file_upload" align="center">  
-                            <h4>Galería de Imágenes<spam class="required">*</spam></h4>        
+                            <h4>Galería de imágenes</h4>        
                             <div class='well file_upload' id='f1'>
                                 <input name='file1' type='file' id='file_img1'/>
                             </div>

@@ -69,14 +69,16 @@ $(function() {
                 parent.innerHTML += '<option>' + tildes_unicode(sitios_arqueologicos[key]) + '</option>';
             });
             //parent.appendChild(new_option);
-            format_field_for_all();
+            //  format_field_for_all();
+            $('#direcion_recurso').text("Distancia al recurso");
 
         } else if (cat === 'Arquitectura Colonial') {
             _.each(arquitectura_colonial, function(value, key) {
                 parent.innerHTML += '<option>' + tildes_unicode(arquitectura_colonial[key]) + '</option>';
             });
             // parent.appendChild(new_option);
-            format_field_for_all();
+            //format_field_for_all();
+            $('#direcion_recurso').text(tildes_unicode("Dirección"));
 
         } else if (cat === 'Sitios Historicos') {
 
@@ -85,7 +87,8 @@ $(function() {
             });
             // parent.appendChild(new_option);
 
-            format_field_for_all();
+            //format_field_for_all();
+            $('#direcion_recurso').text("Distancia al recurso");
 
         } else if (cat === 'Cultura Viva') {
 
@@ -94,8 +97,9 @@ $(function() {
             });
 
 
-            format_field_for_curlturaviva();
+            // format_field_for_curlturaviva();
 
+            $('#direcion_recurso').text("Distancia al recurso");
 
             // parent.appendChild(new_option);
         } else if (cat === 'Paisaje Natural') {
@@ -105,7 +109,8 @@ $(function() {
             });
             // parent.appendChild(new_option);
 
-            format_field_for_all();
+            //  format_field_for_all();
+            $('#direcion_recurso').text("Distancia al recurso");
         }
     });
 
