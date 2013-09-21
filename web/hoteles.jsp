@@ -10,7 +10,9 @@
         <jsp:include page="templates/header.jsp"></jsp:include> 
         <div id="map" class="loading">
         </div>
+        <div class="inf_sidebar"><a href="#">&nbsp</a></div>
         <div class="sidebar">
+            <div class="hide_sidebar"><a href="#">&nbsp</a></div>
             <div class="content-search">
                 <h4>¿Dónde Dormir?</h4>
                 <div class="search">
@@ -145,4 +147,5 @@
     <script  type="text/javascript" src="js/detaill_hotel.js"></script>
     <script  type="text/javascript" src="js/app_hotel.js"></script>
 
+    <script  type="text/javascript" src="js/app.js"></script>
 </html>

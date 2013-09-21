@@ -10,7 +10,10 @@
         <jsp:include page="templates/header.jsp"></jsp:include> 
         <div id="map" class="loading">
         </div>
+        
+        <div class="inf_sidebar"><a href="#">&nbsp</a></div>
         <div class="sidebar">
+            <div class="hide_sidebar"><a href="#">&nbsp</a></div>
             <div class="content-search">
                 <h4>¿Otros  servicios?</h4>
                 <div class="search">
@@ -23,7 +26,9 @@
 
                 </div>
             </div>
+            
         </div>
+        
         <div id="modal_complementario">
             <div id="popover_complementario" class="modal container hide fade" tabindex="-1">
                 <div class="modal-header">
@@ -122,5 +127,6 @@
     <!--function transporte-->
     <script  type="text/javascript" src="js/detaill_complementario.js"></script>
     <script  type="text/javascript" src="js/app_complementario.js"></script>
-
+    
+     <script  type="text/javascript" src="js/app.js"></script>
 </html>

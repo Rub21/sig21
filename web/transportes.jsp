@@ -11,7 +11,9 @@
 
         <div id="map" class="loading">
         </div>
+        <div class="inf_sidebar"><a href="#">&nbsp</a></div>
         <div class="sidebar">
+            <div class="hide_sidebar"><a href="#">&nbsp</a></div>
             <div class="content-search">
                 <h4>¿Cómo Viajar?</h4>
                 <div class="search">
@@ -133,6 +135,6 @@
     <!--function transporte-->   
     <script  type="text/javascript" src="js/detaill_transporte.js"></script>
     <script  type="text/javascript" src="js/app_transporte.js"></script>
-
+    <script  type="text/javascript" src="js/app.js"></script>
 
 </html>

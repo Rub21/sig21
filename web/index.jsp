@@ -18,7 +18,9 @@
         </div>
 
 
+        <div class="inf_sidebar"><a href="#">&nbsp</a></div>
         <div class="sidebar">
+            <div class="hide_sidebar"><a href="#">&nbsp</a></div>
             <div class="content-search">
                 <h4>¿Dónde ir?</h4>
                 <div class="search">
@@ -100,50 +102,50 @@
                                         <tr>
                                             <td width="150"> 
                                                 <i class="icon-hand-right"></i><spam id="direccion_recurso">Distancia de la ciudad</spam> 
-                                            </td>
-                                            <td>
-                                                <div class="distancia"></div>
-                                            </td>
-                                        </tr> 
-                                        <tr>
-                                            <td width="150"> 
-                                                <i class="icon-hand-right"></i> Como llegar
-                                            </td>
-                                            <td>
-                                                <div class="como_llegar"></div>
-                                               <!-- <h6 class="movilidad">
-                                                    <a href="#movilidad"  class="click_movilidad"  >ver movilidad a este destino</a>
-                                                </h6>-->
+                                    </td>
+                                    <td>
+                                        <div class="distancia"></div>
+                                    </td>
+                                    </tr> 
+                                    <tr>
+                                        <td width="150"> 
+                                            <i class="icon-hand-right"></i> Como llegar
+                                        </td>
+                                        <td>
+                                            <div class="como_llegar"></div>
+                                            <!-- <h6 class="movilidad">
+                                                 <a href="#movilidad"  class="click_movilidad"  >ver movilidad a este destino</a>
+                                             </h6>-->
 
-                                            </td>
-                                        </tr> 
+                                        </td>
+                                    </tr> 
 
 
-                                        <tr>
-                                            <td width="150"> 
-                                                <i class="icon-hand-right"></i> Corredor Turistio
-                                            </td>
-                                            <td>
-                                                <div class="corredor"></div>
-                                            </td>
-                                        </tr>  
+                                    <tr>
+                                        <td width="150"> 
+                                            <i class="icon-hand-right"></i> Corredor Turistio
+                                        </td>
+                                        <td>
+                                            <div class="corredor"></div>
+                                        </td>
+                                    </tr>  
 
-                                        <tr>
-                                            <td width="150"> 
-                                                <i class="icon-hand-right"></i> Altitud(msnm)
-                                            </td>
-                                            <td>
-                                                <div class="altitud"></div>
-                                            </td>
-                                        </tr>  
-                                        <tr>
-                                            <td width="150"> 
-                                                <i class="icon-hand-right"></i> Temperatura
-                                            </td>
-                                            <td>
-                                                <div class="temperatura"></div>
-                                            </td>
-                                        </tr>  
+                                    <tr>
+                                        <td width="150"> 
+                                            <i class="icon-hand-right"></i> Altitud(msnm)
+                                        </td>
+                                        <td>
+                                            <div class="altitud"></div>
+                                        </td>
+                                    </tr>  
+                                    <tr>
+                                        <td width="150"> 
+                                            <i class="icon-hand-right"></i> Temperatura
+                                        </td>
+                                        <td>
+                                            <div class="temperatura"></div>
+                                        </td>
+                                    </tr>  
 
                                     </tbody>
                                 </table>
