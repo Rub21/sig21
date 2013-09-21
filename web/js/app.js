@@ -19,7 +19,7 @@ $(document).on('ready', function() {
         //cerrar modal dede transporte
         $('#butoon_close_transporte').click();
         //cerrar imagens
-        $('#butoon_close_imagen').click();
+        $('.butoon_close_imagen').click();
         //solo para el caso de video
         $('#video').empty();
     });

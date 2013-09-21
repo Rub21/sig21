@@ -2,7 +2,11 @@ function  call_detaill_recurso(id) {
 
 
     $('.imagenes_recurso').empty();
+    //iniciaizando todo en cero
+    $('#video').css('display', 'block');
+    $('.historia').parents('.cont_historia').css('display', 'block');
     //$('.movilidad').css('display', 'block');
+    //finalizando inicializacion
 
     var f = buscarproducto(list_recursos, id);
     $('.imagen_logo').attr("src", f['properties']['icon']['iconUrl']);
@@ -49,7 +53,7 @@ function  call_detaill_recurso(id) {
     }
     // $('.distancia').text(f.distancia);
 
-   // $('.como_llegar').text(f.como_llegar);
+    // $('.como_llegar').text(f.como_llegar);
 
     if (check_null(f.como_llegar)) {
         $('.como_llegar').text(f.como_llegar);
@@ -97,7 +101,7 @@ function  call_detaill_recurso(id) {
     if (check_null(f.video)) {
         add_video(f.video.replace(/\s/g, ""));
     } else {
-
+        $('#video').css('display', 'none');
     }
 
     //$('.ww').attr("src", f.video.replace(/\s/g, ""));
@@ -131,12 +135,14 @@ function carrucel_images_recurso(aray, size) {
         if (i === 0) {
 
             ol = '<li data-target="#' + myCarousel + '" data-slide-to="' + i + '" class="active"></li>';
-            img = ' <div class="item active"> <img src="' + aray[i].url + '"  style=" width:' + size + 'px; height: auto;"/>';
+            //img = ' <div class="item active"> <img src="' + aray[i].url + '"  style=" width:' + size + 'px; height: auto;"/>';
+            img = ' <div class="item active"> <img src="' + aray[i].url + '"  style=auto; height: auto;"/>';
             /* '<div class="carousel-caption">  <h3>' + aray[i].titulo + '</h3> <p>' + aray[i].descripcion + '</p> </div> </div>';*/
         } else {
 
             ol = '<li data-target="#' + myCarousel + '' + myCarousel + '" data-slide-to="' + i + '"></li>';
-            img = ' <div class="item"> <img src="' + aray[i].url + '"  style=" width:' + size + 'px; height: auto;"/>';
+            //img = ' <div class="item"> <img src="' + aray[i].url + '"  style=" width:' + size + 'px; height: auto;"/>';
+            img = ' <div class="item"> <img src="' + aray[i].url + '"  style=" width:auto; height: auto;"/>';
             /*'<div class="carousel-caption">  <h3>' + aray[i].titulo + '</h3>  </div> </div>';*/
         }
         $('#' + carousel_indicators).append(ol);
@@ -145,7 +151,7 @@ function carrucel_images_recurso(aray, size) {
     $('#' + myCarousel).append('<a class="carousel-control left" href="#' + myCarousel + '" data-slide="prev">&lsaquo;</a>');
     $('#' + myCarousel).append('<a class="carousel-control right" href="#' + myCarousel + '" data-slide="next">&rsaquo;</a>');
 
-    $('#' + myCarousel).css("width", size);
+    //$('#' + myCarousel).css("width", size);
 }
 ;
 
@@ -155,7 +161,7 @@ function  add_video(url) {
     //console.log(url);
     var id = url.substring(url.indexOf("=") + 1);
     // console.log(id);
-    var o = '<iframe width="540" height="390" src="http://www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe>';
+    var o = '<iframe width="100%" height="390" src="http://www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe>';
     $('#video').append(o);
 }
 
@@ -166,7 +172,7 @@ function  add_map_servicios(rec) {//recurso=rec
     console.log(rec);
     $('.map_servicios').empty();
     $('.map_servicios').append('<div id="map_servicios"></div>');
-    var map_ser = L.mapbox.map('map_servicios', 'ruben.map-5m93f3zc').setView([g.coordinates[1], g.coordinates[0]], 16);
+    var map_ser = L.mapbox.map('map_servicios', 'ruben.map-5m93f3zc').setView([g.coordinates[1], g.coordinates[0]], 17);
     //map_ser.dragging.disable();
     //map_ser.touchZoom.disable();
     // map_ser.doubleClickZoom.disable();
@@ -360,11 +366,13 @@ function full_imagen_recurso(aray, size) {
 
     $('.full_imagen_recurso').empty();
     var myCarousel = 'myCarousel_recurso_full';
-    var carousel_indicators = 'carousel-indicators_recurso_full';
+    //var carousel_indicators = 'carousel-indicators_recurso_full';
+
     var carousel_inner = 'carousel-inner_recurso_full';
+
     $('.full_imagen_recurso').append('<div id="' + myCarousel + '" class="carousel slide"><div>');
 
-    $('#' + myCarousel + '').append('<ol class="carousel-indicators" id="' + carousel_indicators + '"><ol>');
+    // $('#' + myCarousel + '').append('<ol class="carousel-indicators" id="' + carousel_indicators + '"><ol>');
     $('#' + myCarousel + '').append('<div class="carousel-inner" id="' + carousel_inner + '"></div>');
 
     for (var i = 0; i < aray.length; i++) {
@@ -373,21 +381,28 @@ function full_imagen_recurso(aray, size) {
 
         if (i === 0) {
 
-            ol = '<li data-target="#' + myCarousel + '" data-slide-to="' + i + '" class="active"></li>';
-            img = ' <div class="item active"> <img src="' + aray[i].url + '"  style=" width:100%;   max-height: 800px;"/>';
+            //ol = '<li data-target="#' + myCarousel + '" data-slide-to="' + i + '" class="active"></li>';
+            // img = ' <div class="item active"> <img src="' + aray[i].url + '"  style=" width:100%;   max-height: 800px;"/>';
+            img = '<div class="item active"> <button type="button" class="close butoon_close_imagen" data-dismiss="modal">×</button> <img class="item active" class="modal-body" src="' + aray[i].url + '"/></div>';
+
             /* '<div class="carousel-caption">  <h3>' + aray[i].titulo + '</h3> <p>' + aray[i].descripcion + '</p> </div> </div>';*/
         } else {
 
-            ol = '<li data-target="#' + myCarousel + '' + myCarousel + '" data-slide-to="' + i + '"></li>';
-            img = ' <div class="item"> <img src="' + aray[i].url + '"  style=" width:100%;  max-height: 800px;"/>';
-            /*'<div class="carousel-caption">  <h3>' + aray[i].titulo + '</h3>  </div> </div>';*/
+            // ol = '<li data-target="#' + myCarousel + '' + myCarousel + '" data-slide-to="' + i + '"></li>';
+            // img = ' <div class="item"> <img src="' + aray[i].url + '"  style=" width:100%;  max-height: 800px;"/>';
+
+            img = ' <div class="item"> <button type="button" class="close butoon_close_imagen"  data-dismiss="modal">×</button> <img class="item" class="modal-body" src="' + aray[i].url + '" /></div>';
+
         }
-        $('#' + carousel_indicators).append(ol);
+        //$('#' + carousel_indicators).append(ol);
         $('#' + carousel_inner).append(img);
     }
     $('#' + myCarousel).append('<a class="carousel-control left" href="#' + myCarousel + '" data-slide="prev">&lsaquo;</a>');
     $('#' + myCarousel).append('<a class="carousel-control right" href="#' + myCarousel + '" data-slide="next">&rsaquo;</a>');
 
-    $('#' + myCarousel).css("width", size);
+    $('#' + myCarousel).css("width", '100%');
+
+    $('#myModal').modal({show: false});
+   $('#'+myCarousel).carousel({'interval': false})
 }
 ;

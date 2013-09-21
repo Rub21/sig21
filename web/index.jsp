@@ -155,10 +155,11 @@
 
                             <div class="imagenes_recurso">
                             </div>
-                            <div class="overimagen_recurso">
-
-                            </div>
-                        </div>
+                            <!-- <div class="overimagen_recurso">
+ 
+                             </div>-->
+                           <a class="overimagen_recurso" href="#">ver imagenes en tamaño normal</a>
+                        </div>                        
                         <div id="video" class="span6">
                             <!--<textarea class="embed-code"></textarea> -->
 
@@ -572,16 +573,17 @@
         </div>
         <!--END TRANSPORTE-->
         <!--MOVILIDAD-->
+        
         <div id="modal_imagen">
             <div id="popover_imagen" class="modal container hide fade" tabindex="-1">
 
-                <div class="modal-body" >
+               <!-- <div class="modal-body" >
                     <button type="button" class="close" id="butoon_close_imagen" data-dismiss="modal" aria-hidden="true">×</button> 
-
+-->
                     <div class="full_imagen_recurso"></div>
 
 
-                </div>
+            <!--    </div>-->
 
 
 
