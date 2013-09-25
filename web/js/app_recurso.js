@@ -95,8 +95,15 @@ function filter(arr) {
 $(document).on('ready', function() {
     //Autocomplete
     $("#search").autocomplete({
-        source: list_auto_recursos
+        source: list_auto_recursos,
+        select: function(event, ui) {
+
+
+            busqueda(ui.item.value)
+
+        }
     });
+
 
 
     $('a[href="#buscar"]').click(function(e) {
@@ -190,3 +197,35 @@ $(document).on('ready', function() {
     })
 
 });
+
+
+
+function  busqueda(nombre) {
+    //var nombre = $('#search').val().replace(/\s/g, "");
+
+    nombre = nombre.replace(/\s/g, "");
+    //filtrar en mapa
+    map.markerLayer.setFilter(function(f) {
+        return f.nombre.replace(/\s/g, "") === nombre;
+    });
+
+    //filtrar en sidebar
+    var arr = _.find(list_recursos, function(item) {
+        return item.nombre.replace(/\s/g, "") === nombre;
+    });
+    if (_.isUndefined(arr)) {
+        //informacion de falla en busqueda
+        $('#faill_search').empty();
+        $('#faill_search').append('<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>Este servicio no fue registrado</div>')
+        $('#search').val('');
+
+    } else {
+        fill_search_products([arr]);
+    }
+
+    window.setTimeout(function() {
+        $('#search').val('');
+        $('#faill_search').empty();
+    }, 2000);
+}
+;

@@ -154,7 +154,7 @@
                                     </div>
                                 </div>
                             </div>
-                           <!-- <div class="accordion" id="accordion_transporte">
+                           <div class="accordion" id="accordion_transporte">
                                 <div class="accordion-group">
                                     <div class="accordion-reeading">
                                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapse_transporte" >
@@ -188,7 +188,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>-->
+                            </div>
                         </div>
                     </div>                       
                 </div> 

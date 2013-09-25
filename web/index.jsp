@@ -113,9 +113,9 @@
                                         </td>
                                         <td>
                                             <div class="como_llegar"></div>
-                                            <!-- <h6 class="movilidad">
+                                            <h6 class="movilidad">
                                                  <a href="#movilidad"  class="click_movilidad"  >ver movilidad a este destino</a>
-                                             </h6>-->
+                                             </h6>
 
                                         </td>
                                     </tr> 
