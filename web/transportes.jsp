@@ -11,6 +11,7 @@
 
         <div id="map" class="loading">
         </div>
+        <a href='#' id='geolocate'>¿Dónde Estoy?</a>
         <div class="inf_sidebar"><a href="#">&nbsp</a></div>
         <div class="sidebar">
             <div class="hide_sidebar"><a href="#">&nbsp</a></div>
@@ -90,7 +91,18 @@
                                             <!--<div class="sitio_web"></div> -->
                                             <a target="_blank" class="sitio_web" id="sitio_web_transporte" href="#"></a> 
                                         </td>
-                                    </tr>                        
+                                    </tr>  
+                                    <tr>
+
+                                        <td width="150"> 
+                                            <i class="icon-hand-right"></i> Destinos: 
+                                        </td>
+                                        <td>
+                                            <!--<div class="sitio_web"></div> -->
+                                            <div class="destinos" id="destinos_transporte"> </div>
+                                        </td>
+                                    </tr> 
+
                                 </tbody>
                             </table>
                         </div>

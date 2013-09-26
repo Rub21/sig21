@@ -19,6 +19,50 @@ window.setTimeout(function() {
 }, 3000);
 
 
+/***********GEOLOCATED**********/
+var geolocate = document.getElementById('geolocate');
+
+if (!navigator.geolocation) {
+    geolocate.innerHTML = 'geolocation is not available';
+} else {
+    geolocate.onclick = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        map.locate();
+    };
+}
+
+map.on('locationfound', function(e) {
+    map.fitBounds(e.bounds);
+    var geojson = {
+        type: "Feature",
+        geometry: {
+            type: "Point",
+            coordinates: [e.latlng.lng, e.latlng.lat]
+        },
+        properties: {
+            "title": "Aqui Estoy",
+            'marker-color': '#3B5998',
+            "marker-symbol": "pitch",
+            "marker-size": "large",
+        }
+    };
+
+
+
+
+     var markerLayer = L.mapbox.markerLayer(geojson).addTo(map);
+    map.zoom(15);
+    // var markerLayer = L.mapbox.markerLayer(geojson)   // hide all markers
+    // .setFilter(function() { return false; })
+    // .addTo(map);      
+//    geolocate.parentNode.removeChild(geolocate);
+});
+
+
+map.on('locationerror', function() {
+    geolocate.innerHTML = 'position could not be found';
+});
 
 
 

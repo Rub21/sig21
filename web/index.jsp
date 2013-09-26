@@ -17,6 +17,7 @@
         <div id="map" class="loading">
         </div>
 
+        <a href='#' id='geolocate'>¿Dónde Estoy?</a>
 
         <div class="inf_sidebar"><a href="#">&nbsp</a></div>
         <div class="sidebar">
@@ -72,11 +73,11 @@
 
                     <div class="row-fluid">
                         <div class="span6">
-                            <p  class="well descripcion"> 
+                            <p  class="well descripcion" style="text-align: justify"> 
                             </p>
                             <div class="cont_historia">
                                 <h5>Historia</h5>
-                                <p  class="well historia"> </p>
+                                <p  class="well historia" style="text-align: justify"> </p>
                             </div>
 
                             <div id="id_detalles_recurso">
@@ -114,8 +115,8 @@
                                         <td>
                                             <div class="como_llegar"></div>
                                             <h6 class="movilidad">
-                                                 <a href="#movilidad"  class="click_movilidad"  >ver movilidad a este destino</a>
-                                             </h6>
+                                                <a href="#movilidad"  class="click_movilidad"  >ver movilidad a este destino</a>
+                                            </h6>
 
                                         </td>
                                     </tr> 
@@ -158,7 +159,7 @@
                             <!-- <div class="overimagen_recurso">
  
                              </div>-->
-                           <a class="overimagen_recurso" href="#">ver imagenes en tamaño normal</a>
+                            <a class="overimagen_recurso" href="#">ver imagenes en tamaño normal</a>
                         </div>                        
                         <div id="video" class="span6">
                             <!--<textarea class="embed-code"></textarea> -->
@@ -548,7 +549,17 @@
                                             <a target="_blank" class="sitio_web" id="sitio_web_transporte" href="#"></a> 
 
                                         </td>
-                                    </tr>                        
+                                    </tr>      
+                                    <tr>
+
+                                        <td width="150"> 
+                                            <i class="icon-hand-right"></i> Destinos: 
+                                        </td>
+                                        <td>
+                                            <!--<div class="sitio_web"></div> -->
+                                            <div class="destinos" id="destinos_transporte"> </div>
+                                        </td>
+                                    </tr> 
                                 </tbody>
                             </table>
                         </div>
@@ -573,17 +584,17 @@
         </div>
         <!--END TRANSPORTE-->
         <!--MOVILIDAD-->
-        
+
         <div id="modal_imagen">
             <div id="popover_imagen" class="modal container hide fade" tabindex="-1">
 
-               <!-- <div class="modal-body" >
-                    <button type="button" class="close" id="butoon_close_imagen" data-dismiss="modal" aria-hidden="true">×</button> 
--->
-                    <div class="full_imagen_recurso"></div>
+                <!-- <div class="modal-body" >
+                     <button type="button" class="close" id="butoon_close_imagen" data-dismiss="modal" aria-hidden="true">×</button> 
+                -->
+                <div class="full_imagen_recurso"></div>
 
 
-            <!--    </div>-->
+                <!--    </div>-->
 
 
 

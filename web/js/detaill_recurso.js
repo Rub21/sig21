@@ -172,20 +172,17 @@ function  add_map_servicios(rec) {//recurso=rec
     console.log(rec);
     $('.map_servicios').empty();
     $('.map_servicios').append('<div id="map_servicios"></div>');
-    var map_ser = L.mapbox.map('map_servicios', 'ruben.map-5m93f3zc').setView([g.coordinates[1], g.coordinates[0]], 17);
+    var map_ser = L.mapbox.map('map_servicios', 'ruben.map-5m93f3zc').setView([g.coordinates[1], g.coordinates[0]], 15);
     //map_ser.dragging.disable();
     //map_ser.touchZoom.disable();
     // map_ser.doubleClickZoom.disable();
     map_ser.scrollWheelZoom.disable();
-    var minimap = new L.Control.MiniMap(L.mapbox.tileLayer('ruben.map-5m93f3zc'));
-    minimap.addTo(map_ser);
+    /* var minimap = new L.Control.MiniMap(L.mapbox.tileLayer('ruben.map-5m93f3zc'));
+     minimap.addTo(map_ser);*/
 
     mapData_servicios(list_servicios);
 
     function mapData_servicios(f) {
-        console.log(f);
-        //list_recurso from global
-
         map_ser.markerLayer.on('layeradd', function(e) {
             var marker = e.layer;
             var feature = marker.feature;
@@ -204,7 +201,6 @@ function  add_map_servicios(rec) {//recurso=rec
                         '</div>';
             }
             //button
-
             var clase = feature.clase.replace(/\s/g, "");
             console.log(clase);
             var a_button = '';
@@ -261,6 +257,8 @@ function  add_map_servicios(rec) {//recurso=rec
             return f.clase.replace(/\s/g, "") === 'Hotel';
         });
 
+        map_ser.setView([g.coordinates[1], g.coordinates[0]], 15);
+        
         $('#select_hotel').addClass('active');
     });
 
@@ -273,17 +271,22 @@ function  add_map_servicios(rec) {//recurso=rec
             return f.clase.replace(/\s/g, "") === 'Restaurant';
         });
 
+        map_ser.setView([g.coordinates[1], g.coordinates[0]], 15);
+        
     });
 
     $('a[href="#transporte"]').click(function(e) {
         e.preventDefault();
-        scroll_to = document.getElementById('servicios');
+        /*scroll_to = document.getElementById('servicios');
         scroll_to.scrollIntoView();
-
 
         map_ser.markerLayer.setFilter(function(f) {
             return f.clase.replace(/\s/g, "") === 'Transporte';
         });
+        map_ser.setView([g.coordinates[1], g.coordinates[0]], 17);*/
+        
+         $('.click_movilidad').trigger('click');
+        
     });
 
 
@@ -295,6 +298,7 @@ function  add_map_servicios(rec) {//recurso=rec
         map_ser.markerLayer.setFilter(function(f) {
             return f.clase.replace(/\s/g, "") === 'Complementario';
         });
+        map_ser.setView([g.coordinates[1], g.coordinates[0]], 15);
     });
 
 
@@ -339,11 +343,7 @@ function  add_map_servicios(rec) {//recurso=rec
             }
         });
 
-        /* _.filter([1, 2, 3, 4, 5, 6], function(num) {
-         return num % 2 == 0;
-         });
-         [2, 4, 6]*/
-        map_ser.setView([geo[1], geo[0]], 13);
+        map_ser.setView([geo[1], geo[0]], 15);
     });
 
 
@@ -403,6 +403,6 @@ function full_imagen_recurso(aray, size) {
     $('#' + myCarousel).css("width", '100%');
 
     $('#myModal').modal({show: false});
-   $('#'+myCarousel).carousel({'interval': false})
+    $('#' + myCarousel).carousel({'interval': false})
 }
 ;

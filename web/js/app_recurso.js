@@ -37,7 +37,7 @@ function mapData_recurso() {
         var a_button = '<div class=" btn-detail"><a  role="button" class="btn  btn-success"  href="#detail" onclick="call_detaill_recurso(\'' + feature.idproducto + '\')"> Más Detalle</a></div>';
         // Create custom popup content
         var popupContent = '<div id="' + feature.idproducto + '" class="popup">' +
-                '<h2>' + feature.nombre + '</h2>' +
+                '<h4>' + feature.nombre + '</h4>' +
                 '<div class="slideshow">' +
                 slideshowContent +
                 '</div>' +

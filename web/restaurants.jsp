@@ -14,6 +14,7 @@
 
         <div id="map" class="loading">
         </div>
+        <a href='#' id='geolocate'>¿Dónde Estoy?</a>
         <div class="inf_sidebar"><a href="#">&nbsp</a></div>
         <div class="sidebar">
             <div class="hide_sidebar"><a href="#">&nbsp</a></div>
