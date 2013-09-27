@@ -28,7 +28,7 @@ function mapData_complementarios(f) {
         var a_button = '<div class=" btn-detail"><a  role="button" class="btn  btn-success"  href="#detail" onclick="call_detaill_complementario(\'' + feature.idproducto + '\')"> Más Detalle</a></div>';
         // Create custom popup content
         var popupContent = '<div id="' + feature.idproducto + '" class="popup">' +
-                '<h4>' + feature.nombre + '</h4>' +
+                '<h3>' + feature.nombre + '</h3>' +
                 '<div class="slideshow">' +
                 slideshowContent +
                 '</div>' +

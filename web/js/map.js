@@ -31,7 +31,6 @@ if (!navigator.geolocation) {
         map.locate();
     };
 }
-
 map.on('locationfound', function(e) {
     map.fitBounds(e.bounds);
     var geojson = {
@@ -47,11 +46,7 @@ map.on('locationfound', function(e) {
             "marker-size": "large",
         }
     };
-
-
-
-
-     var markerLayer = L.mapbox.markerLayer(geojson).addTo(map);
+    var markerLayer = L.mapbox.markerLayer(geojson).addTo(map);
     map.zoom(15);
     // var markerLayer = L.mapbox.markerLayer(geojson)   // hide all markers
     // .setFilter(function() { return false; })
@@ -59,10 +54,12 @@ map.on('locationfound', function(e) {
 //    geolocate.parentNode.removeChild(geolocate);
 });
 
-
 map.on('locationerror', function() {
     geolocate.innerHTML = 'position could not be found';
 });
 
 
-
+L.control.layers({
+    'Mapa Base': L.mapbox.tileLayer('ruben.map-5m93f3zc').addTo(map),
+    'Mapa Morfologico': L.mapbox.tileLayer('ruben.map-tlseskm0')
+}).addTo(map);

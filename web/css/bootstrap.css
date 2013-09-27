@@ -2895,6 +2895,9 @@ table th[class*="span"],
     background: url("../img/comprar.png") no-repeat ;
 }
 
+.icon-comprar-black{
+        background: url("../img/comprar-b.png") no-repeat ;
+}
 
 .icon-corredor {
     background: url("../img/corredor.png") no-repeat ;

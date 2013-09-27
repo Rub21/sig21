@@ -17,7 +17,7 @@
         <div id="map" class="loading">
         </div>
 
-        <a href='#' id='geolocate'>¿Dónde Estoy?</a>
+        <a href='#' id='geolocate'>&nbsp</a>
 
         <div class="inf_sidebar"><a href="#">&nbsp</a></div>
         <div class="sidebar">
@@ -62,7 +62,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#complementario" ><i class="icon-dormir-black"></i>Otros servicios
+                                    <a href="#complementario" ><i class="icon-comprar-black"></i></i>Otros servicios
                                     </a>
                                 </li>                
                             </ul>
@@ -181,9 +181,9 @@
                             </div>
                             <div class="select_servicios">
                                 <ul class="dropdown-menu">
-                                    <li><a id="select_hotel" href="#hotel"><i class="icon-hand-right"></i>Donde Dormir</a></li>
-                                    <li><a id="select_restaurant"href="#restaurant"><i class="icon-hand-right"></i>Donde Comer</a></li>
-                                    <li><a id="select_transporte" href="#transporte"><i class="icon-hand-right"></i>Como Viajar</a></li>
+                                    <li><a id="select_hotel" href="#hotel"><i class="icon-hand-right"></i>Dónde Dormir</a></li>
+                                    <li><a id="select_restaurant"href="#restaurant"><i class="icon-hand-right"></i>Dónde Comer</a></li>
+                                    <li><a id="select_transporte" href="#transporte"><i class="icon-hand-right"></i>Cómo Viajar</a></li>
                                     <li><a id="select_complementario" href="#complementario"><i class="icon-hand-right"></i>Otros Servicios</a></li>
                                     <li class="divider"></li>
                                     <li><a id="select_todos" href="#todos"><i class="icon-hand-right"></i>Todos</a></li>
