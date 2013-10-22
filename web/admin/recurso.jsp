@@ -154,7 +154,7 @@
                                     </div>
                                 </div>
                             </div>
-                           <div class="accordion" id="accordion_transporte">
+                            <div class="accordion" id="accordion_transporte">
                                 <div class="accordion-group">
                                     <div class="accordion-reeading">
                                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapse_transporte" >
@@ -265,11 +265,11 @@
 
     </body>
     <!--Scripts-->		
-    <script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.6/mapbox.js'></script>
-    <script src='http://code.jquery.com/jquery-1.8.2.js'></script>
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
-
-    <script src='js/underscore.min.js'></script>
+    <script src='js/mapbox0.6.js'></script>
+    <script src='js/jquery-1.8.2.js'></script>
+    <script src="js/jquery.validate.js"></script>
+    
+    <script src='js/underscore.min.js'></script>    
     <script src='js/bootstrap.js'></script>        
     <script src="js/jquery.ptTimeSelect.js"></script>
 

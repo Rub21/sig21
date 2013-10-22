@@ -2,9 +2,9 @@
 <!DOCTYPE html>
 
 <%      String usuario = (String) session.getAttribute("user");
-     if (usuario == null) {
-     response.sendRedirect("login.jsp");
-     }
+    if (usuario == null) {
+        response.sendRedirect("login.jsp");
+    }
 
 %>
 <html>
@@ -30,9 +30,9 @@
 
     </body>
     <!--Scripts-->		
-    <script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.6/mapbox.js'></script>
-    <script src='http://code.jquery.com/jquery-1.8.2.js'></script>
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+    <script src='js/mapbox0.6.js'></script>
+    <script src='js/jquery-1.8.2.js'></script>
+    <script src="js/jquery.validate.js"></script>
     <script src='js/underscore.min.js'></script>
     <script src='js/bootstrap.js'></script>        
     <script src='js/fun_map.js' ></script>

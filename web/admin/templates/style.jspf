@@ -1,10 +1,9 @@
 
-<link href='http://api.tiles.mapbox.com/mapbox.js/v0.6.6/mapbox.css' rel='stylesheet' />
-<link href="css/bootstrap.css" rel="stylesheet">
+<link rel='stylesheet' href='css/mapbox0.6.css'  />
+<link rel="stylesheet" href="css/bootstrap.css" >
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/style_header.css" />
-
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+<link rel="stylesheet" href="css/jquery-ui1.9.css" />
 <link rel="stylesheet" href="css/jquery.ptTimeSelect.css" />
 
 

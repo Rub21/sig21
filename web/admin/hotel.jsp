@@ -180,9 +180,9 @@
                 <div class="span3"></div>
                 <div class="container">
                     <button type="submit" class="btn btn-primary" id="button">  Registrar</button>
-                <a class="btn" id="clear-re" href="#" onClick="location.href = 'registrar.jsp'">Cancelar</a>
+                    <a class="btn" id="clear-re" href="#" onClick="location.href = 'registrar.jsp'">Cancelar</a>
                 </div>
-            
+
             </form>
 
         </div>
@@ -193,9 +193,9 @@
 
     </body>
     <!--Scripts-->		
-    <script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.6/mapbox.js'></script>
-    <script src='http://code.jquery.com/jquery-1.8.2.js'></script>
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+    <script src='js/mapbox0.6.js'></script>
+    <script src='js/jquery-1.8.2.js'></script>
+    <script src="js/jquery.validate.js"></script>
     <script src='js/underscore.min.js'></script>
     <script src='js/bootstrap.js'></script>        
     <script src='js/fun_map.js' ></script>
