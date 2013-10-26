@@ -132,7 +132,9 @@ public class SRegistrarHotel extends HttpServlet {
                 String nombreImagen = archivo.substring(0, posicionPunto);
                 nombreImagen = nombreImagen + formato.format(new java.util.Date());
                 String extension = archivo.substring(posicionPunto);
-                nombreImagen = nombreImagen.replaceAll("\\s", "") + extension;
+               nombreImagen = nombreImagen.replaceAll("\\s", "") + extension;
+               //nombreImagen = bHotel.getNombre().replaceAll("\\s", "") + "-" + nombreImagen.replaceAll("\\s", "") + extension;
+              
 
                 //Fill bImagen                
                 bImagen.setUrl(nombreImagen);

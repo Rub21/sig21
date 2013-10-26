@@ -3,18 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/ruben/Dropbox/webpages/sigturayacucho/web/admin/registrar.jsp</file>
-            <file>file:/home/ruben/Dropbox/webpages/sigturayacucho/web/admin/restaurant.jsp</file>
-            <file>file:/home/ruben/Dropbox/webpages/sigturayacucho/web/admin/transporte.jsp</file>
-            <file>file:/home/ruben/Dropbox/webpages/sigturayacucho/src/java/tur/dao/DAOHotel.java</file>
-            <file>file:/home/ruben/Dropbox/webpages/sigturayacucho/web/admin/login.jsp</file>
-            <file>file:/home/ruben/Dropbox/webpages/sigturayacucho/web/admin/recurso.jsp</file>
-            <file>file:/home/ruben/Dropbox/webpages/sigturayacucho/web/admin/templates/style.jspf</file>
-            <file>file:/home/ruben/Dropbox/webpages/sigturayacucho/web/admin/hotel.jsp</file>
-            <file>file:/home/ruben/Dropbox/webpages/sigturayacucho/src/java/tur/dao/DAOProducto.java</file>
-            <file>file:/home/ruben/Dropbox/webpages/sigturayacucho/src/java/tur/manager/ManagerHotel.java</file>
-            <file>file:/home/ruben/Dropbox/webpages/sigturayacucho/src/java/tur/servlet/SRegistrarHotel.java</file>
-            <file>file:/home/ruben/Dropbox/webpages/sigturayacucho/web/admin/complementario.jsp</file>
+            <file>file:/home/ruben/Dropbox/webpages/sigturayacucho/src/java/tur/servlet/SRegistrarTransporte.java</file>
+            <file>file:/home/ruben/Dropbox/webpages/sigturayacucho/web/index.jsp</file>
         </group>
     </open-files>
 </project-private>

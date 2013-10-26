@@ -42,8 +42,6 @@ public class SRegistrarTransporte extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
-
-
         //declarte connecion to data base and context
         ServletContext ctx = this.getServletConfig().getServletContext();
         HttpSession sesion = request.getSession();
@@ -53,13 +51,10 @@ public class SRegistrarTransporte extends HttpServlet {
         managerProducto = new ManagerProducto(conexion_producto);
         managerTransporte = new ManagerTransporte(conexion);
 
-
-
         BTransporte bTransporte = new BTransporte();
         // BDestino bDestino= new BDestino();
         BImagen bImagen;// = new BImagen();
         BGeometry bGeometry = new BGeometry();
-
 
         UploadBean upBean;
         //clases for upload images
@@ -115,7 +110,7 @@ public class SRegistrarTransporte extends HttpServlet {
                 String nombreImagen = archivo.substring(0, posicionPunto);
                 nombreImagen = nombreImagen + formato.format(new java.util.Date());
                 String extension = archivo.substring(posicionPunto);
-                nombreImagen = nombreImagen.replaceAll("\\s", "") + extension;
+                nombreImagen = bTransporte.getNombre().replaceAll("\\s", "") + "-" + nombreImagen.replaceAll("\\s", "") + extension;
                 //Fill bImagen
                 //bImagen.setId(id);
                 bImagen.setUrl(nombreImagen);
@@ -130,12 +125,9 @@ public class SRegistrarTransporte extends HttpServlet {
 
             bTransporte.setImagenes(listImagenes);
 
-
             bTransporte.print();
             managerTransporte.registrartransporte(bTransporte);
             response.sendRedirect("admin/confirm.html");
-
-
 
         } catch (Exception ex) {
             request.setAttribute("message", "There was an error: " + ex.getMessage());
@@ -147,8 +139,7 @@ public class SRegistrarTransporte extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
-     * Handles the HTTP
-     * <code>GET</code> method.
+     * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -166,8 +157,7 @@ public class SRegistrarTransporte extends HttpServlet {
     }
 
     /**
-     * Handles the HTTP
-     * <code>POST</code> method.
+     * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
      * @param response servlet response
