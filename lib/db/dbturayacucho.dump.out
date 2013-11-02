@@ -1,0 +1,928 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+--
+-- Name: insert_complementario(character, character, character, boolean, character varying, character, text, character, character, character, character, numeric, numeric); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION insert_complementario(idproducto character, nombre character, clase character, estado boolean, idcomplementario character varying, tipo character, descripcion text, direccion character, telefono character, sitio_web character, horario_atencion character, lat numeric, lon numeric) RETURNS character
+    LANGUAGE plpgsql
+    AS $$
+DECLARE
+        
+BEGIN
+
+	INSERT INTO producto(idproducto, nombre, clase, estado)
+        VALUES (idproducto, nombre, clase, estado);
+        
+INSERT INTO complementario(idcomplementario, tipo, descripcion, direccion, telefono, sitio_web,horario_atencion, idproducto)
+    VALUES (idcomplementario, tipo, descripcion, direccion, telefono, sitio_web,horario_atencion, idproducto);
+
+        INSERT INTO geometry(lat, lon, idproducto)
+        VALUES (lat, lon, idproducto);
+	RETURN 'Insert a complementario';	
+END;
+$$;
+
+
+ALTER FUNCTION public.insert_complementario(idproducto character, nombre character, clase character, estado boolean, idcomplementario character varying, tipo character, descripcion text, direccion character, telefono character, sitio_web character, horario_atencion character, lat numeric, lon numeric) OWNER TO postgres;
+
+--
+-- Name: insert_hotel(character, character, character, boolean, character varying, character, text, character, character, character, character, text, character, numeric, numeric); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION insert_hotel(idproducto character, nombre character, clase character, estado boolean, idhotel character varying, categoria character, descripcion text, direccion character, telefono character, sitio_web character, correo_elec character, tipo_precio_hab text, formas_pago character, lat numeric, lon numeric) RETURNS void
+    LANGUAGE plpgsql
+    AS $$
+DECLARE        
+BEGIN
+
+	INSERT INTO producto(idproducto, nombre, clase, estado)
+        VALUES (idproducto, nombre, clase, estado);  
+
+	INSERT INTO hotel(idhotel, categoria, descripcion, direccion, telefono, sitio_web, 
+            correo_elec, tipo_precio_hab, formas_pago, idproducto)
+	VALUES (idhotel, categoria, descripcion, direccion, telefono, sitio_web, 
+            correo_elec, tipo_precio_hab, formas_pago, idproducto);
+
+        INSERT INTO geometry(lat, lon, idproducto)
+        VALUES (lat, lon, idproducto);        
+	--RETURN 'Insert a Hotel';	
+END;
+$$;
+
+
+ALTER FUNCTION public.insert_hotel(idproducto character, nombre character, clase character, estado boolean, idhotel character varying, categoria character, descripcion text, direccion character, telefono character, sitio_web character, correo_elec character, tipo_precio_hab text, formas_pago character, lat numeric, lon numeric) OWNER TO postgres;
+
+--
+-- Name: insert_recurso(character, character, character, boolean, character varying, character, character, text, text, character, character, character, character, character, character, character, text, numeric, numeric); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION insert_recurso(idproducto character, nombre character, clase character, estado boolean, idrecurso character varying, categoria character, tipo character, descripcion text, historia text, corredor character, distancia character, tipo_precio_ing character, horario_atencion character, temperatura character, altitud character, video character, como_llegar text, lat numeric, lon numeric) RETURNS void
+    LANGUAGE plpgsql
+    AS $$
+DECLARE
+        
+BEGIN
+
+	INSERT INTO producto(idproducto, nombre, clase, estado)
+        VALUES (idproducto, nombre, clase, estado);                
+        INSERT INTO recurso(idrecurso, categoria, tipo, descripcion, historia,  corredor, distancia, tipo_precio_ing, horario_atencion, temperatura, altitud, video, como_llegar, idproducto)
+        VALUES (idrecurso, categoria, tipo, descripcion, historia, corredor, distancia, tipo_precio_ing, horario_atencion, temperatura, altitud, video, como_llegar, idproducto);
+        INSERT INTO geometry(lat, lon, idproducto)
+        VALUES (lat, lon, idproducto);	
+END;
+$$;
+
+
+ALTER FUNCTION public.insert_recurso(idproducto character, nombre character, clase character, estado boolean, idrecurso character varying, categoria character, tipo character, descripcion text, historia text, corredor character, distancia character, tipo_precio_ing character, horario_atencion character, temperatura character, altitud character, video character, como_llegar text, lat numeric, lon numeric) OWNER TO postgres;
+
+--
+-- Name: insert_restaurant(character, character, character, boolean, character varying, character, character, text, character, character, character, character, character, character, character, numeric, numeric); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION insert_restaurant(idproducto character, nombre character, clase character, estado boolean, idrestaurant character varying, categoria character, tipo character, descripcion text, direccion character, telefono character, sitio_web character, horario_atencion character, especialidad character, precio_promedio character, formas_pago character, lat numeric, lon numeric) RETURNS void
+    LANGUAGE plpgsql
+    AS $$
+DECLARE        
+BEGIN
+
+	INSERT INTO producto(idproducto, nombre, clase, estado)
+        VALUES (idproducto, nombre, clase, estado);
+        
+        INSERT INTO restaurant(idrestaurant, categoria, tipo, descripcion, direccion, telefono,sitio_web, horario_atencion, especialidad, precio_promedio, formas_pago,idproducto)
+         VALUES(idrestaurant, categoria, tipo, descripcion, direccion, telefono,sitio_web, horario_atencion, especialidad, precio_promedio, formas_pago,idproducto);
+
+        INSERT INTO geometry(lat, lon, idproducto)
+        VALUES (lat, lon, idproducto);
+	--RETURN 'Insert a Restaurant';	
+END;
+$$;
+
+
+ALTER FUNCTION public.insert_restaurant(idproducto character, nombre character, clase character, estado boolean, idrestaurant character varying, categoria character, tipo character, descripcion text, direccion character, telefono character, sitio_web character, horario_atencion character, especialidad character, precio_promedio character, formas_pago character, lat numeric, lon numeric) OWNER TO postgres;
+
+--
+-- Name: insert_transporte(character, character, character, boolean, character varying, text, character, character, character, character, character, character, text, numeric, numeric); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION insert_transporte(idproducto character, nombre character, clase character, estado boolean, idtransporte character varying, descripcion text, tipo character, direccion character, telefono character, sitio_web character, horario_atencion character, horario_salida character, destinos text, lat numeric, lon numeric) RETURNS void
+    LANGUAGE plpgsql
+    AS $$
+DECLARE
+        
+BEGIN
+
+	INSERT INTO producto(idproducto, nombre, clase, estado)
+        VALUES (idproducto, nombre, clase, estado);       
+        INSERT INTO transporte(idtransporte, descripcion,tipo, direccion, telefono, sitio_web, horario_atencion,horario_salida, destinos, idproducto)
+        VALUES (idtransporte, descripcion,tipo, direccion, telefono, sitio_web, horario_atencion,horario_salida, destinos, idproducto);
+        INSERT INTO geometry(lat, lon, idproducto)
+        VALUES (lat, lon, idproducto);
+	--RETURN 'Insert a Transporte';	
+END;
+$$;
+
+
+ALTER FUNCTION public.insert_transporte(idproducto character, nombre character, clase character, estado boolean, idtransporte character varying, descripcion text, tipo character, direccion character, telefono character, sitio_web character, horario_atencion character, horario_salida character, destinos text, lat numeric, lon numeric) OWNER TO postgres;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: complementario; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE complementario (
+    idcomplementario character varying(10) NOT NULL,
+    tipo character(100),
+    descripcion text,
+    direccion character(100),
+    telefono character(50),
+    sitio_web character(100),
+    horario_atencion character(100),
+    idproducto character varying(10)
+);
+
+
+ALTER TABLE public.complementario OWNER TO postgres;
+
+--
+-- Name: geometry; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE geometry (
+    lat numeric,
+    lon numeric,
+    idproducto character varying(10)
+);
+
+
+ALTER TABLE public.geometry OWNER TO postgres;
+
+--
+-- Name: hotel; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE hotel (
+    idhotel character varying(10) NOT NULL,
+    categoria character(50),
+    descripcion text,
+    direccion character(100),
+    telefono character(50),
+    sitio_web character(100),
+    correo_elec character(100),
+    tipo_precio_hab text,
+    formas_pago character(100),
+    idproducto character varying(10)
+);
+
+
+ALTER TABLE public.hotel OWNER TO postgres;
+
+--
+-- Name: imagen; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE imagen (
+    url character varying(100),
+    idproducto character varying(10)
+);
+
+
+ALTER TABLE public.imagen OWNER TO postgres;
+
+--
+-- Name: producto; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE producto (
+    idproducto character varying(10) NOT NULL,
+    nombre character(100),
+    clase character(50),
+    estado boolean NOT NULL,
+    fecharegistro timestamp without time zone DEFAULT now()
+);
+
+
+ALTER TABLE public.producto OWNER TO postgres;
+
+--
+-- Name: recurso; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE recurso (
+    idrecurso character varying(10) NOT NULL,
+    categoria character(50),
+    tipo character(100),
+    descripcion text,
+    historia text,
+    corredor character(50),
+    distancia character(100),
+    tipo_precio_ing character(100),
+    horario_atencion character(100),
+    temperatura character(100),
+    altitud character(100),
+    video character(100),
+    como_llegar text,
+    idproducto character varying(10)
+);
+
+
+ALTER TABLE public.recurso OWNER TO postgres;
+
+--
+-- Name: recurso_transporte; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE recurso_transporte (
+    idrecurso character varying(10),
+    idtransporte character varying(10)
+);
+
+
+ALTER TABLE public.recurso_transporte OWNER TO postgres;
+
+--
+-- Name: restaurant; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE restaurant (
+    idrestaurant character varying(10) NOT NULL,
+    categoria character(20),
+    tipo character(40),
+    descripcion text,
+    direccion character(100),
+    telefono character(50),
+    sitio_web character(100),
+    horario_atencion character(100),
+    especialidad character(100),
+    precio_promedio character(100),
+    formas_pago character(100),
+    idproducto character varying(10)
+);
+
+
+ALTER TABLE public.restaurant OWNER TO postgres;
+
+--
+-- Name: select_complementario; Type: VIEW; Schema: public; Owner: postgres
+--
+
+CREATE VIEW select_complementario AS
+    SELECT p.idproducto, p.nombre, p.clase, p.estado, c.idcomplementario, c.tipo, c.descripcion, c.direccion, c.telefono, c.sitio_web, c.horario_atencion, g.lat, g.lon FROM ((producto p LEFT JOIN geometry g ON (((p.idproducto)::text = (g.idproducto)::text))) LEFT JOIN complementario c ON (((p.idproducto)::text = (c.idproducto)::text))) WHERE (p.clase = 'Complementario'::bpchar);
+
+
+ALTER TABLE public.select_complementario OWNER TO postgres;
+
+--
+-- Name: select_hotel; Type: VIEW; Schema: public; Owner: postgres
+--
+
+CREATE VIEW select_hotel AS
+    SELECT p.idproducto, p.nombre, p.clase, p.estado, h.idhotel, h.categoria, h.descripcion, h.direccion, h.telefono, h.sitio_web, h.correo_elec, h.tipo_precio_hab, h.formas_pago, g.lat, g.lon FROM ((producto p LEFT JOIN geometry g ON (((p.idproducto)::text = (g.idproducto)::text))) LEFT JOIN hotel h ON (((p.idproducto)::text = (h.idproducto)::text))) WHERE (p.clase = 'Hotel'::bpchar);
+
+
+ALTER TABLE public.select_hotel OWNER TO postgres;
+
+--
+-- Name: select_recurso; Type: VIEW; Schema: public; Owner: postgres
+--
+
+CREATE VIEW select_recurso AS
+    SELECT p.idproducto, p.nombre, p.clase, p.estado, r.idrecurso, r.categoria, r.tipo, r.descripcion, r.historia, r.corredor, r.distancia, r.tipo_precio_ing, r.horario_atencion, r.temperatura, r.altitud, r.video, r.como_llegar, g.lat, g.lon FROM ((producto p LEFT JOIN recurso r ON (((p.idproducto)::text = (r.idproducto)::text))) LEFT JOIN geometry g ON (((p.idproducto)::text = (g.idproducto)::text))) WHERE (p.clase = 'Recurso Turístico'::bpchar);
+
+
+ALTER TABLE public.select_recurso OWNER TO postgres;
+
+--
+-- Name: select_restaurant; Type: VIEW; Schema: public; Owner: postgres
+--
+
+CREATE VIEW select_restaurant AS
+    SELECT p.idproducto, p.nombre, p.clase, p.estado, re.idrestaurant, re.categoria, re.tipo, re.descripcion, re.direccion, re.telefono, re.sitio_web, re.horario_atencion, re.especialidad, re.precio_promedio, re.formas_pago, g.lat, g.lon FROM ((producto p LEFT JOIN geometry g ON (((p.idproducto)::text = (g.idproducto)::text))) LEFT JOIN restaurant re ON (((p.idproducto)::text = (re.idproducto)::text))) WHERE (p.clase = 'Restaurant'::bpchar);
+
+
+ALTER TABLE public.select_restaurant OWNER TO postgres;
+
+--
+-- Name: transporte; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE transporte (
+    idtransporte character varying(10) NOT NULL,
+    descripcion text,
+    direccion character(100),
+    tipo character(50),
+    telefono character(50),
+    sitio_web character(100),
+    horario_atencion character(100),
+    horario_salida character(100),
+    destinos text,
+    idproducto character varying(10)
+);
+
+
+ALTER TABLE public.transporte OWNER TO postgres;
+
+--
+-- Name: select_transporte; Type: VIEW; Schema: public; Owner: postgres
+--
+
+CREATE VIEW select_transporte AS
+    SELECT p.idproducto, p.nombre, p.clase, p.estado, t.idtransporte, t.descripcion, t.tipo, t.direccion, t.telefono, t.sitio_web, t.horario_atencion, t.horario_salida, t.destinos, g.lat, g.lon FROM ((producto p LEFT JOIN geometry g ON (((p.idproducto)::text = (g.idproducto)::text))) LEFT JOIN transporte t ON (((p.idproducto)::text = (t.idproducto)::text))) WHERE (p.clase = 'Transporte'::bpchar);
+
+
+ALTER TABLE public.select_transporte OWNER TO postgres;
+
+--
+-- Name: servicion_adicional; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE servicion_adicional (
+    tipo character varying(100),
+    idproducto character varying(10)
+);
+
+
+ALTER TABLE public.servicion_adicional OWNER TO postgres;
+
+--
+-- Name: usuario; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE usuario (
+    idusuario character varying(10) NOT NULL,
+    nombre character varying(80),
+    apellidos character varying(80),
+    usuario character varying(20) NOT NULL,
+    contrasenia text NOT NULL,
+    estado boolean NOT NULL,
+    fecharegistro timestamp without time zone DEFAULT now()
+);
+
+
+ALTER TABLE public.usuario OWNER TO postgres;
+
+--
+-- Data for Name: complementario; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY complementario (idcomplementario, tipo, descripcion, direccion, telefono, sitio_web, horario_atencion, idproducto) FROM stdin;
+47pc	Comercio de artesanías                                                                              	Es un mercado donde puede encontrar retablos, textiles, tapices, cerámicas artísticas y utilitaria, platería y hojalatería.	Av. Maravillas 101, 31 Ayacucho                                                                     	(066) 310213                                      	https://www.facebook.com/pages/Mercado-Artesanal-Shosaku-Nagase-Ayacucho/179515285530369            	lun - dom: 9:00 - 20:30                                                                             	47p
+48pc	Puntos de información al turista                                                                    	La Dirección Regional de Comercio Exterior y Turismo de Ayacucho es el encargado de brindar información al turista.	Jr. Asamblea Nro.481                                                                                	(066) 066 313162 - (066) 31 2548                  	http://www.dirceturayacucho.gob.pe/                                                                 	Lunes a Viernes 8:00 a 17:00 hrs.                                                                   	48p
+49pc	Puntos de información al turista                                                                    	Institución encargada a brindar información de al turista, y sugerir lugares de visita en Ayacucho.	Portal Municipal 45 (Municipalidad Huamanga).                                                       	(066) 31-8305, RPM #792671                        	http://www.turismoperu.info/iperu/Exp_ayacucho.htm                                                  	Lunes a Viernes 9:00 a 18:00 hrs.                                                                   	49p
+50pc	Policia                                                                                             	Puede hacer un denuncia de cualquier irregularidad, abierta a todo los turistas.	Jr. Dos de Mayo 100, Ayacucho                                                                       	(066) 31-7846.                                    	                                                                                                    	Lunes a Domingo 8:00-21:00.                                                                         	50p
+\.
+
+
+--
+-- Data for Name: geometry; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY geometry (lat, lon, idproducto) FROM stdin;
+-13.1583	-74.21795	1p
+-13.15692	-74.22746	2p
+-13.15016	-74.2212	3p
+-13.17111	-74.20966	4p
+-13.16424	-74.22246	5p
+-13.17128	-74.20944	6p
+-13.15816	-74.21759	7p
+-13.15925	-74.2193	8p
+-13.15874	-74.22586	9p
+-13.16033	-74.2265	10p
+-13.14917	-74.2256	11p
+-12.93964	-74.24924	12p
+-12.93957	-74.25264	13p
+-12.94236	-74.25304	14p
+-12.93975	-74.24739	15p
+-14.69524	-74.12376	16p
+-13.6531	-73.95279	17p
+-13.63039	-74.14051	18p
+-13.63005	-74.14514	19p
+-13.62793	-74.14385	20p
+-14.69416	-74.12731	21p
+-13.15853	-74.22557	22p
+-13.16216	-74.22642	23p
+-13.15887	-74.22721	24p
+-13.16226	-74.2259	25p
+-12.93963	-74.24665	26p
+-12.93902	-74.24916	27p
+-12.94074	-74.25014	28p
+-13.65271	-73.95495	29p
+-13.62604	-74.143	30p
+-13.04926	-74.13616	31p
+-13.03312	-74.12004	32p
+-13.06049	-74.19849	33p
+-13.64723	-73.95361	34p
+-13.31182	-74.48343	35p
+-12.93865	-74.2496	36p
+-13.62785	-74.14394	37p
+-13.5755	-73.97726	38p
+-15.25343	-73.74056	39p
+-14.46103	-73.90876	40p
+-12.89657	-74.28127	41p
+-12.87387	-74.22208	42p
+-13.15839	-74.22584	43p
+-13.16375	-74.22697	44p
+-13.16775	-74.2279	45p
+-13.16094	-74.22524	46p
+-13.15429	-74.22549	47p
+-13.1553	-74.22413	48p
+-13.16033	-74.2251	49p
+-13.16124	-74.22519	50p
+\.
+
+
+--
+-- Data for Name: hotel; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY hotel (idhotel, categoria, descripcion, direccion, telefono, sitio_web, correo_elec, tipo_precio_hab, formas_pago, idproducto) FROM stdin;
+9ph	4 Estrellas                                       	Es el hotel más emblemático de la ciudad, la decoración de sus diferentes ambientes es bastante tradicional y conserva un marcado estilo colonial.	Jr. 9 de Dicimbre 184                                                                               	(066) 322202                                      	http://www.dmhoteles.pe/index.php                                                                   	reservas@dematourshoteles.com                                                                       	Simple S/.180, doble S/. 216, Suite S/. 348	VISA y Mastercard                                                                                   	9p
+10ph	3 Estrellas                                       	Es una casona colonial totalmente remodelada ubicada frente a la Plaza principal de Ayacucho. Lo singular de este hotel es la decoración de sus habitaciones, recreando temáticamente regiones del Perú y países del mundo. En el primer piso se ubica un simpático restaurant.	Portal Constitución 04(Plaza Mayor)                                                                 	(066) 31-2834                                     	http://www.viaviacafe.com/en/home                                                                   	viaviacafeayacucho@gmail.com                                                                        	Simple S/. 90, doble S/ .130 incluye desayuno	VISA y Mastercard                                                                                   	10p
+11ph	3 Estrellas                                       	Es un moderno hotel con todas las comodidades, sus habitaciones son amplias y agradablemente decoradas y algunas cuentan con pequeños balcón con vista a un tranquilo parque. Se ubica fuera del centro de la ciudad.	Urb. Mariscal Cáceres Mz. I Lt 21(Parque del Colegio de Ingenieros).                                	066-319639                                        	http://www.sierradorada.com.pe/                                                                     	Informes@sierradorada.com.pe                                                                        	Simple S/.80 doble S/.130, incluye desayuno americano	VISA y Mastercard                                                                                   	11p
+12ph	Sin Categoria                                     	Es una bella casona de época colonial con grandes jardines interiores. Las habitaciones son amplias con mobiliario antiguo pero confortable.	Jr. Sáenz Peña Nº 160                                                                               	(66) 32-2287 (66) 966-648472 *92275               	                                                                                                    	                                                                                                    	Simple: S/. 40.00, Doble: S/. 60.00	                                                                                                    	12p
+13ph	Sin Categoria                                     	Es un edificio moderno pero de habitaciones pequeñas, algunas con baño privado.	Jr. Gervacio Santillán Nº 425                                                                       	(66) 32-2908                                      	                                                                                                    	                                                                                                    	Simple S/. 12.00 y Doble S/. 20.00	                                                                                                    	13p
+14ph	Sin Categoria                                     	Ofrecemos una atención personalizada y garantizamos discreción, limpieza y seguridad a todas hora. Nuestra experiencia y recorrido nos avala como uno de los hoteles que brinda el mejor confort y seguridad en su servicio.	Av. Carlos La Torre, 1059 HUANTA, HUANTA (Ayacucho) A 2 cuadras del colegio de Mamá Clara.          	(51-66) 32-2678, RPM: #887440, (51) 945-117838    	                                                                                                    	                                                                                                    	Simple S/. 20.00 y Doble S/.35.00, Triple S/. 50.00 y Cuádruple S/80.00	                                                                                                    	14p
+15ph	Sin Categoria                                     	Se ubica junto a la iglesia Matriz de Huanta. Son Habitaciones pequeñas y modestas.	Jr. Ayacucho Nº 167 Plaza Principal.                                                                	966-878-427                                       	                                                                                                    	                                                                                                    	Simple S/. 20.00 y Doble S/.25.00	                                                                                                    	15p
+16ph	Sin Categoria                                     	Habitaciones modestas bastante económicos, tienen baños privados, agua caliente y TV cable.	Jr. Cristóbal Colón Nº 128                                                                          	066-40-8479                                       	                                                                                                    	                                                                                                    	Simple S/. 30.00 y Doble S/. 40.00	                                                                                                    	16p
+17ph	Sin Categoria                                     	Es la mejor opción en Andamarca, es una construcción moderna con habitaciones un poco pequeñas pero confortables.	Calle Halcón Sagrado S/N                                                                            	32-4532                                           	                                                                                                    	                                                                                                    	Simple S/. 40.00 y Doble S/.60.00	                                                                                                    	17p
+18ph	Sin Categoria                                     	Tiene un bonito patio con una pileta estilo colonial. Las Habitaciones son modestas, sin TV ni agua caliente.	Esquina Plaza Principal S/N                                                                         	976-548-671                                       	                                                                                                    	                                                                                                    	Simple S/. 20.00 y Doble S/.30.00.	                                                                                                    	18p
+19ph	Sin Categoria                                     	Se ubica a un lado del restaurante del mismo nombre. Son habitaciones modestas pero confortables.	Plaza Principal S/N                                                                                 	966-503-232                                       	                                                                                                    	                                                                                                    	Simple S/. 25.00 y Doble S/.35.00.	                                                                                                    	19p
+20ph	Sin Categoria                                     	Habitaciones confortables y agradables, tiene un pequeño jardín techado con mesitas.	Jr. 17 de Diciembre Nº 142                                                                          	78-3212                                           	                                                                                                    	                                                                                                    	Simple S/. 25.00 y Doble S/.30.00	                                                                                                    	20p
+21ph	Sin Categoria                                     	La mejor opción en Puquio, son habitaciones modestas alrededor de un gran patio. Tiene una parte recién construida y una convencional.	Jr. 9 de Diciembre Nº 283                                                                           	40-8479                                           	                                                                                                    	                                                                                                    	Simple S/. 30.00 y Doble S/. 50.00	                                                                                                    	21p
+\.
+
+
+--
+-- Data for Name: imagen; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY imagen (url, idproducto) FROM stdin;
+EmpresadeTransporteEtuscia-Etuscia131021225839.jpg	1p
+CruzdelSur-cruz131021230349.jpg	2p
+CruzdelSur-cruz1131021230349.jpg	2p
+ExpresoMolina-molina1131021230948.jpg	3p
+ExpresoMolina-molina2131021230948.jpg	3p
+EmpresadePasajerosIntiwatana-intiwatana131021231250.jpg	4p
+TinkaToursS.A.C.-tinka131021231517.jpg	5p
+ExpresoPerlaAndina-perlaandina1131021231836.jpg	6p
+QuinuaExpress-expquinua1131021232127.jpg	7p
+QuinuaExpress-expquinua2131021232127.jpg	7p
+E.TTurismoEsmeraldeHuanta-transhuanta131021232439.jpg	8p
+E.TTurismoEsmeraldeHuanta-transhuanta2131021232439.jpg	8p
+AyacuchoPlazaHotel-plaza1131021232952.jpg	9p
+AyacuchoPlazaHotel-plaza2131021232952.jpg	9p
+AyacuchoPlazaHotel-plaza3131021232952.jpg	9p
+ViaViaCafeHotelyRestaurant-via4131021233420.jpg	10p
+ViaViaCafeHotelyRestaurant-via1131021233420.JPG	10p
+ViaViaCafeHotelyRestaurant-via2131021233420.JPG	10p
+ViaViaCafeHotelyRestaurant-via3131021233420.JPG	10p
+sierra1131022075440.jpg	11p
+sierra2131022075440.jpg	11p
+sierra3131022075440.jpg	11p
+Marquez131022080012.jpg	12p
+Marquez2131022080012.jpg	12p
+huanta131022080249.jpg	13p
+Mirador1131022080554.JPG	14p
+mirador2131022080554.JPG	14p
+mirador3131022080554.JPG	14p
+andes1131022080858.jpg	15p
+andes2131022080858.jpg	15p
+eleden131022081136.jpg	16p
+inca1131022081357.jpg	17p
+inca2131022081357.jpg	17p
+municipalgangallo131022204322.jpg	18p
+makro131022204537.jpg	19p
+lacasona131022204722.jpg	20p
+losandespuquio131022205639.jpg	21p
+lacasonarest131022211210.jpg	22p
+resttradicion131022211544.jpg	23p
+wallpa1131022211859.jpg	24p
+wallpa2131022211859.jpg	24p
+quechuas1131022212159.jpg	25p
+quechuas2131022212159.jpg	25p
+quechuas3131022212159.jpg	25p
+casona1131022212459.jpg	26p
+casona2131022212459.jpg	26p
+casona3131022212459.jpg	26p
+marquez1131023070326.jpg	27p
+marquez2131023070326.jpg	27p
+marquez3131023070326.jpg	27p
+pasteles1131023070702.JPG	28p
+tiktak1131023071044.jpg	29p
+tiktak2131023071044.jpg	29p
+tiktak3131023071044.jpg	29p
+makrorest1131023080145.jpg	30p
+makrorest2131023080145.jpg	30p
+makrorest3131023080145.jpg	30p
+restquinua1131023080427.jpg	31p
+restquinua2131023080427.jpg	31p
+pampayac1131023082728.jpg	32p
+pampayac2131023082728.jpg	32p
+pampayac3131023082728.jpg	32p
+pampayac4131023082728.jpg	32p
+pampayac5131023082728.jpg	32p
+wari1131023083849.jpg	33p
+wari2131023083849.jpg	33p
+wari3131023083849.jpg	33p
+wari4131023083849.jpg	33p
+vilcas1131023084933.JPG	34p
+vilcas2131023084933.JPG	34p
+vilcas3131023084933.JPG	34p
+vilcas4131023084933.JPG	34p
+vilcas5131023084933.JPG	34p
+vilcas6131023084933.JPG	34p
+huaraca1131023085147.JPG	35p
+huaraca2131023085147.JPG	35p
+huaraca3131023085147.JPG	35p
+huaraca4131023085147.JPG	35p
+huanta1131023085620.jpg	36p
+huanta3131023085620.jpg	36p
+huanta4131023085620.jpg	36p
+huanta5131023085620.jpg	36p
+cangallo1131023085948.jpg	37p
+cangallo2131023085948.jpg	37p
+cangallo3131023085948.JPG	37p
+cangallo4131023085948.JPG	37p
+puyas1131023120148.jpg	38p
+puyas2131023120148.jpg	38p
+puyas3131023120148.jpg	38p
+puyas4131023120148.jpg	38p
+parinacocha1131023120554.jpg	39p
+parinacocha2131023120554.jpg	39p
+parinacocha3131023120554.JPG	39p
+Caniche1131023121214.jpg	40p
+Caniche2131023121214.jpg	40p
+Caniche3131023121214.jpg	40p
+Caniche4131023121214.jpg	40p
+huayramolino1131023121448.jpg	41p
+huatuscalle1131023121734.JPG	42p
+huatuscalle2131023121734.JPG	42p
+huatuscalle3131023121734.JPG	42p
+huatuscalle4131023121734.JPG	42p
+santodomingo0131023122147.jpg	43p
+santodomingo1131023122147.jpg	43p
+santodomingo2131023122147.jpg	43p
+santodomingo3131023122147.jpg	43p
+sanfrancisco1131023122354.jpg	44p
+sanfrancisco2131023122354.jpg	44p
+santateresa1131023122539.jpg	45p
+santateresa2131023122539.jpg	45p
+casonacastilla1131023122735.JPG	46p
+casonacastilla2131023122735.JPG	46p
+casonacastilla32131023122735.png	46p
+sh1131023123525.jpg	47p
+sh2131023123525.jpg	47p
+sh3131023123525.jpg	47p
+sh4131023123525.jpg	47p
+dirctur1131023123704.jpg	48p
+iperu1131023124621.jpg	49p
+policiaturismo1131023125129.jpg	50p
+\.
+
+
+--
+-- Data for Name: producto; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY producto (idproducto, nombre, clase, estado, fecharegistro) FROM stdin;
+1p	Empresa de Transporte Etuscia                                                                       	Transporte                                        	t	2013-10-21 22:58:39.58879
+2p	Cruz del Sur                                                                                        	Transporte                                        	t	2013-10-21 23:03:49.024752
+3p	Expreso Molina                                                                                      	Transporte                                        	t	2013-10-21 23:09:48.493553
+4p	Empresa de Pasajeros Intiwatana                                                                     	Transporte                                        	t	2013-10-21 23:12:50.881243
+5p	Tinka Tours S.A.C.                                                                                  	Transporte                                        	t	2013-10-21 23:15:17.251896
+6p	Expreso Perla Andina                                                                                	Transporte                                        	t	2013-10-21 23:18:36.453074
+7p	Quinua Express                                                                                      	Transporte                                        	t	2013-10-21 23:21:27.034517
+8p	E.T Turismo Esmeral de Huanta                                                                       	Transporte                                        	t	2013-10-21 23:24:40.001561
+9p	Ayacucho Plaza Hotel                                                                                	Hotel                                             	t	2013-10-21 23:29:52.586853
+10p	Vía Vía Café Hotel y Restaurant                                                                     	Hotel                                             	t	2013-10-21 23:34:20.417182
+11p	Hotel Sierra Dorada                                                                                 	Hotel                                             	t	2013-10-22 07:54:40.289747
+12p	La Posada del Marquéz                                                                               	Hotel                                             	t	2013-10-22 08:00:12.969617
+13p	Hotel Huanta                                                                                        	Hotel                                             	t	2013-10-22 08:02:49.102371
+14p	El Mirador                                                                                          	Hotel                                             	t	2013-10-22 08:05:54.997215
+15p	Los Andes                                                                                           	Hotel                                             	t	2013-10-22 08:08:58.726698
+16p	El Edén                                                                                             	Hotel                                             	t	2013-10-22 08:11:36.767993
+17p	Hotel los 13 Incas                                                                                  	Hotel                                             	t	2013-10-22 08:13:57.542587
+18p	Municipal Cangallo                                                                                  	Hotel                                             	t	2013-10-22 20:43:22.035981
+19p	Makro                                                                                               	Hotel                                             	t	2013-10-22 20:45:37.13192
+20p	La Casona                                                                                           	Hotel                                             	t	2013-10-22 20:47:22.627149
+21p	Los Andes - Puquio                                                                                  	Hotel                                             	t	2013-10-22 20:56:39.635045
+22p	La Casona                                                                                           	Restaurant                                        	t	2013-10-22 21:12:10.801365
+23p	Restaurant Tradición                                                                                	Restaurant                                        	t	2013-10-22 21:15:44.792732
+24p	Wallpa Sua                                                                                          	Restaurant                                        	t	2013-10-22 21:18:59.390296
+25p	Quechuas                                                                                            	Restaurant                                        	t	2013-10-22 21:21:59.793171
+26p	La Casona de Huanta                                                                                 	Restaurant                                        	t	2013-10-22 21:24:59.625059
+27p	El Marquéz                                                                                          	Restaurant                                        	t	2013-10-23 07:03:26.760947
+28p	Fuente de Soda Antojitos                                                                            	Restaurant                                        	t	2013-10-23 07:07:02.169703
+29p	Tik Tak                                                                                             	Restaurant                                        	t	2013-10-23 07:10:44.58154
+30p	Makro                                                                                               	Restaurant                                        	t	2013-10-23 08:01:45.272691
+31p	Mercado de comidas                                                                                  	Restaurant                                        	t	2013-10-23 08:04:27.977892
+32p	Pampa de Ayacucho                                                                                   	Recurso Turístico                                 	t	2013-10-23 08:27:28.965575
+33p	Complejo Arqueológico Wari                                                                          	Recurso Turístico                                 	t	2013-10-23 08:38:49.295816
+34p	Complejo arqueológico de Vilcashuamán                                                               	Recurso Turístico                                 	t	2013-10-23 08:49:33.686261
+35p	Bosque de Piedras de Huaraca                                                                        	Recurso Turístico                                 	t	2013-10-23 08:51:47.156837
+36p	Valle de Huanta                                                                                     	Recurso Turístico                                 	t	2013-10-23 08:56:20.555898
+37p	Valle de Cangallo                                                                                   	Recurso Turístico                                 	t	2013-10-23 08:59:48.853256
+38p	Bosque de puyas de Titankayocc                                                                      	Recurso Turístico                                 	t	2013-10-23 12:01:48.135219
+39p	Laguna de Parinacochas                                                                              	Recurso Turístico                                 	t	2013-10-23 12:05:54.162658
+40p	Complejo Arqueológico de Caniche                                                                    	Recurso Turístico                                 	t	2013-10-23 12:12:14.027539
+41p	Mirador Huayramolino                                                                                	Recurso Turístico                                 	t	2013-10-23 12:14:48.99892
+42p	Mirador de Huatuscalla                                                                              	Recurso Turístico                                 	t	2013-10-23 12:17:34.1512
+43p	Templo de Santo Domingo                                                                             	Recurso Turístico                                 	t	2013-10-23 12:21:47.69419
+44p	Templo de San Francisco de Asis                                                                     	Recurso Turístico                                 	t	2013-10-23 12:23:54.243805
+45p	Templo de Santa Teresa                                                                              	Recurso Turístico                                 	t	2013-10-23 12:25:39.686271
+46p	Casa de Castilla y Zamora                                                                           	Recurso Turístico                                 	t	2013-10-23 12:27:35.925508
+47p	Mercado Artesanal Shosaku Nagase                                                                    	Complementario                                    	t	2013-10-23 12:35:25.053001
+48p	Dircetur - Ayacucho                                                                                 	Complementario                                    	t	2013-10-23 12:37:04.639455
+49p	Oficinas iPerú                                                                                      	Complementario                                    	t	2013-10-23 12:46:21.667257
+50p	Policía Nacional de Turismo                                                                         	Complementario                                    	t	2013-10-23 12:51:29.063171
+\.
+
+
+--
+-- Data for Name: recurso; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY recurso (idrecurso, categoria, tipo, descripcion, historia, corredor, distancia, tipo_precio_ing, horario_atencion, temperatura, altitud, video, como_llegar, idproducto) FROM stdin;
+32pr	Sitios Historicos                                 	Santuario Histórico                                                                                 	En Pampa de Ayacucho encontramos el obelisco blanco, con una altura de 44 metros, que constituye los años transcurridos desde el último movimiento indígena de Túpac Amaru II en 1780 hasta la Batalla Final en 1824; la forma piramidal representa las regiones naturales del Perú: Costa, sierra y selva y las irregularidades, los cortes en los diferentes niveles, representan las diversas conspiraciones, motines y levantamientos que se sucedieron en el Perú por su independencia.\r\n También a un lado de las pampas alquilan caballos para pasear hacia el bosque Usqu Willka, el precio es de S/.3.00 por persona.	En estas pampas se libró el 9 de diciembre de 1824 la gloriosa Batalla de Ayacucho, con la que se selló la independencia del Perú y de toda América. Su icono es el gran obelisco blanco que se yergue victorioso y que representa la identidad y orgullo de la Región de Humanga, por ser el símbolo de la integración y el triunfo de los países de América, el obelisco también simboliza a los peruanos y americanos que derramaron su sangre a través de siglos para lograr su independencia.	Corredor Wari-Chanka-Inca                         	A 31km de la ciudad de Ayacucho, y a 1,5 km al noreste de Quinua                                    	Libre                                                                                               	Lunes &#150; Domingo 07 a 17h.                                                                      	Max 24 °C, Min 17°C                                                                                 	3387msnm                                                                                            	http://www.youtube.com/watch?v=MVeMv25iUvA                                                          	Se puede llegar con las combis que se dirigen hacia el pueblo de Quinua, ,a partir del pueblo de Quinua recomendamos realizar la ruta caminando.	32p
+33pr	Sitios Arqueológicos                              	Conjunto Arqueológico                                                                               	Wari consta de diferentes complejos y sectores denominados barrios, las construcciones están hechas a base de piedra y barro revestidas de un enlucido fino, mayormente pintadas de rojo y blanco	Este complejo arqueológico perteneciente a la cultura Wari (600 &#150; 1100 D.C.) es uno de los centros urbanos más grandes del antiguo Perú que ocupaba un área aproximada de 2000 ha, aunque es el núcleo urbano central en donde se encuentran las principales edificaciones. Destacan varias estructuras entre ellas: Vegachayocc, Moqo, Templo Mayor, Mongachayocc (esta Consistiría en galerías subterráneas para ser usadas como lugar de enterramientos colectivos), Cheqo Wasi (también usado como estructura funeraria), Turquesayoc (posible barrio de artesanos joyeros), etc. La ciudad de Wari fue la capital del estado del mismo nombre, y junto a Tiwanaku fue el centro del primer imperio andino (antes de los incas). El núcleo urbano de Wari tenía callejuelas, templos amurallados, patios, tumbas reales y edificios estaban cubiertos de yeso blanco. El conjunto de construcciones Wari permanece en su mayoría enterrado. Los trabajos de excavación arqueológica realizados en el sitio son mínimos aún.	Corredor Wari-Chanka-Inca                         	A 24 km al norte de Ayacucho.                                                                       	Adultos S/. 3, Estudiante S/. 1 y Niños S/0.50                                                      	Martes &#150; Domingo de 09 a 17h.                                                                  	                                                                                                    	2724 msnm                                                                                           	http://www.youtube.com/watch?v=MXY_39Yz4PQ                                                          	Se puede llegar en combis que hacen la ruta hacia Quinua, un taxi puede hacer el recorrido hasta Quinua y la Pampa de Ayacucho por S/. 50.00.	33p
+34pr	Sitios Arqueológicos                              	Conjunto Arqueológico                                                                               	El nombre de Vilcashuamán significa &#147;halcón sagrado&#148; en quechua, y este espacio habría sido considerado uno de los Centros de la Administración Inca más importantes del Tahuantinsuyo.\r\n \r\n Entre las estructuras que podemos encontrar durante nuestro recorrido por Vilcashuamán son resaltantes: La plaza trapezoidal, el Templo del Sol, el Ushnu (también llamado adoratorio o pirámide ceremonial), el Acllawasi (o casa de las escogidas), el Intiwatana, el Templo de la Luna y las kallancas y andenes.\r\n \r\n La plaza trapezoidal feu diseñada para poder acoger a un aproximado de 20 000 personas, y se encontraba demarcada por andenes.\r\n \r\n El Templo del Sol, que se encuentra ubicado al sur de la plaza, tiene la arquitectura típica del estilo cusqueño, en él se aprecia el uso de piedra labrada y está conformado en sí por un grupo plataformas escalonadas. \r\n \r\n El Ushnu, se encuentra en el lindero occidental de la plaza; este se caracteriza por presentar estructura piramidal y por alcanzar una altura de 8 metros, en las que se observa plataformas de carácter cuadrangular unas sobre otras. \r\n \r\n En Vilcashuamán también se ha encontrado la presencia de una &#147;Casa de las escogidas&#148;, edificación que asimismo es conocida como Acllahuasi, de este en la actualidad solo podemos apreciar una muralla, piles y algunos muros pertenecientes a habitaciones interiores.	El centro arqueológico de Vilcashuamán fue una de las ciudadelas inca levantada tras la conquista del pueblo Chanca durante la segunda mitad del siglo XV, fue considerada como uno de los centros administrativos más importantes del Tahuantinsuyo.	Corredor Wari-Chanka-Inca                         	107km al sureste de la ciudad de Ayacucho en el poblado de Vilcashuamán                             	Entrada General es /S. 2.00                                                                         	Recomendable Lunes a Domingo -07:00 a 18:00                                                         	Max 26 °C, Min 16°C                                                                                 	3642msnm                                                                                            	http://www.youtube.com/watch?v=vpfRWCl1MhA                                                          	Desde la Ciudad de Ayacucho parten conbis del terminal informal Sur entre las 03:00 am horas y las 16:00pm horas, el precio de pasajes tieen un promedio de S/.15.	34p
+35pr	Paisaje Natural                                   	Bosque de Piedra                                                                                    	Es una enorme bosque pétreo de unos 30km2, aquí se encuentra cientos de formaciones rocosas de caprichosas formas, que han sido talladas probablemente por acción del viento y las lluvias ,además en la zona se ubica la laguna Ustanaqcha, distante a unos 2 Km desde una comunidad próxima, ideal para realizar una pesca deportiva de trucha , todo matizado por plantas nativas (tasta, tumbo silvestre, tankar, kiswar, muña, ichu entre otros).Al inicio del Bosque de piedras se ubica la pequeña comunidad de Huaraca, que aun conserva sus costumbres tradicionales y forma de vida, incluso, aprovecha algunas formas pétreas para acondicionar sus viviendas, esta comunidad se dedica a la crianza de llamas y alpacas. En cuanto a Fauna silvestre encontramos especies como viscacha, zorro andino, zorrillo, puma andino, cóndor aguilucho, cernícalo china linda, Huallata y picaflores. La zona es perfecta para realizar camiatas y realizar fotografías, incluso acampar, para lo cual se recomienda una carpa adecuada para el clima frio y ropa de abrigo.		Ninguno                                           	61km al suroeste de la ciudad de Ayacucho                                                           	Libre                                                                                               	Recomendable Lunes - Domingo de 7.00 am a 18.00pm                                                   	                                                                                                    	Ubicado entre 3820 y 4550msnm                                                                       	http://www.youtube.com/watch?v=4T4bs7Ax40c                                                          	Se debe tomar una desvió en la carretera Libertadores en el sector , en el sector Jutumpapa (18 L 560867 8525369)distante a 55.8km desde Ayacucho, desde ali son 5,2km por una carretera afirmada. Es recomendable contra los servicios de una agencia de turismo.	35p
+36pr	Paisaje Natural                                   	Valle                                                                                               	El valle de Huanta es conocido como La Esmeralda de los Andes por su privilegiada ubicación y la riqueza de su flora y su fauna. En el valle se pueden distinguir varios pisos ecológicos desde la ceja de selva donde se ubica el río Apurímac hasta las cumbres del nevado Rasuwillca. Son productores de diversos licores de frutas y de miel de abeja de excelente calidad. Es un atrayente poblado caracterizado por su benigno clima y alta producción agrícola ; por su calles aun se respira un poco de aire colonial impregnado en algunas de sus antiguas casonas, como la casona y Portal Iguaín, la Casa de la Familia Vega, la Casa de Gervasio Santillana y la Posada del Márquez, una bella casona de amplios jardines , donde actualmente funciona un simpatico hospedaje y la mejor pollería a la brasa de Huanta.		Ninguno                                           	45.5Km al norte de Ayacucho                                                                         	Libre                                                                                               	                                                                                                    	                                                                                                    	26590msnm                                                                                           	http://www.youtube.com/watch?v=M9WAdUJf7ew                                                          	Se puede tomar carros colectivos desde la ciudad de Ayacucho, también hay autos que viajan, el viaje tiene un duración promedio de 45minutos.	36p
+37pr	Paisaje Natural                                   	Valle                                                                                               	La ciudad de Cangallo se engalana con la presencia de este imponente rio Pampas que está a una altitud de 2,556 m.s.n.m. Esta región es cuna de los "Morochucos", expertos jinetes. El río principal que baña esta provincia es el antiguamente llamado Calcamayo, que no es otro sino el río Pampas. Este río divide a las provincias de Cangallo con Víctor Fajardo, que nace en las lagunas de Choclococha y Orccococha a 4,800 m.n.s.m.En cangallo se puede sentir la vegetación y todo el añoy un aire fresco y saludable.	Durante la colonia, y sobre todo en la etapa de la emancipación, la población cangallina tuvo un destacado papel en la guerra de la independencia. En el año 1814, los cangallinos engrosaron las filas de la revolución de Pumacahua y Angulo, que al mando de Gabriel Béjar y Manuel Hurtado De Mendoza tomaron la ciudad de Huamanga, donde muchos de ellos fueron fusilados por el ejército español.\r\n En 1815, surge la insigne figura de Basilio Auqui Huaytalla, quien comandó a los aguerridos y valerosos &#147;Morochucos&#148;, junto a las guerrillas de Quiroz, Felipe Rosell y Valentín Munárriz. Basilio Auqui hizo frente a los realistas en varias ocasiones demostrando valentía, una de sus acciones más importantes fue exterminar a un centenar de españoles en el río &#147;Seqccha pampa&#148;.	Ruta Huancapi-Carapo-Huancasancos                 	115km al sur de Ayacucho(por la ruta Allpachca)                                                     	Libre                                                                                               	                                                                                                    	                                                                                                    	2568msnm                                                                                            	                                                                                                    	Desde Ayacucho parten conbis del terminal informal Sur, entre las 02:00am horas y las 17:00am horas el promedi de pasaje bordea los /S. 13	37p
+38pr	Paisaje Natural                                   	Bosque Natural                                                                                      	Esta bromeliácea conocida como &#147;titanka&#148; tiene un gran valor ecológico, ya que posee la inflorescencia más grande del reino vegetal, y su tamaño oscila entre los 4 y 6 metros.\r\n Titankayocc es el bosque más extenso que existe, con un área de 6000 ha, y se estima que alberga unos 250 mil ejemplares, sobre todo en el páramo o puna, entre los 3200 y los 4200 msnm.	La Puya Raimondi, descubierta en 1874 por el naturalista Antonio Raimondi, sólo existe en la región andina, principalmente en nuestro país, y figura en los Récord Guiness porque llega a medir hasta 12 m de altura, vive entre 80 y 100 años y poco antes de morir florece solo una vez produciendo 33 mil hermosas flores de color blanco y 40 millones de semillas.	Corredor Wari-Chanka-Inca                         	98km aprox. Al sureste de la ciudad de Ayacucho                                                     	Libre                                                                                               	Recomendable Lunes - Domingo de 7.00 am a 18.00pm                                                   	                                                                                                    	3754msnm                                                                                            	http://www.youtube.com/watch?v=9DZHwgv2NDM                                                          	Desde la ciudad de Ayacucho se puede llegar en las combis que se dirigen a Vilcashuaman , el pasaje esta alrededor de S/.S 15.\r\n Para llegar se debeb partir del poblado de Vischongo distante 88.3km de la ciudad de Ayacucho, Desde el pueblo parte una trocha carrozable de 4.7km la que llega hasta la mitad del camino, la otra mitad se debe realizar caminando, la distancia es de 5km (1,30h aprox) .Otro Opción e salir del pueblo de Vischongo caminando por otro sendero, un poco mas directo el tiempo es de 3 horas, Es recomendable llevar Guía.	38p
+39pr	Paisaje Natural                                   	Laguna                                                                                              	Pueden observarse notables aves teñidas por la naturaleza de color rojo y blanco, que van rodeando las orillas de la laguna, su rica y espléndida flora que acompañan la pasividad del níveo nevado del Sara Sara, es la cálida imagen que se puede experimentar al llegar a este tesoro que se ubica a increíbles 3200 metros sobre el nivel del mar en el hipnótico y plácido suelo ayacuchano.\r\n \r\n laguna-de-parinacochas-ayacucho-peruLa vista es espectacular debido a que laCordillera del Huanzo le brinda la estética de los Volcanes Achatayhua y Sara Sara, aquellos de considerable altura (4200 y 5705 msnm, respectivamente).\r\n \r\n Asimismo, su vegetación es rica en variedad. Prueba de ello es que en un reciente estudio, se hallaron siete tipos de vegetación, siendo los matorrales los más diversos, además de ser objetivo de aventuras de varios grupos de turistas que desean practicar ecoturismo		Ruta Puquio-Cora Cora-Sara Sara                   	a 717km de la ciudad de Ayacucho                                                                    	Libre                                                                                               	Recomendable Lunes - Domingo de 7.00 am a 18.00pm                                                   	                                                                                                    	4200 y 5705 msnm                                                                                    	http://www.youtube.com/watch?v=9Etf5E-I7oo                                                          	Desde Puquio parten camionetas tipo Combi desde el terminal, a los 05 am, 05:30 am 6:30am y 7:30 am	39p
+40pr	Sitios Arqueológicos                              	Conjunto Arqueológico                                                                               	Es destacable en este Complejo la presencia de un trabajo en piedra similar al usado por el incanato, en el que se observa la presencia de piedras asentadas (para formar las construcciones), de tal manera que pese a sus distintas dimensiones y formas (donde se observan piedras de cinco ángulos) encajan perfectamente haciendo los edificios construcciones sólidas y resistentes, aunque cabe anotar como diferencia que esta estructura se encuentra apoyada por el uso de argamasa de barro.\r\n \r\n Entre las edificaciones de Caniche destacan: Chullpas, edificaciones religiosas y ceremoniales, y centros de servicios. Respecto a las viviendas que se han encontrado en Caniche, estas comprenden un número considerable, y se caracterizan por presentar puertas de ingreso junto con las llamadas hornacinas de forma trapezoidal, además de ventanas.\r\n \r\n En la cima de la colina que también pertenece a Caniche, se observa la presencia de una fortaleza, esta es importante porque es la causa de que, entre las teoría sobre el fin utilitario de Caniche, se encuentre la de reclusión de los presos enemigos, aunque esto durante la época de asentamiento incaico, y que en su momento hubiera sido el lugar de prisión del inca Huáscar.\r\n \r\n Es interesante también, en este Complejo, la presencia de un sistema de aguas, manifestado a través de pozos y manantiales en el subsuelo que proporcionan y proporcionaban al pueblo de agua, aunque el origen de estos permanezca aún como un enigma.		Ruta Huancapi-Carapo-Huancasancos                 	71.5 Km de Puquio                                                                                   	                                                                                                    	                                                                                                    	                                                                                                    	3 558 msnm                                                                                          	                                                                                                    	Se debe partir desde Puquio por una distancia de al menos 71.5 Km (un lapso temporal de 2 horas y media). tomando los colectivos en Puquio.	40p
+41pr	Sitios Arqueológicos                              	Conjunto Arqueológico                                                                               	Es una centro de capacitación en temas agrícolas , ganaderos y de elaboración de artesanías , el área cuenta con algo as de 11ha, donde se aprecian cultivos de paltos, chirimoyas, ciruelos, granadillas e injertos de lúcuma y crianzas de cuyes. La zona también es reconocida por poseer una vista privilegiada del valle una carretera conduce hasta el mismo lugar del Mirador. Huayramolino es ideal para conocer de cerca el proceso del cultivo de muchos productos, pases campestres, caminatas relajamiento, turismo educativo y de investigación.		Ninguno                                           	9km al noreste de la ciudad de Huanta, carretera a Huancayo                                         	                                                                                                    	                                                                                                    	                                                                                                    	2700msnm                                                                                            	                                                                                                    	Desde Huanta se llaga en las combis que se dirigen a las localidades de Churcampa, Mayoc y Anco, el pasaje bordea los S/. 3.	41p
+42pr	Sitios Arqueológicos                              	Conjunto Arqueológico                                                                               	El cañón de Huatuscalle es atracción principal de esta zona, Por contar con el pico de mayor altitud de Luricocha que permiten los valles, Cuencas y quebradas se forman verdaderas obras de arte que invitan de al solaz, a la tranquilidad y por supuesto a la práctica del ecoturismo. Los cañones, cumbres, ríos y riachuelos, flora y fauna armonizan escenas paisajísticas simples y llanamente idílicas. Desde el mirador de Huatuscalle se observa cómo se entretejen las tres brillantes hebras de los ríos Cachi, Urubamba y Mantaro, dos provenientes de Ayacucho y uno de Huancavelica. La tranquilidad y la paz de desperezan ante este anexo del distrito de Luricocha, en Huanta.		Ninguno                                           	14km al noreste de la ciudad de Huanta                                                              	Libre                                                                                               	Recomendable Lunes - Domingo de 7.00 am a 18.00pm                                                   	                                                                                                    	2939msnm                                                                                            	http://www.youtube.com/watch?v=E37Lxe5Ayfk                                                          	El mirador esta al pie de una carretera afirmada que va hacia San José de Secce. Se puede llegar en las combis o camiones que se dirigen San José de Secce, el pasaje bordea los S./10.	42p
+43pr	Arquitectura Colonial                             	Templo                                                                                              	Fue Construido en 1548, posee una fachada con triple arquería frente a la puerta principal , destaca su nártex(atrio o vestíbulo situado en la entrada, propio de las iglesias peleocristianas y bizantinas), detalle atípico en los templos peruanos,. En su decoración Interior destaca el altar mayor de estilo barroco-Churrigerasco, el cual se halla cubierto con pan de oro , exhibiendo ,a su vez , vistosas imágenes y pinturas , también ,alberga dos imágenes finamente esculpidas que son paseadas en andas durante la Semana Santa: El Señor de Santo Sepulcro y la virgen dolorosa. En la esquina de su Plazoleta se ha levantado una cruz de piedra que fue colocada en recuerdo del terremoto del 9 de octubre de 1640.		Ninguno                                           	Jr. 9 de Diciembre. Cuadra 2                                                                        	Libre                                                                                               	                                                                                                    	                                                                                                    	                                                                                                    	                                                                                                    		43p
+44pr	Arquitectura Colonial                             	Templo                                                                                              	Fue Construido en el siglo XVI Con un intento de recrear el estilo greco-romano peninsular en Sudamérica. Posee una sola torre al lado sur, su portal principal se encuentra entre dos columnas con estrias y capiteles jonicos, con sobrios frosos tallados en relieve y en los vértices laterales del frontón están las imágenes de san Antonio de Padua y de santa clara. Su retablo mayor consta de cuatro cuerpos de madera dorada y tallada, de estilo barroco &#150;churriguerasco tiene la campana mas grande de la ciudad y conserva una valiosa colección de lienzos coloniales de las escuelas cusqueña y ayacuchana, además de una biblioteca.		Ninguno                                           	Jr 28 de Julio , cdra.3                                                                             	                                                                                                    	                                                                                                    	                                                                                                    	                                                                                                    	                                                                                                    		44p
+45pr	Arquitectura Colonial                             	Templo                                                                                              	La época de su construcción data del siglo XVII, su estilo es herreriano, sobrio y simétrico, Interiormente destaca la celosía del coro, fino trabajo mudéjar en madera y con incrustaciones de marfil y conchaperla , en cuya coronación se conserva el escudo mobiliario de la familia de La Maza, así como el pulpito de madera tallada en alto relieve todo decorado en pan de oro, su altar mayor es d estilo churrigeresco, bella muestra de talla profusa, cuya imagen principal es de la virgen del Carmen.		Ninguno                                           	Jr. 28 de Julio Cdra 6                                                                              	Libre                                                                                               	                                                                                                    	                                                                                                    	                                                                                                    	                                                                                                    		45p
+46pr	Arquitectura Colonial                             	Casona                                                                                              	La casona perteneció al obispo Cristóbal de Castilla y Zamora, quien cedió el inmueble del Palacio Arzobispal para el futuro Claustro universitario: La universidad Nacional de San Cristóbal de Huamanga, fundada con la categoría de Real Pontificia el 3 de Julio de 1677 por el ilustre Obispo de la Diócesis de Huamanga. Actualmente es la sede principal de dicha universidad, Esta Case presenta una arquería y un Zaguán de techo abovedado. La fachada, que da hacia la Plaza Mayor, luce cuatro hermosos portales.		Ninguno                                           	Portal Municipal Nro 50, Plaza Mayor                                                                	Libre                                                                                               	                                                                                                    	                                                                                                    	                                                                                                    	                                                                                                    		46p
+\.
+
+
+--
+-- Data for Name: recurso_transporte; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY recurso_transporte (idrecurso, idtransporte) FROM stdin;
+32pr	1pt
+32pr	7pt
+33pr	1pt
+33pr	7pt
+34pr	4pt
+36pr	8pt
+37pr	6pt
+38pr	4pt
+\.
+
+
+--
+-- Data for Name: restaurant; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY restaurant (idrestaurant, categoria, tipo, descripcion, direccion, telefono, sitio_web, horario_atencion, especialidad, precio_promedio, formas_pago, idproducto) FROM stdin;
+22pre	2 Tenedores         	Comida típica y nacional                	Restaurant con bastante tradición en platos típicos ayacuchanos, frecuentado y recomendado por los turistas y personas locales conocedores.	Jr. Bellido 463                                                                                     	(066) 31-2733                                     	                                                                                                    	Lunes a domingo de 12 a 22.30                                                                       	Puca picante                                                                                        	S/.15, menú S/. 6                                                                                   	VISA y Mastercard                                                                                   	22p
+23pre	1 Tenedor           	Comida típica y nacional                	Es uno de los restaurants más antiguos de Ayacucho, atendido amablemente por su propietaria.	Jr, San Martin 400                                                                                  	(066) 31-25-95                                    	                                                                                                    	Lunes a domingo de 12 a 22.30.                                                                      	Puca picante                                                                                        	menú S/. 6                                                                                          	                                                                                                    	23p
+24pre	Sin Categoria       	Pollos a la brasa y parrillas           	Es uno de los locales más emblemáticos de la ciudad, la casona cuenta con varios ambientes y música agradable.	Jr. Garcilaso de la Vega 240                                                                        	+51 966650809                                     	                                                                                                    	Lunes a sábado 18 pm a 23pm                                                                         	Pollos y Parrillas                                                                                  	Un cuarto de pollo S/.12                                                                            	                                                                                                    	24p
+25pre	Sin Categoria       	Comida cacera                           	Buen local Ofrece platos tipo gourmet y novoandino	Jr. San Martin 402                                                                                  	#052036                                           	                                                                                                    	Lunes a Sábado de 7:30 am a 22:45pm.                                                                	Milanesa de kiwicha en reducción de sauco                                                           	                                                                                                    	                                                                                                    	25p
+26pre	Sin Categoria       	Pollos a la brasa y parrillas           	La mejor opción en comida nacional, casera y típica de la ciudad.	Jr. General Córdova Nº 162                                                                          	32-2295                                           	                                                                                                    	Lunes a Domingo de 09 hasta las 22horas                                                             	                                                                                                    	                                                                                                    	                                                                                                    	26p
+27pre	Sin Categoria       	Pollos a la brasa y parrillas           	Una de las mejores pollerías de Ayacucho y sin duda de Huanta.	Av. Mariscal Castilla Nº 243                                                                        	32-2287                                           	                                                                                                    	Lunes a domingo desde las 18 hasta las23 horas.                                                     	                                                                                                    	                                                                                                    	                                                                                                    	27p
+28pre	Sin Categoria       	Desayuno y lonches                      	Un lugar bastante frecuentado por los huantinos, ofrecen tortas, pasteles, jugosy sándwiches.	Jr Gervacio Santillán Nº 175                                                                        	966-054-740                                       	                                                                                                    	Lunes a Domingo desdela 17 hasta las 24 horas.                                                      	                                                                                                    	                                                                                                    	                                                                                                    	28p
+29pre	Sin Categoria       	Pollos a la brasa y parrillas           	Ofrecen menús al medio día y comida china y pollos a la brasa por las noches.	Av. El Sol S/N                                                                                      	966-028-419                                       	                                                                                                    	Lunes a Domingo de 09 hasta las 21horas                                                             	                                                                                                    	                                                                                                    	                                                                                                    	29p
+30pre	Sin Categoria       	Pollos a la brasa y parrillas           	Es bastante recomendado por los cangallinos, ofrecen menús al medio día, platos típicos y pollos a la brasa por las noches.	Plaza Principal S/N                                                                                 	966-503-232, rpm #0176783                         	                                                                                                    	Lunes a Domingo de 09 hasta las 22horas                                                             	                                                                                                    	                                                                                                    	                                                                                                    	30p
+31pre	Sin Categoria       	Comida típica y nacional                	Se ofrece toda variedad de platos típicos.	Paradero de carros Quinua                                                                           	-----                                             	                                                                                                    	Recomendable Lunes - Domingo de 7.00 am a 18.00pm                                                   	                                                                                                    	                                                                                                    	                                                                                                    	31p
+\.
+
+
+--
+-- Data for Name: servicion_adicional; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY servicion_adicional (tipo, idproducto) FROM stdin;
+Restaurant	9p
+Restaurant	10p
+Restaurant	11p
+Salón de eventos	11p
+Valet Parking	14p
+\.
+
+
+--
+-- Data for Name: transporte; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY transporte (idtransporte, descripcion, direccion, tipo, telefono, sitio_web, horario_atencion, horario_salida, destinos, idproducto) FROM stdin;
+1pt	Es una empresa que realiza la ruta cotidiana de Ayacucho a Quinua y Quina a Ayacucho	Paradero hacia el norte, Cuadra 1 de la Av. Salvador Cavero                                         	Interdistrital                                    	966589865                                         	                                                                                                    	Lunes a domingo de 6 am a 8pm                                                                       	Salidas diarias cada 30 minutos                                                                     	Muyurina, Pacaycasa y Quinua	1p
+2pt	Somos una empresa sólida, con más de 53 años de experiencia en el mercado de transporte de pasajeros por vía terrestre interprovincial.	Av. Mariscal Caceres # 1264                                                                         	Interdepartamental                                	066) 312813                                       	                                                                                                    	Lunes a Domingo de 07:00 - 22:00 hrs.                                                               	Todos los días desde las 21:30 pm.                                                                  	Lima, Cajamarca, Piura, Talara, Tumbes, Chepen,Chinbote, Sullana , Trujillo.	2p
+3pt	Empresa de Transporte de Pasajeros que ofrece servicios a la zona de la sierra peruana.	Av. Universitaria 160                                                                               	Interdepartamental                                	(066) 31-9989                                     	                                                                                                    	lun - dom: 9:00 - 20:30                                                                             	Salias diarias                                                                                      	Abancay, Andahuaylas, Cusco, Huamanga, Huanta, Huancayo, Pichanaki, Satipo	3p
+4pt	Servicio de tranporte , carga , encomiendas , sobres a Vilcashumán, Acumarca, Carhuanca, etc.	Av. Cusco 352 int.14                                                                                	Interprovincial                                   	(066) 303405- RPM #007776 - 966885513             	                                                                                                    	8 am a 5pm                                                                                          	Salidas diarias                                                                                     	Vilcashumán, Acumarca, Carhuanca, etc.	4p
+5pt	Empresa de transporte con mucha experiencia en servicio de transporte de pasajeros y conocedora de la rutas.	Av. Mariscal Castilla nro. 100 (altura puente nuevo)                                                	Interprovincial                                   	(066) 310213                                      	                                                                                                    	lun - dom: 9:00 - 20:30                                                                             	Salias diarias                                                                                      	VilcasHumán, Huancapi.	5p
+6pt	Servicios de trasporte a toda la zona sur de la región de Ayacucho.	AV. AVENIDA CUSCO #352 - Terminal Sur                                                               	Interprovincial                                   	066) 318228                                       	                                                                                                    	Recomendable Lunes - Domingo de 7.00 am a 18.00pm                                                   	Salidas diarias                                                                                     	Cangallo, Sucre, Huanca Sancos, Puquio , Coracora.	6p
+7pt	Empresa conocedora de la ruta con autos modernos. y cómodos para los pasajeros.	Jr. Cordova #s/n                                                                                    	Interdepartamental                                	(066) 316595 , RPM #541689, 966589856             	                                                                                                    	lun - dom: 9:00 - 20:30                                                                             	Salidas diarias cada 30 minutos                                                                     	Pacaycasa, Wari, Quinua.	7p
+8pt	Empresa dedicada a la transporte de pasajeros con años de experiencia y conocedores de la rutas.	JR. JIRON PUNO #632                                                                                 	Interprovincial                                   	(066) 310298                                      	                                                                                                    	Lunes a Domingo 06:00 a 07:30 h                                                                     	Salidas diarias cada 30 minutos                                                                     	Huanta y Luricocha.	8p
+\.
+
+
+--
+-- Data for Name: usuario; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY usuario (idusuario, nombre, apellidos, usuario, contrasenia, estado, fecharegistro) FROM stdin;
+1u	Ruben	Lopez Mendoza	Rub21	1234	t	2013-10-21 22:39:40.832433
+\.
+
+
+--
+-- Name: complementario_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY complementario
+    ADD CONSTRAINT complementario_pkey PRIMARY KEY (idcomplementario);
+
+
+--
+-- Name: hotel_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY hotel
+    ADD CONSTRAINT hotel_pkey PRIMARY KEY (idhotel);
+
+
+--
+-- Name: producto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY producto
+    ADD CONSTRAINT producto_pkey PRIMARY KEY (idproducto);
+
+
+--
+-- Name: recurso_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY recurso
+    ADD CONSTRAINT recurso_pkey PRIMARY KEY (idrecurso);
+
+
+--
+-- Name: restaurant_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY restaurant
+    ADD CONSTRAINT restaurant_pkey PRIMARY KEY (idrestaurant);
+
+
+--
+-- Name: transporte_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY transporte
+    ADD CONSTRAINT transporte_pkey PRIMARY KEY (idtransporte);
+
+
+--
+-- Name: usuario_contrasenia_key; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY usuario
+    ADD CONSTRAINT usuario_contrasenia_key UNIQUE (contrasenia);
+
+
+--
+-- Name: usuario_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY usuario
+    ADD CONSTRAINT usuario_pkey PRIMARY KEY (idusuario);
+
+
+--
+-- Name: usuario_usuario_key; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY usuario
+    ADD CONSTRAINT usuario_usuario_key UNIQUE (usuario);
+
+
+--
+-- Name: fk_idproducto_complementario; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY complementario
+    ADD CONSTRAINT fk_idproducto_complementario FOREIGN KEY (idproducto) REFERENCES producto(idproducto);
+
+
+--
+-- Name: fk_idproducto_geometry; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY geometry
+    ADD CONSTRAINT fk_idproducto_geometry FOREIGN KEY (idproducto) REFERENCES producto(idproducto);
+
+
+--
+-- Name: fk_idproducto_hotel; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY hotel
+    ADD CONSTRAINT fk_idproducto_hotel FOREIGN KEY (idproducto) REFERENCES producto(idproducto);
+
+
+--
+-- Name: fk_idproducto_imagen; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY imagen
+    ADD CONSTRAINT fk_idproducto_imagen FOREIGN KEY (idproducto) REFERENCES producto(idproducto);
+
+
+--
+-- Name: fk_idproducto_recurso; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY recurso
+    ADD CONSTRAINT fk_idproducto_recurso FOREIGN KEY (idproducto) REFERENCES producto(idproducto);
+
+
+--
+-- Name: fk_idproducto_restaurant; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY restaurant
+    ADD CONSTRAINT fk_idproducto_restaurant FOREIGN KEY (idproducto) REFERENCES producto(idproducto);
+
+
+--
+-- Name: fk_idproducto_servicion_adicional; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY servicion_adicional
+    ADD CONSTRAINT fk_idproducto_servicion_adicional FOREIGN KEY (idproducto) REFERENCES producto(idproducto);
+
+
+--
+-- Name: fk_idproducto_transporte; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY transporte
+    ADD CONSTRAINT fk_idproducto_transporte FOREIGN KEY (idproducto) REFERENCES producto(idproducto);
+
+
+--
+-- Name: fk_idrecurso_recurso_transporte; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY recurso_transporte
+    ADD CONSTRAINT fk_idrecurso_recurso_transporte FOREIGN KEY (idrecurso) REFERENCES recurso(idrecurso);
+
+
+--
+-- Name: fk_idtransporte_recurso_transporte; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY recurso_transporte
+    ADD CONSTRAINT fk_idtransporte_recurso_transporte FOREIGN KEY (idtransporte) REFERENCES transporte(idtransporte);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

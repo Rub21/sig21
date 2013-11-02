@@ -67,14 +67,72 @@ public class ManagerHotelTest {
 
         List<BHotel> listhotel = new LinkedList<BHotel>();
         BHotel bHotel = new BHotel();
+
+        /*  //Producto
+         bHotel.setIdproducto("2p");
+         bHotel.setNombre("Ayacucho Plaza Hotel");
+         bHotel.setClase("Hotel");
+         bHotel.setEstado(true);
+
+         //Servicio Hotel
+         bHotel.setIdhotel("2ph");
+         bHotel.setCategoria("4 Estrellas");
+         bHotel.setDescripcion("Es el hotel más emblemático de la ciudad, la decoración de sus diferentes ambientes es bastante tradicional y conserva un marcado estilo colonial.");
+         bHotel.setDireccion("Jr. 9 de Dicimbre 184");
+         bHotel.setTelefono("(066) 322202");
+         bHotel.setSitio_web("http://www.dmhoteles.pe/index.php");
+         bHotel.setCorreo_elec("reservas@dematourshoteles.com");
+         bHotel.setTipo_precio_hab("Simple S/.180, doble S/. 216, Suite S/. 348");
+         bHotel.setFormas_pago("VISA y Mastercard");
+
+         //Geometry
+         BGeometry bGeometry = new BGeometry();
+         bGeometry.setLatitud(-13.15883);
+         bGeometry.setLongitud(-74.22592);
+         bGeometry.setCoordinates();
+         bHotel.setGeometry(bGeometry);
+         //Imagen
+         ArrayList<BImagen> list = new ArrayList<BImagen>();
+         String id = "2p";
+         BImagen bImagen1 = new BImagen();
+         bImagen1.setUrl("plaza1130903091657.jpg");
+
+         bImagen1.setIdproducto("2p");
+         list.add(bImagen1);
+
+         BImagen bImagen2 = new BImagen();
+         bImagen2.setUrl("plaza2130903091657.jpg");
+         bImagen2.setIdproducto("2p");
+         list.add(bImagen2);
+
+         BImagen bImagen3 = new BImagen();
+         bImagen3.setUrl("plaza3130903091657.jpg");
+         bImagen3.setIdproducto("2p");
+         list.add(bImagen3);
+         bHotel.setImagenes(list);
+
+         //servicios adicional
+         ArrayList<BServiciosAdicional> list_ser_ad = new ArrayList<BServiciosAdicional>();
+         BServiciosAdicional bServiciosAdicional = new BServiciosAdicional();
+         bServiciosAdicional.setIdproducto("2p");
+         bServiciosAdicional.setTipo("Restaurant");
+         list_ser_ad.add(bServiciosAdicional);
+
+         bHotel.setbServiciosAdicional(list_ser_ad);
+         //Array Hotel
+         listhotel.add(bHotel);
+         */
+        /**
+         * ***********************************************
+         */
         //Producto
-        bHotel.setIdproducto("2p");
+        bHotel.setIdproducto("9p");
         bHotel.setNombre("Ayacucho Plaza Hotel");
         bHotel.setClase("Hotel");
         bHotel.setEstado(true);
 
         //Servicio Hotel
-        bHotel.setIdhotel("2ph");
+        bHotel.setIdhotel("9ph");
         bHotel.setCategoria("4 Estrellas");
         bHotel.setDescripcion("Es el hotel más emblemático de la ciudad, la decoración de sus diferentes ambientes es bastante tradicional y conserva un marcado estilo colonial.");
         bHotel.setDireccion("Jr. 9 de Dicimbre 184");
@@ -86,34 +144,34 @@ public class ManagerHotelTest {
 
         //Geometry
         BGeometry bGeometry = new BGeometry();
-        bGeometry.setLatitud(-13.15883);
-        bGeometry.setLongitud(-74.22592);
+        bGeometry.setLatitud(-13.15874);
+        bGeometry.setLongitud(-74.22586);
         bGeometry.setCoordinates();
         bHotel.setGeometry(bGeometry);
         //Imagen
         ArrayList<BImagen> list = new ArrayList<BImagen>();
-        String id = "2p";
+        String id = "9p";
         BImagen bImagen1 = new BImagen();
-        bImagen1.setUrl("plaza1130903091657.jpg");
+        bImagen1.setUrl("AyacuchoPlazaHotel-plaza1131021232952.jpg");
 
-        bImagen1.setIdproducto("2p");
+        bImagen1.setIdproducto("9p");
         list.add(bImagen1);
 
         BImagen bImagen2 = new BImagen();
-        bImagen2.setUrl("plaza2130903091657.jpg");
-        bImagen2.setIdproducto("2p");
+        bImagen2.setUrl("AyacuchoPlazaHotel-plaza2131021232952.jpg");
+        bImagen2.setIdproducto("9p");
         list.add(bImagen2);
 
         BImagen bImagen3 = new BImagen();
-        bImagen3.setUrl("plaza3130903091657.jpg");
-        bImagen3.setIdproducto("2p");
+        bImagen3.setUrl("AyacuchoPlazaHotel-plaza3131021232952.jpg");
+        bImagen3.setIdproducto("9p");
         list.add(bImagen3);
         bHotel.setImagenes(list);
 
         //servicios adicional
         ArrayList<BServiciosAdicional> list_ser_ad = new ArrayList<BServiciosAdicional>();
         BServiciosAdicional bServiciosAdicional = new BServiciosAdicional();
-        bServiciosAdicional.setIdproducto("2p");
+        bServiciosAdicional.setIdproducto("9p");
         bServiciosAdicional.setTipo("Restaurant");
         list_ser_ad.add(bServiciosAdicional);
 
@@ -121,7 +179,9 @@ public class ManagerHotelTest {
         //Array Hotel
         listhotel.add(bHotel);
 
-
+        /**
+         * *********************************************
+         */
         BDConnecion conexion = new BDConnecion();
         conexion.getConnection();
 
@@ -131,8 +191,10 @@ public class ManagerHotelTest {
         List expResult = listhotel;
 
         List result = instance.listarhotel();
-        for (int i = 0; i < expResult.size() && expResult.size() == result.size(); i++) {
 
+        for (int i = 0; i < 1; i++) {
+
+            // for (int i = 0; i < expResult.size() && expResult.size() == result.size(); i++) {
             BHotel b_expResult = (BHotel) expResult.get(i);
             BHotel b_result = (BHotel) result.get(i);
 
@@ -140,7 +202,6 @@ public class ManagerHotelTest {
             assertEquals(b_expResult.getNombre(), b_result.getNombre());
             assertEquals(b_expResult.getClase(), b_result.getClase());
             assertEquals(b_expResult.isEstado(), b_result.isEstado());
-
 
             assertEquals(b_expResult.getIdhotel(), b_result.getIdhotel());
             assertEquals(b_expResult.getCategoria(), b_result.getCategoria());

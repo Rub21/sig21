@@ -22,7 +22,7 @@ public class BDConnecion implements Serializable {
 
     public BDConnecion() {
         this.driver = "org.postgresql.Driver";
-        this.url = "jdbc:postgresql://localhost:5432/dbturayacucho_test";
+        this.url = "jdbc:postgresql://localhost:5432/dbturayacucho";
         this.username = "postgres";
         this.pwname = "1234";
     }

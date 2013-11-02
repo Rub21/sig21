@@ -62,17 +62,15 @@ public class ManagerTransporteTest {
     @Test
     public void testListarTransporte() {
 
-
         List<BTransporte> listTransporte = new LinkedList<BTransporte>();
         BTransporte bTransporte = new BTransporte();
         //Producto
-        bTransporte.setIdproducto("4p");
+        bTransporte.setIdproducto("1p");
         bTransporte.setNombre("Empresa de Transporte Etuscia");
         bTransporte.setClase("Transporte");
         bTransporte.setEstado(true);
 
-
-        bTransporte.setIdtransporte("4pt");
+        bTransporte.setIdtransporte("1pt");
         bTransporte.setDescripcion("Es una empresa que realiza la ruta cotidiana de Ayacucho a Quinua y Quina a Ayacucho");
         bTransporte.setTipo("Interdistrital");
         bTransporte.setDireccion("Paradero hacia el norte, Cuadra 1 de la Av. Salvador Cavero");
@@ -83,22 +81,21 @@ public class ManagerTransporteTest {
 
         //Geometry
         BGeometry bGeometry = new BGeometry();
-        bGeometry.setLatitud(-13.15829);
-        bGeometry.setLongitud(-74.2179);
+        bGeometry.setLatitud(-13.1583);
+        bGeometry.setLongitud(-74.21795);
         bGeometry.setCoordinates();
         bTransporte.setGeometry(bGeometry);
         //Imagen
         ArrayList<BImagen> list_imagen = new ArrayList<BImagen>();
-        String id = "4p";
+        String id = "1p";
         BImagen bImagen1 = new BImagen();
-        bImagen1.setUrl("Etuscia130903093259.jpg");
+        bImagen1.setUrl("EmpresadeTransporteEtuscia-Etuscia131021225839.jpg");
         bImagen1.setIdproducto(id);
         list_imagen.add(bImagen1);
 
         bTransporte.setImagenes(list_imagen);
         //Array Transporte
         listTransporte.add(bTransporte);
-
 
         BDConnecion conexion = new BDConnecion();
         conexion.getConnection();
@@ -110,8 +107,8 @@ public class ManagerTransporteTest {
 
         List result = instance.listarTransporte();
 
-
-        for (int i = 0; i < expResult.size() && expResult.size() == result.size(); i++) {
+        // for (int i = 0; i < expResult.size() && expResult.size() == result.size(); i++) {
+        for (int i = 0; i < 1; i++) {
 
             BTransporte b_expResult = (BTransporte) expResult.get(i);
             BTransporte b_result = (BTransporte) result.get(i);

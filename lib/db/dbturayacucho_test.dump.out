@@ -1,0 +1,674 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+--
+-- Name: insert_complementario(character, character, character, boolean, character varying, character, text, character, character, character, character, numeric, numeric); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION insert_complementario(idproducto character, nombre character, clase character, estado boolean, idcomplementario character varying, tipo character, descripcion text, direccion character, telefono character, sitio_web character, horario_atencion character, lat numeric, lon numeric) RETURNS character
+    LANGUAGE plpgsql
+    AS $$
+DECLARE
+        
+BEGIN
+
+	INSERT INTO producto(idproducto, nombre, clase, estado)
+        VALUES (idproducto, nombre, clase, estado);
+        
+INSERT INTO complementario(idcomplementario, tipo, descripcion, direccion, telefono, sitio_web,horario_atencion, idproducto)
+    VALUES (idcomplementario, tipo, descripcion, direccion, telefono, sitio_web,horario_atencion, idproducto);
+
+        INSERT INTO geometry(lat, lon, idproducto)
+        VALUES (lat, lon, idproducto);
+	RETURN 'Insert a complementario';	
+END;
+$$;
+
+
+ALTER FUNCTION public.insert_complementario(idproducto character, nombre character, clase character, estado boolean, idcomplementario character varying, tipo character, descripcion text, direccion character, telefono character, sitio_web character, horario_atencion character, lat numeric, lon numeric) OWNER TO postgres;
+
+--
+-- Name: insert_hotel(character, character, character, boolean, character varying, character, text, character, character, character, character, text, character, numeric, numeric); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION insert_hotel(idproducto character, nombre character, clase character, estado boolean, idhotel character varying, categoria character, descripcion text, direccion character, telefono character, sitio_web character, correo_elec character, tipo_precio_hab text, formas_pago character, lat numeric, lon numeric) RETURNS void
+    LANGUAGE plpgsql
+    AS $$
+DECLARE        
+BEGIN
+
+	INSERT INTO producto(idproducto, nombre, clase, estado)
+        VALUES (idproducto, nombre, clase, estado);  
+
+	INSERT INTO hotel(idhotel, categoria, descripcion, direccion, telefono, sitio_web, 
+            correo_elec, tipo_precio_hab, formas_pago, idproducto)
+	VALUES (idhotel, categoria, descripcion, direccion, telefono, sitio_web, 
+            correo_elec, tipo_precio_hab, formas_pago, idproducto);
+
+        INSERT INTO geometry(lat, lon, idproducto)
+        VALUES (lat, lon, idproducto);        
+	--RETURN 'Insert a Hotel';	
+END;
+$$;
+
+
+ALTER FUNCTION public.insert_hotel(idproducto character, nombre character, clase character, estado boolean, idhotel character varying, categoria character, descripcion text, direccion character, telefono character, sitio_web character, correo_elec character, tipo_precio_hab text, formas_pago character, lat numeric, lon numeric) OWNER TO postgres;
+
+--
+-- Name: insert_recurso(character, character, character, boolean, character varying, character, character, text, text, character, character, character, character, character, character, character, text, numeric, numeric); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION insert_recurso(idproducto character, nombre character, clase character, estado boolean, idrecurso character varying, categoria character, tipo character, descripcion text, historia text, corredor character, distancia character, tipo_precio_ing character, horario_atencion character, temperatura character, altitud character, video character, como_llegar text, lat numeric, lon numeric) RETURNS void
+    LANGUAGE plpgsql
+    AS $$
+DECLARE
+        
+BEGIN
+
+	INSERT INTO producto(idproducto, nombre, clase, estado)
+        VALUES (idproducto, nombre, clase, estado);                
+        INSERT INTO recurso(idrecurso, categoria, tipo, descripcion, historia,  corredor, distancia, tipo_precio_ing, horario_atencion, temperatura, altitud, video, como_llegar, idproducto)
+        VALUES (idrecurso, categoria, tipo, descripcion, historia, corredor, distancia, tipo_precio_ing, horario_atencion, temperatura, altitud, video, como_llegar, idproducto);
+        INSERT INTO geometry(lat, lon, idproducto)
+        VALUES (lat, lon, idproducto);	
+END;
+$$;
+
+
+ALTER FUNCTION public.insert_recurso(idproducto character, nombre character, clase character, estado boolean, idrecurso character varying, categoria character, tipo character, descripcion text, historia text, corredor character, distancia character, tipo_precio_ing character, horario_atencion character, temperatura character, altitud character, video character, como_llegar text, lat numeric, lon numeric) OWNER TO postgres;
+
+--
+-- Name: insert_restaurant(character, character, character, boolean, character varying, character, character, text, character, character, character, character, character, character, character, numeric, numeric); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION insert_restaurant(idproducto character, nombre character, clase character, estado boolean, idrestaurant character varying, categoria character, tipo character, descripcion text, direccion character, telefono character, sitio_web character, horario_atencion character, especialidad character, precio_promedio character, formas_pago character, lat numeric, lon numeric) RETURNS void
+    LANGUAGE plpgsql
+    AS $$
+DECLARE        
+BEGIN
+
+	INSERT INTO producto(idproducto, nombre, clase, estado)
+        VALUES (idproducto, nombre, clase, estado);
+        
+        INSERT INTO restaurant(idrestaurant, categoria, tipo, descripcion, direccion, telefono,sitio_web, horario_atencion, especialidad, precio_promedio, formas_pago,idproducto)
+         VALUES(idrestaurant, categoria, tipo, descripcion, direccion, telefono,sitio_web, horario_atencion, especialidad, precio_promedio, formas_pago,idproducto);
+
+        INSERT INTO geometry(lat, lon, idproducto)
+        VALUES (lat, lon, idproducto);
+	--RETURN 'Insert a Restaurant';	
+END;
+$$;
+
+
+ALTER FUNCTION public.insert_restaurant(idproducto character, nombre character, clase character, estado boolean, idrestaurant character varying, categoria character, tipo character, descripcion text, direccion character, telefono character, sitio_web character, horario_atencion character, especialidad character, precio_promedio character, formas_pago character, lat numeric, lon numeric) OWNER TO postgres;
+
+--
+-- Name: insert_transporte(character, character, character, boolean, character varying, text, character, character, character, character, character, character, text, numeric, numeric); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION insert_transporte(idproducto character, nombre character, clase character, estado boolean, idtransporte character varying, descripcion text, tipo character, direccion character, telefono character, sitio_web character, horario_atencion character, horario_salida character, destinos text, lat numeric, lon numeric) RETURNS void
+    LANGUAGE plpgsql
+    AS $$
+DECLARE
+        
+BEGIN
+
+	INSERT INTO producto(idproducto, nombre, clase, estado)
+        VALUES (idproducto, nombre, clase, estado);       
+        INSERT INTO transporte(idtransporte, descripcion,tipo, direccion, telefono, sitio_web, horario_atencion,horario_salida, destinos, idproducto)
+        VALUES (idtransporte, descripcion,tipo, direccion, telefono, sitio_web, horario_atencion,horario_salida, destinos, idproducto);
+        INSERT INTO geometry(lat, lon, idproducto)
+        VALUES (lat, lon, idproducto);
+	--RETURN 'Insert a Transporte';	
+END;
+$$;
+
+
+ALTER FUNCTION public.insert_transporte(idproducto character, nombre character, clase character, estado boolean, idtransporte character varying, descripcion text, tipo character, direccion character, telefono character, sitio_web character, horario_atencion character, horario_salida character, destinos text, lat numeric, lon numeric) OWNER TO postgres;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: complementario; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE complementario (
+    idcomplementario character varying(10) NOT NULL,
+    tipo character(100),
+    descripcion text,
+    direccion character(100),
+    telefono character(50),
+    sitio_web character(100),
+    horario_atencion character(100),
+    idproducto character varying(10)
+);
+
+
+ALTER TABLE public.complementario OWNER TO postgres;
+
+--
+-- Name: geometry; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE geometry (
+    lat numeric,
+    lon numeric,
+    idproducto character varying(10)
+);
+
+
+ALTER TABLE public.geometry OWNER TO postgres;
+
+--
+-- Name: hotel; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE hotel (
+    idhotel character varying(10) NOT NULL,
+    categoria character(50),
+    descripcion text,
+    direccion character(100),
+    telefono character(50),
+    sitio_web character(100),
+    correo_elec character(100),
+    tipo_precio_hab text,
+    formas_pago character(100),
+    idproducto character varying(10)
+);
+
+
+ALTER TABLE public.hotel OWNER TO postgres;
+
+--
+-- Name: imagen; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE imagen (
+    url character varying(100),
+    idproducto character varying(10)
+);
+
+
+ALTER TABLE public.imagen OWNER TO postgres;
+
+--
+-- Name: producto; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE producto (
+    idproducto character varying(10) NOT NULL,
+    nombre character(100),
+    clase character(50),
+    estado boolean NOT NULL,
+    fecharegistro timestamp without time zone DEFAULT now()
+);
+
+
+ALTER TABLE public.producto OWNER TO postgres;
+
+--
+-- Name: recurso; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE recurso (
+    idrecurso character varying(10) NOT NULL,
+    categoria character(50),
+    tipo character(100),
+    descripcion text,
+    historia text,
+    corredor character(50),
+    distancia character(100),
+    tipo_precio_ing character(100),
+    horario_atencion character(100),
+    temperatura character(100),
+    altitud character(100),
+    video character(100),
+    como_llegar text,
+    idproducto character varying(10)
+);
+
+
+ALTER TABLE public.recurso OWNER TO postgres;
+
+--
+-- Name: recurso_transporte; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE recurso_transporte (
+    idrecurso character varying(10),
+    idtransporte character varying(10)
+);
+
+
+ALTER TABLE public.recurso_transporte OWNER TO postgres;
+
+--
+-- Name: restaurant; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE restaurant (
+    idrestaurant character varying(10) NOT NULL,
+    categoria character(20),
+    tipo character(40),
+    descripcion text,
+    direccion character(100),
+    telefono character(50),
+    sitio_web character(100),
+    horario_atencion character(100),
+    especialidad character(100),
+    precio_promedio character(100),
+    formas_pago character(100),
+    idproducto character varying(10)
+);
+
+
+ALTER TABLE public.restaurant OWNER TO postgres;
+
+--
+-- Name: select_complementario; Type: VIEW; Schema: public; Owner: postgres
+--
+
+CREATE VIEW select_complementario AS
+    SELECT p.idproducto, p.nombre, p.clase, p.estado, c.idcomplementario, c.tipo, c.descripcion, c.direccion, c.telefono, c.sitio_web, c.horario_atencion, g.lat, g.lon FROM ((producto p LEFT JOIN geometry g ON (((p.idproducto)::text = (g.idproducto)::text))) LEFT JOIN complementario c ON (((p.idproducto)::text = (c.idproducto)::text))) WHERE (p.clase = 'Complementario'::bpchar);
+
+
+ALTER TABLE public.select_complementario OWNER TO postgres;
+
+--
+-- Name: select_hotel; Type: VIEW; Schema: public; Owner: postgres
+--
+
+CREATE VIEW select_hotel AS
+    SELECT p.idproducto, p.nombre, p.clase, p.estado, h.idhotel, h.categoria, h.descripcion, h.direccion, h.telefono, h.sitio_web, h.correo_elec, h.tipo_precio_hab, h.formas_pago, g.lat, g.lon FROM ((producto p LEFT JOIN geometry g ON (((p.idproducto)::text = (g.idproducto)::text))) LEFT JOIN hotel h ON (((p.idproducto)::text = (h.idproducto)::text))) WHERE (p.clase = 'Hotel'::bpchar);
+
+
+ALTER TABLE public.select_hotel OWNER TO postgres;
+
+--
+-- Name: select_recurso; Type: VIEW; Schema: public; Owner: postgres
+--
+
+CREATE VIEW select_recurso AS
+    SELECT p.idproducto, p.nombre, p.clase, p.estado, r.idrecurso, r.categoria, r.tipo, r.descripcion, r.historia, r.corredor, r.distancia, r.tipo_precio_ing, r.horario_atencion, r.temperatura, r.altitud, r.video, r.como_llegar, g.lat, g.lon FROM ((producto p LEFT JOIN recurso r ON (((p.idproducto)::text = (r.idproducto)::text))) LEFT JOIN geometry g ON (((p.idproducto)::text = (g.idproducto)::text))) WHERE (p.clase = 'Recurso Turístico'::bpchar);
+
+
+ALTER TABLE public.select_recurso OWNER TO postgres;
+
+--
+-- Name: select_restaurant; Type: VIEW; Schema: public; Owner: postgres
+--
+
+CREATE VIEW select_restaurant AS
+    SELECT p.idproducto, p.nombre, p.clase, p.estado, re.idrestaurant, re.categoria, re.tipo, re.descripcion, re.direccion, re.telefono, re.sitio_web, re.horario_atencion, re.especialidad, re.precio_promedio, re.formas_pago, g.lat, g.lon FROM ((producto p LEFT JOIN geometry g ON (((p.idproducto)::text = (g.idproducto)::text))) LEFT JOIN restaurant re ON (((p.idproducto)::text = (re.idproducto)::text))) WHERE (p.clase = 'Restaurant'::bpchar);
+
+
+ALTER TABLE public.select_restaurant OWNER TO postgres;
+
+--
+-- Name: transporte; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE transporte (
+    idtransporte character varying(10) NOT NULL,
+    descripcion text,
+    direccion character(100),
+    tipo character(50),
+    telefono character(50),
+    sitio_web character(100),
+    horario_atencion character(100),
+    horario_salida character(100),
+    destinos text,
+    idproducto character varying(10)
+);
+
+
+ALTER TABLE public.transporte OWNER TO postgres;
+
+--
+-- Name: select_transporte; Type: VIEW; Schema: public; Owner: postgres
+--
+
+CREATE VIEW select_transporte AS
+    SELECT p.idproducto, p.nombre, p.clase, p.estado, t.idtransporte, t.descripcion, t.tipo, t.direccion, t.telefono, t.sitio_web, t.horario_atencion, t.horario_salida, t.destinos, g.lat, g.lon FROM ((producto p LEFT JOIN geometry g ON (((p.idproducto)::text = (g.idproducto)::text))) LEFT JOIN transporte t ON (((p.idproducto)::text = (t.idproducto)::text))) WHERE (p.clase = 'Transporte'::bpchar);
+
+
+ALTER TABLE public.select_transporte OWNER TO postgres;
+
+--
+-- Name: servicion_adicional; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE servicion_adicional (
+    tipo character varying(100),
+    idproducto character varying(10)
+);
+
+
+ALTER TABLE public.servicion_adicional OWNER TO postgres;
+
+--
+-- Name: usuario; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE usuario (
+    idusuario character varying(10) NOT NULL,
+    nombre character varying(80),
+    apellidos character varying(80),
+    usuario character varying(20) NOT NULL,
+    contrasenia text NOT NULL,
+    estado boolean NOT NULL,
+    fecharegistro timestamp without time zone DEFAULT now()
+);
+
+
+ALTER TABLE public.usuario OWNER TO postgres;
+
+--
+-- Data for Name: complementario; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY complementario (idcomplementario, tipo, descripcion, direccion, telefono, sitio_web, horario_atencion, idproducto) FROM stdin;
+1pc	Comercio de artesanías                                                                              	Es un mercado donde puede encontrar retablos, textiles, tapices, cerámicas artísticas y utilitaria, platería y hojalatería.	Av. Maravillas 101, 31 Ayacucho                                                                     	(066) 310213                                      	https://www.facebook.com/pages/Mercado-Artesanal-Shosaku-Nagase-Ayacucho/179515285530369            	lun - dom: 9:00 - 20:30                                                                             	1p
+\.
+
+
+--
+-- Data for Name: geometry; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY geometry (lat, lon, idproducto) FROM stdin;
+-13.15427	-74.22551	1p
+-13.15883	-74.22592	2p
+-13.15861	-74.2254	3p
+-13.15829	-74.2179	4p
+-13.28202	-74.36857	5p
+\.
+
+
+--
+-- Data for Name: hotel; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY hotel (idhotel, categoria, descripcion, direccion, telefono, sitio_web, correo_elec, tipo_precio_hab, formas_pago, idproducto) FROM stdin;
+2ph	4 Estrellas                                       	Es el hotel más emblemático de la ciudad, la decoración de sus diferentes ambientes es bastante tradicional y conserva un marcado estilo colonial.	Jr. 9 de Dicimbre 184                                                                               	(066) 322202                                      	http://www.dmhoteles.pe/index.php                                                                   	reservas@dematourshoteles.com                                                                       	Simple S/.180, doble S/. 216, Suite S/. 348	VISA y Mastercard                                                                                   	2p
+\.
+
+
+--
+-- Data for Name: imagen; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY imagen (url, idproducto) FROM stdin;
+sh1130903090922.jpg	1p
+sh2130903090922.jpg	1p
+sh3130903090922.jpg	1p
+sh4130903090922.jpg	1p
+plaza1130903091657.jpg	2p
+plaza2130903091657.jpg	2p
+plaza3130903091657.jpg	2p
+lacasona130903092649.jpg	3p
+Etuscia130903093259.jpg	4p
+huaraca1130903100021.JPG	5p
+huaraca2130903100021.JPG	5p
+huaraca3130903100021.JPG	5p
+huaraca4130903100021.JPG	5p
+\.
+
+
+--
+-- Data for Name: producto; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY producto (idproducto, nombre, clase, estado, fecharegistro) FROM stdin;
+1p	Mercado Artesanal Shosaku Nagase                                                                    	Complementario                                    	t	2013-09-03 09:09:22.767363
+2p	Ayacucho Plaza Hotel                                                                                	Hotel                                             	t	2013-09-03 09:16:57.2382
+3p	La Casona                                                                                           	Restaurant                                        	t	2013-09-03 09:26:49.873846
+4p	Empresa de Transporte Etuscia                                                                       	Transporte                                        	t	2013-09-03 09:32:59.269686
+5p	Bosque de Piedras de Huaraca                                                                        	Recurso Turístico                                 	t	2013-09-03 10:00:21.879369
+\.
+
+
+--
+-- Data for Name: recurso; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY recurso (idrecurso, categoria, tipo, descripcion, historia, corredor, distancia, tipo_precio_ing, horario_atencion, temperatura, altitud, video, como_llegar, idproducto) FROM stdin;
+5pr	Paisaje Natural                                   	Bosque de Piedra                                                                                    	Es una enorme bosque pétreo de unos 30km2, aquí se encuentra cientos de formaciones rocosas de caprichosas formas, que han sido talladas probablemente por acción del viento y las lluvias ,además en la zona se ubica la laguna Ustanaqcha, distante a unos 2 Km desde una comunidad próxima, ideal para realizar una pesca deportiva de trucha , todo matizado por plantas nativas (tasta, tumbo silvestre, tankar, kiswar, muña, ichu entre otros).Al inicio del Bosque de piedras se ubica la pequeña comunidad de Huaraca, que aun conserva sus costumbres tradicionales y forma de vida, incluso, aprovecha algunas formas pétreas para acondicionar sus viviendas, esta comunidad se dedica a la crianza de llamas y alpacas. En cuanto a Fauna silvestre encontramos especies como viscacha, zorro andino, zorrillo, puma andino, cóndor aguilucho, cernícalo china linda, Huallata y picaflores. La zona es perfecta para realizar camiatas y realizar fotografías, incluso acampar, para lo cual se recomienda una carpa adecuada para el clima frio y ropa de abrigo.		Corredor Nazca-Chanka-Inca                        	61km al suroeste de la ciudad de Ayacucho                                                           	Libre                                                                                               	Recomendable Lunes - Domingo de 7.00 am a 18.00pm                                                   	                                                                                                    	Ubicado entre 3820 y 4550msnm                                                                       	http://www.youtube.com/watch?v=4T4bs7Ax40c                                                          	Se debe tomar una desvió en la carretera Libertadores en el sector , en el sector Jutumpapa (18 L 560867 8525369)distante a 55.8km desde Ayacucho, desde ali son 5,2km por una carretera afirmada. Es recomendable contra los servicios de una agencia de turismo.	5p
+\.
+
+
+--
+-- Data for Name: recurso_transporte; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY recurso_transporte (idrecurso, idtransporte) FROM stdin;
+\.
+
+
+--
+-- Data for Name: restaurant; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY restaurant (idrestaurant, categoria, tipo, descripcion, direccion, telefono, sitio_web, horario_atencion, especialidad, precio_promedio, formas_pago, idproducto) FROM stdin;
+3pre	3 Tenedores         	Comida típica y nacional                	Restaurant con bastante tradición en platos típicos ayacuchanos, frecuentado y recomendado por los turistas y personas locales conocedores.	Jr. Bellido 463                                                                                     	(066) 31-2733                                     	                                                                                                    	Lunes a domingo de 12 a 22.30                                                                       	Puca picante                                                                                        	S/.15, menú S/. 6                                                                                   	VISA y Mastercard                                                                                   	3p
+\.
+
+
+--
+-- Data for Name: servicion_adicional; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY servicion_adicional (tipo, idproducto) FROM stdin;
+Restaurant	2p
+\.
+
+
+--
+-- Data for Name: transporte; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY transporte (idtransporte, descripcion, direccion, tipo, telefono, sitio_web, horario_atencion, horario_salida, destinos, idproducto) FROM stdin;
+4pt	Es una empresa que realiza la ruta cotidiana de Ayacucho a Quinua y Quina a Ayacucho	Paradero hacia el norte, Cuadra 1 de la Av. Salvador Cavero                                         	Interdistrital                                    	966589865                                         	                                                                                                    	Lunes a domingo de 6 am a 8pm                                                                       	Salidas diarias cada 30 minutos                                                                     	Muyurina, Pacaycasa y Quinua	4p
+\.
+
+
+--
+-- Data for Name: usuario; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY usuario (idusuario, nombre, apellidos, usuario, contrasenia, estado, fecharegistro) FROM stdin;
+1u	Ruben	Lopez Mendoza	Rub21	1234	t	2013-09-03 08:39:25.215922
+\.
+
+
+--
+-- Name: complementario_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY complementario
+    ADD CONSTRAINT complementario_pkey PRIMARY KEY (idcomplementario);
+
+
+--
+-- Name: hotel_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY hotel
+    ADD CONSTRAINT hotel_pkey PRIMARY KEY (idhotel);
+
+
+--
+-- Name: producto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY producto
+    ADD CONSTRAINT producto_pkey PRIMARY KEY (idproducto);
+
+
+--
+-- Name: recurso_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY recurso
+    ADD CONSTRAINT recurso_pkey PRIMARY KEY (idrecurso);
+
+
+--
+-- Name: restaurant_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY restaurant
+    ADD CONSTRAINT restaurant_pkey PRIMARY KEY (idrestaurant);
+
+
+--
+-- Name: transporte_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY transporte
+    ADD CONSTRAINT transporte_pkey PRIMARY KEY (idtransporte);
+
+
+--
+-- Name: usuario_contrasenia_key; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY usuario
+    ADD CONSTRAINT usuario_contrasenia_key UNIQUE (contrasenia);
+
+
+--
+-- Name: usuario_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY usuario
+    ADD CONSTRAINT usuario_pkey PRIMARY KEY (idusuario);
+
+
+--
+-- Name: usuario_usuario_key; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY usuario
+    ADD CONSTRAINT usuario_usuario_key UNIQUE (usuario);
+
+
+--
+-- Name: fk_idproducto_complementario; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY complementario
+    ADD CONSTRAINT fk_idproducto_complementario FOREIGN KEY (idproducto) REFERENCES producto(idproducto);
+
+
+--
+-- Name: fk_idproducto_geometry; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY geometry
+    ADD CONSTRAINT fk_idproducto_geometry FOREIGN KEY (idproducto) REFERENCES producto(idproducto);
+
+
+--
+-- Name: fk_idproducto_hotel; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY hotel
+    ADD CONSTRAINT fk_idproducto_hotel FOREIGN KEY (idproducto) REFERENCES producto(idproducto);
+
+
+--
+-- Name: fk_idproducto_imagen; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY imagen
+    ADD CONSTRAINT fk_idproducto_imagen FOREIGN KEY (idproducto) REFERENCES producto(idproducto);
+
+
+--
+-- Name: fk_idproducto_recurso; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY recurso
+    ADD CONSTRAINT fk_idproducto_recurso FOREIGN KEY (idproducto) REFERENCES producto(idproducto);
+
+
+--
+-- Name: fk_idproducto_restaurant; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY restaurant
+    ADD CONSTRAINT fk_idproducto_restaurant FOREIGN KEY (idproducto) REFERENCES producto(idproducto);
+
+
+--
+-- Name: fk_idproducto_servicion_adicional; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY servicion_adicional
+    ADD CONSTRAINT fk_idproducto_servicion_adicional FOREIGN KEY (idproducto) REFERENCES producto(idproducto);
+
+
+--
+-- Name: fk_idproducto_transporte; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY transporte
+    ADD CONSTRAINT fk_idproducto_transporte FOREIGN KEY (idproducto) REFERENCES producto(idproducto);
+
+
+--
+-- Name: fk_idrecurso_recurso_transporte; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY recurso_transporte
+    ADD CONSTRAINT fk_idrecurso_recurso_transporte FOREIGN KEY (idrecurso) REFERENCES recurso(idrecurso);
+
+
+--
+-- Name: fk_idtransporte_recurso_transporte; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY recurso_transporte
+    ADD CONSTRAINT fk_idtransporte_recurso_transporte FOREIGN KEY (idtransporte) REFERENCES transporte(idtransporte);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

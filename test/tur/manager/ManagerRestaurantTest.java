@@ -62,14 +62,54 @@ public class ManagerRestaurantTest {
     public void testListarrestaurant() {
         List<BRestaurant> listRestaurant = new LinkedList<BRestaurant>();
         BRestaurant bRestaurant = new BRestaurant();
+        /* 
+         //Producto
+         bRestaurant.setIdproducto("22p");
+         bRestaurant.setNombre("La Casona");
+         bRestaurant.setClase("Restaurant");
+         bRestaurant.setEstado(true);
+         //Servicio Restaurant
+         bRestaurant.setIdrestaurant("22pre");
+         bRestaurant.setCategoria("3 Tenedores");
+         bRestaurant.setTipo("Comida típica y nacional");
+         bRestaurant.setDescripcion("Restaurant con bastante tradición en platos típicos ayacuchanos, frecuentado y recomendado por los turistas y personas locales conocedores.");
+
+         bRestaurant.setDireccion("Jr. Bellido 463");
+         bRestaurant.setTelefono("(066) 31-2733");
+         //bRestaurant.setSitio_web("");
+         bRestaurant.setHorario_atencion("Lunes a domingo de 12 a 22.30");
+         bRestaurant.setEspecialidad("Puca picante");
+         bRestaurant.setPrecio_promedio("S/.15, menú S/. 6");
+         bRestaurant.setFormas_pago("VISA y Mastercard");
+
+         //Geometry
+         BGeometry bGeometry = new BGeometry();
+         bGeometry.setLatitud(-13.15861);
+         bGeometry.setLongitud(-74.2254);
+         bGeometry.setCoordinates();
+         bRestaurant.setGeometry(bGeometry);
+         //Imagen
+         ArrayList<BImagen> list = new ArrayList<BImagen>();
+         String id = "22p";
+         BImagen bImagen1 = new BImagen();
+         bImagen1.setIdproducto(id);
+         bImagen1.setUrl("lacasona130903092649.jpg");
+
+         list.add(bImagen1);
+         bRestaurant.setImagenes(list);
+         */
+
+        /**
+         * **********************************************
+         */
         //Producto
-        bRestaurant.setIdproducto("3p");
+        bRestaurant.setIdproducto("22p");
         bRestaurant.setNombre("La Casona");
         bRestaurant.setClase("Restaurant");
         bRestaurant.setEstado(true);
         //Servicio Restaurant
-        bRestaurant.setIdrestaurant("3pre");
-        bRestaurant.setCategoria("3 Tenedores");
+        bRestaurant.setIdrestaurant("22pre");
+        bRestaurant.setCategoria("2 Tenedores");
         bRestaurant.setTipo("Comida típica y nacional");
         bRestaurant.setDescripcion("Restaurant con bastante tradición en platos típicos ayacuchanos, frecuentado y recomendado por los turistas y personas locales conocedores.");
 
@@ -83,19 +123,23 @@ public class ManagerRestaurantTest {
 
         //Geometry
         BGeometry bGeometry = new BGeometry();
-        bGeometry.setLatitud(-13.15861);
-        bGeometry.setLongitud(-74.2254);
+        bGeometry.setLatitud(-13.15853);
+        bGeometry.setLongitud(-74.22557);
         bGeometry.setCoordinates();
         bRestaurant.setGeometry(bGeometry);
         //Imagen
         ArrayList<BImagen> list = new ArrayList<BImagen>();
-        String id = "3p";
+        String id = "22p";
         BImagen bImagen1 = new BImagen();
         bImagen1.setIdproducto(id);
-        bImagen1.setUrl("lacasona130903092649.jpg");
+        bImagen1.setUrl("lacasonarest131022211210.jpg");
 
         list.add(bImagen1);
         bRestaurant.setImagenes(list);
+
+        /**
+         * *********************************************
+         */
         //Array Restaurant
         listRestaurant.add(bRestaurant);
         BDConnecion conexion = new BDConnecion();
@@ -108,7 +152,8 @@ public class ManagerRestaurantTest {
 
         List result = instance.listarrestaurant();
 
-        for (int i = 0; i < expResult.size() && expResult.size() == result.size(); i++) {
+        //    for (int i = 0; i < expResult.size() && expResult.size() == result.size(); i++) {
+        for (int i = 0; i < 1; i++) {
             BRestaurant b_expResult = (BRestaurant) expResult.get(i);
             BRestaurant b_result = (BRestaurant) result.get(i);
             assertEquals(b_expResult.getIdproducto(), b_result.getIdproducto());
