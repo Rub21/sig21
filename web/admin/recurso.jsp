@@ -33,7 +33,7 @@
                                     </div>
                                 </div>
                                 <div class="row-fluid">
-                                    <div class="span4">Categoria<spam class="required">*</spam></div>
+                                    <div class="span4">Categoría<spam class="required">*</spam></div>
                                     <div class="span8">
                                         <select name='categoria' id='categoria-r' align="left" >
                                             <option value='Sitios Arqueológicos'>Sitios Arqueológicos</option>

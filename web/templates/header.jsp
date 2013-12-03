@@ -4,7 +4,8 @@
 
     <div class="navbar navbar-fixed-top">  
         <a href="index.jsp" class="brand">
-            Ayacucho tu mejor alternativa!
+            Ayacucho tu mejor alternativa
+            
         </a>
         <div class="navbar-inner">
             <div class="nav-collapse collapse">

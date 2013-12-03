@@ -83,7 +83,43 @@ function fill_search_products(arr) {
         var id = this.id;
         var coordinates = [];
         coordinates = buscarproducto(arr, id).geometry.coordinates;
+
         map.setView([coordinates[1], coordinates[0]], 16);
+
+
+        var a_pro = buscarproducto(arr, id);
+        /* console.log(a_pro)
+         console.log(map.markerLayer);
+         //console.log(map.marker);
+         // markers[i].openPopup();*/
+
+        //marker.openPopup();
+
+        ///map.marker.openPopup();
+        console.log(map)
+        console.log(map.marker)
+        console.log(map.markerLayer)
+        // console.log(map.markerLayer._layers)
+        //  console.log(map.markerLayer._layers._popup)
+        /* 
+         _popup: e
+         _animated: true
+         
+         _initHooksCalled: true
+         _isOpen: false*/
+
+        //  console.log(map.markerLayer.markers);
+
+
+        map.markerLayer.eachLayer(function(marker) {
+           // console.log(marker.feature.idproducto );
+            if (marker.feature.idproducto === id) {
+                marker.openPopup();
+            }
+        });
+
+
+
     });
 }
 

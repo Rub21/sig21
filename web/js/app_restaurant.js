@@ -79,8 +79,12 @@ function filter(arr) {
 $(document).on('ready', function() {
     //Autocomplete
     $("#search").autocomplete({
-        source: list_auto_restaurants
+        source: list_auto_restaurants,
+        select: function(event, ui) {
+            busqueda(ui.item.value);
+        }
     });
+
     $('a[href="#buscar"]').click(function(e) {
         e.preventDefault();
         var nombre = $('#search').val().replace(/\s/g, "");
@@ -128,3 +132,25 @@ $(document).on('ready', function() {
 
     });
 });
+
+
+function  busqueda(nombre) {
+         nombre = nombre.val().replace(/\s/g, "");
+        var f_search = _.find(list_restaurants, function(item) {
+            return item.nombre.replace(/\s/g, "") === nombre;
+        });
+        if (_.isUndefined(f_search)) {
+            //alert('Este servicio no fue registrado');
+            $('#faill_search').empty();
+            $('#faill_search').append('<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>Este servicio no fue registrado</div>')
+            $('#search').val('');
+
+        } else {
+            fill_search_products([f_search]);
+        }
+        window.setTimeout(function() {
+            $('#search').val('');
+            $('#faill_search').empty();
+        }, 2000);
+}
+;

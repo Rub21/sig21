@@ -6,38 +6,44 @@ window.setTimeout(function() {
 function mapData_hoteles() {
     var arr = list_hoteles;
     map.markerLayer.on('layeradd', function(e) {
-        var marker = e.layer;
-        var feature = marker.feature;
-        marker.setIcon(L.icon(feature.properties.icon));
-        var images = feature.imagenes;
-        var slideshowContent = '';
-        for (var i = 0; i < images.length; i++) {
-            var img = images[i];
 
-            slideshowContent += '<div class="image' + (i === 0 ? ' active' : '') + '">' +
-                    '<img src="' + img['url'] + '" />' +
-                    // '<div class="caption">' + img['url'] + '</div>' +
+        //this.eachLayer(function(marker) {
+            var marker = e.layer;
+            var feature = marker.feature;
+            marker.setIcon(L.icon(feature.properties.icon));
+            var images = feature.imagenes;
+            var slideshowContent = '';
+            for (var i = 0; i < images.length; i++) {
+                var img = images[i];
+
+                slideshowContent += '<div class="image' + (i === 0 ? ' active' : '') + '">' +
+                        '<img src="' + img['url'] + '" />' +
+                        // '<div class="caption">' + img['url'] + '</div>' +
+                        '</div>';
+            }
+            //button
+            var a_button = '<div class=" btn-detail"><a  role="button" class="btn  btn-success"  href="#detail" onclick="call_detaill_hotel(\'' + feature.idproducto + '\')"> Más Detalle</a></div>';
+            // Create custom popup content
+            var popupContent = '<div id="' + feature.idproducto + '" class="popup">' +
+                    '<h3>' + feature.nombre + '</h3>' +
+                    '<div class="slideshow">' +
+                    slideshowContent +
+                    '</div>' +
+                    '<div class="cycle">' +
+                    '<a href="#" class="prev" onclick="moveSlide(\'prev\')">&laquo; Anterior</a>' +
+                    '<a href="#" class="next" onclick="moveSlide(\'next\')">Siguiente &raquo;</a>' +
+                    '</div>' +
+                    a_button +
                     '</div>';
-        }
-        //button
-        var a_button = '<div class=" btn-detail"><a  role="button" class="btn  btn-success"  href="#detail" onclick="call_detaill_hotel(\'' + feature.idproducto + '\')"> Más Detalle</a></div>';
-        // Create custom popup content
-        var popupContent = '<div id="' + feature.idproducto + '" class="popup">' +
-                '<h3>' + feature.nombre + '</h3>' +
-                '<div class="slideshow">' +
-                slideshowContent +
-                '</div>' +
-                '<div class="cycle">' +
-                '<a href="#" class="prev" onclick="moveSlide(\'prev\')">&laquo; Anterior</a>' +
-                '<a href="#" class="next" onclick="moveSlide(\'next\')">Siguiente &raquo;</a>' +
-                '</div>' +
-                a_button +
-                '</div>';
-        // http://leafletjs.com/reference.html#popup
-        marker.bindPopup(popupContent, {
-            closeButton: false,
-            minWidth: 320
-        });
+            // http://leafletjs.com/reference.html#popup
+            marker.bindPopup(popupContent, {
+                closeButton: false,
+                minWidth: 320
+            });
+            
+             
+       // });
+
     });
 
     map.markerLayer.setGeoJSON(arr);

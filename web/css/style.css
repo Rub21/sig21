@@ -80,7 +80,7 @@ loading gif
     position: absolute;
 }
 
-#content_of_search.loading:after {
+.well .loading:after {
     background-color: #333;
     background-color: rgba(0,0,0,0.75);
     background-image: url(../img/ajax-loader-rev.gif);
