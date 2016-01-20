@@ -15,10 +15,10 @@ function add_imagen_description(id) {
     $('#del_file-' + id).hide();
     $('img#add_file-' + id).click(function() {
         $('#file_tools-' + id).before('<div class="well file_upload" id="f' + counter + '">' +
-                '<input name="file' + counter + '" type="file" id="file_img' + counter + '-' + id + '" required>' + //forma ejemplo  file_img1-r
-                '<input type="text" name="title_img' + counter + '" value=""  id="title_img' + counter + '-' + id + ' " placeholder="Nombre de Imagen ' + counter + '"/>' +
-                ' <textarea class="span7" name="description_img' + counter + '" rows="2" cols="25"  id="description_img' + counter + '-' + id + '" placeholder="Descripcion de la imagen ' + counter + '"></textarea>' +
-                '</div>');
+            '<input name="file' + counter + '" type="file" id="file_img' + counter + '-' + id + '" required>' + //forma ejemplo  file_img1-r
+            '<input type="text" name="title_img' + counter + '" value=""  id="title_img' + counter + '-' + id + ' " placeholder="Nombre de Imagen ' + counter + '"/>' +
+            ' <textarea class="span7" name="description_img' + counter + '" rows="2" cols="25"  id="description_img' + counter + '-' + id + '" placeholder="Descripcion de la imagen ' + counter + '"></textarea>' +
+            '</div>');
         $('#del_file-' + id).fadeIn(0);
         counter++;
     });
@@ -36,9 +36,9 @@ function add_imagen(id) {
     $('#del_file-' + id).hide();
     $('img#add_file-' + id).click(function() {
         $('#file_tools-' + id).before(
-                '<div class="well file_upload" id="f' + counter + '">' +
-                '<input name="file' + counter + '" type="file" id="file_img' + counter + '-' + id + '" required>' + //forma ejemplo  file_img1-r
-                '</div>');
+            '<div class="well file_upload" id="f' + counter + '">' +
+            '<input name="file' + counter + '" type="file" id="file_img' + counter + '-' + id + '" required>' + //forma ejemplo  file_img1-r
+            '</div>');
         $('#del_file-' + id).fadeIn(0);
         counter++;
     });
@@ -55,10 +55,10 @@ function clean_filed(id) {
     $('#clear-' + id).click(function() {
 
         $(':input', '#form-' + id)
-                .not(':button, :submit, :reset, :hidden')
-                .val('')
-                .removeAttr('checked')
-                .removeAttr('selected');
+            .not(':button, :submit, :reset, :hidden')
+            .val('')
+            .removeAttr('checked')
+            .removeAttr('selected');
     });
 
 }
@@ -66,7 +66,7 @@ function clean_filed(id) {
 
 $(function() {
 
-//check for anable field
+    //check for anable field
     $('#chek_lat_lon').click(function() {
         if ($("#chek_lat_lon").is(':checked')) {
             $("#lat").removeAttr("readonly");
@@ -77,14 +77,14 @@ $(function() {
         }
     });
 
-//add imagen 
+    //add imagen 
     var counter = 2;
     $('#del_file').hide();
     $('img#add_file').click(function() {
         $('#file_tools').before(
-                '<div class="well file_upload" id="f' + counter + '">' +
-                '<input name="file' + counter + '" type="file" id="file_img' + counter + '' + '" required>' + //forma ejemplo  file_img1-r
-                '</div>');
+            '<div class="well file_upload" id="f' + counter + '">' +
+            '<input name="file' + counter + '" type="file" id="file_img' + counter + '' + '" required>' + //forma ejemplo  file_img1-r
+            '</div>');
         $('#del_file').fadeIn(0);
         counter++;
     });
@@ -105,14 +105,14 @@ $(function() {
     $('#add_service-h').click(function() {
         $('#service_tools-h').before('\
             <div class="well" id="service' + counter_service + '">' +
-                '<div class="row-fluid ">' +
-                '<div class="span4">Tipo de Servicio ' + counter_service + '</div>' +
-                '<div class="span4">' +
-                '<input type="text"  name="type-service' + counter_service + '" value=""  align="left" id="type-service' + counter_service + '-h"  placeholder="Nombre del servicios " required/>' +
-                '</div>' +
-                '</div>' +
-                '</div>' +
-                '</div>');
+            '<div class="row-fluid ">' +
+            '<div class="span4">Tipo de Servicio ' + counter_service + '</div>' +
+            '<div class="span4">' +
+            '<input type="text"  name="type-service' + counter_service + '" value=""  align="left" id="type-service' + counter_service + '-h"  placeholder="Nombre del servicios " required/>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '</div>');
 
         $('#del_service-h').fadeIn(0);
         counter_service++;
@@ -134,7 +134,8 @@ $(function() {
 
     //selecionar medios de transporte
     var selectedValues = [];
-    function  get_select() {
+
+    function get_select() {
         selectedValues = [];
         $("#destino :selected").each(function() {
             selectedValues.push($(this).val());
@@ -150,8 +151,7 @@ $(function() {
         //  $("#selected").html(items);
         num = "<input type='text' name='num_selected' value='" + selectedValues.length + "'/>"
         document.getElementById('selected').innerHTML = items + num;
-    }
-    ;
+    };
 
     $('.pasar').click(function() {
 
@@ -184,24 +184,22 @@ $(function() {
 
 
 
-//SELECION DE FECHAS
-   /* var now = new Date();
-    now = now.getDate() + '/' + now.getMonth() + '/' + now.getFullYear();
-    $('#fecha').datepicker({
-        dateFormat: 'dd/mm/yy', // formato de fecha que se usa en España
-        dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sabado'], // días de la semana
-        dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'], // días de la semana (versión super-corta)
-        dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'], // días de la semana (versión corta)
-        firstDay: 1, // primer día de la semana (Lunes)
-        maxDate: new Date(), // fecha máxima
-        minDate: '-2y',
-        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'], // meses
-        monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'], // meses
-        navigationAsDateFormat: true,
-    });*/
+    //SELECION DE FECHAS
+    /* var now = new Date();
+     now = now.getDate() + '/' + now.getMonth() + '/' + now.getFullYear();
+     $('#fecha').datepicker({
+         dateFormat: 'dd/mm/yy', // formato de fecha que se usa en España
+         dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sabado'], // días de la semana
+         dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'], // días de la semana (versión super-corta)
+         dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'], // días de la semana (versión corta)
+         firstDay: 1, // primer día de la semana (Lunes)
+         maxDate: new Date(), // fecha máxima
+         minDate: '-2y',
+         monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'], // meses
+         monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'], // meses
+         navigationAsDateFormat: true,
+     });*/
 
 
 
 });
-
-

@@ -1,11 +1,11 @@
 $(function() {
     var m = mapbox.map('map', mapbox.layer().id('ruben.map-5m93f3zc')),
-            point,
-            _d, // Down Event
-            tol = 4, // Touch Tolerance
-            _downLock = false,
-            _clickTimeout = false,
-            init = true;
+        point,
+        _d, // Down Event
+        tol = 4, // Touch Tolerance
+        _downLock = false,
+        _clickTimeout = false,
+        init = true;
 
     m.ui.attribution.add().content('<a href="http://mapbox.com/about/maps">Terms &amp; Feedback</a>');
     m.ui.zoomer.add();
@@ -69,7 +69,7 @@ $(function() {
 
     function onUp(e) {
         var evt = {},
-                pos = new MM.Point(e.clientX, e.clientY);
+            pos = new MM.Point(e.clientX, e.clientY);
 
         _downLock = false;
         for (var key in e) {
@@ -85,11 +85,11 @@ $(function() {
         } else if (Math.round(pos.y / tol) === Math.round(_d.y / tol) && Math.round(pos.x / tol) === Math.round(_d.x / tol)) {
             // Contain the event data in a closure.
             _clickTimeout = window.setTimeout(
-                    function() {
-                        _clickTimeout = null;
-                        m.removeLayer(point);
-                        addMarker(e);
-                    }, 300);
+                function() {
+                    _clickTimeout = null;
+                    m.removeLayer(point);
+                    addMarker(e);
+                }, 300);
         }
         return onUp;
     }
@@ -100,14 +100,14 @@ $(function() {
 
         // Create and add marker layer
         point = mapbox.markers.layer().features([{
-                'geometry': {
-                    'type': 'Point',
-                    'coordinates': [l.lon, l.lat]
-                },
-                'properties': {
-                    'image': './img/feedback-point.png'
-                }
-            }]).factory(function(f) {
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [l.lon, l.lat]
+            },
+            'properties': {
+                'image': './img/feedback-point.png'
+            }
+        }]).factory(function(f) {
             var mark = document.createElement('div');
             mark.className = 'marker';
             var img = document.createElement('img');
